@@ -1,5 +1,5 @@
 # COSC4360_Team_1
-COSC-4360 2021 Course Project
+COSC-4360 2021 Course Project for Team 1
 
 ### School:  McMurry University, Abilene TX
 #### Instructor: Mr. Rich Brozovic
