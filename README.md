@@ -6,5 +6,5 @@ COSC-4360 2021 Course Project for Team 1
 ### Students:
 1. Student: Jacob Bremiller
 2. Student: Lydia Clarke
-3. Student: 
+3. Student: Stephen Dunn
 4. Student: 
