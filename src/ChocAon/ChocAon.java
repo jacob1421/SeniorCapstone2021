@@ -13,7 +13,7 @@
     Description: The main file of the project
 */
 
-package program_name;
+package ChocAon;
 
 /**
  *
