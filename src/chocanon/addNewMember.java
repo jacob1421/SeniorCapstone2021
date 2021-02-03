@@ -180,7 +180,7 @@ public class addNewMember extends javax.swing.JFrame {
 
     private void btn_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BackActionPerformed
         this.setVisible(false);
-        new chocanon().setVisible(true);
+        new win_main().setVisible(true);
     }//GEN-LAST:event_btn_BackActionPerformed
 
     /**
