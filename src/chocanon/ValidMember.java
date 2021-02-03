@@ -9,12 +9,12 @@ package chocanon;
  *
  * @author ljcla
  */
-public class ProvideAService extends javax.swing.JFrame {
+public class ValidMember extends javax.swing.JFrame {
 
     /**
-     * Creates new form ProvideAService
+     * Creates new form ValidMember
      */
-    public ProvideAService() {
+    public ValidMember() {
         initComponents();
     }
 
@@ -27,24 +27,13 @@ public class ProvideAService extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbl_ChocAnTerminal = new javax.swing.JLabel();
-        lbl_ProviderEnterNbr = new javax.swing.JLabel();
-        txt_ProviderNbr = new javax.swing.JTextField();
+        lbl_Validated = new javax.swing.JLabel();
         btn_Continue = new javax.swing.JButton();
+        lbl_ValidMember = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("chocan terminal");
 
-        lbl_ChocAnTerminal.setText("ChocAn Terminal");
-
-        lbl_ProviderEnterNbr.setText("Please Enter Your Provider Number");
-        lbl_ProviderEnterNbr.setToolTipText("");
-
-        txt_ProviderNbr.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_ProviderNbrActionPerformed(evt);
-            }
-        });
+        lbl_Validated.setText("Validated");
 
         btn_Continue.setText("Continue");
         btn_Continue.addActionListener(new java.awt.event.ActionListener() {
@@ -53,38 +42,36 @@ public class ProvideAService extends javax.swing.JFrame {
             }
         });
 
+        lbl_ValidMember.setText("Member 123456789 is a current valid member");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txt_ProviderNbr, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(155, 155, 155)
-                                .addComponent(lbl_ChocAnTerminal, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(106, 106, 106)
-                                .addComponent(lbl_ProviderEnterNbr))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
+                        .addGap(164, 164, 164)
+                        .addComponent(lbl_Validated))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(133, 133, 133)
                         .addComponent(btn_Continue, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 82, Short.MAX_VALUE)
+                .addComponent(lbl_ValidMember, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(lbl_ChocAnTerminal)
-                .addGap(57, 57, 57)
-                .addComponent(lbl_ProviderEnterNbr)
+                .addGap(43, 43, 43)
+                .addComponent(lbl_Validated)
                 .addGap(18, 18, 18)
-                .addComponent(txt_ProviderNbr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addComponent(lbl_ValidMember, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
                 .addComponent(btn_Continue)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         pack();
@@ -92,12 +79,8 @@ public class ProvideAService extends javax.swing.JFrame {
 
     private void btn_ContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ContinueActionPerformed
         this.setVisible(false);
-        new ProvideAServiceMenu().setVisible(true);
+        new SwipeMemberCard2().setVisible(true);
     }//GEN-LAST:event_btn_ContinueActionPerformed
-
-    private void txt_ProviderNbrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ProviderNbrActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_ProviderNbrActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,28 +99,27 @@ public class ProvideAService extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ProvideAService.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ValidMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ProvideAService.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ValidMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ProvideAService.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ValidMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ProvideAService.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ValidMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ProvideAService().setVisible(true);
+                new ValidMember().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Continue;
-    private javax.swing.JLabel lbl_ChocAnTerminal;
-    private javax.swing.JLabel lbl_ProviderEnterNbr;
-    private javax.swing.JTextField txt_ProviderNbr;
+    private javax.swing.JLabel lbl_ValidMember;
+    private javax.swing.JLabel lbl_Validated;
     // End of variables declaration//GEN-END:variables
 }
