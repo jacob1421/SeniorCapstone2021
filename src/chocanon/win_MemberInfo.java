@@ -27,21 +27,143 @@ public class win_MemberInfo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbl_MemberNumber = new javax.swing.JLabel();
+        lbl_Status = new javax.swing.JLabel();
+        btn_UpdateMemberInfo = new javax.swing.JButton();
+        btn_DeleteMemberInfo = new javax.swing.JButton();
+        txt_FullName = new javax.swing.JTextField();
+        txt_Email = new javax.swing.JTextField();
+        txt_MemberId = new javax.swing.JTextField();
+        txt_Birthday = new javax.swing.JTextField();
+        txt_Address = new javax.swing.JTextField();
+        txt_State = new javax.swing.JTextField();
+        lbl_FullName = new javax.swing.JLabel();
+        lbl_Email = new javax.swing.JLabel();
+        lbl_MemberId = new javax.swing.JLabel();
+        lbl_Birthday = new javax.swing.JLabel();
+        lbl_Address = new javax.swing.JLabel();
+        lbl_State = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lbl_MemberNumber.setText("Member Number: 123456");
+        lbl_MemberNumber.setToolTipText("");
+
+        lbl_Status.setText("Status: Current");
+
+        btn_UpdateMemberInfo.setText("Update");
+
+        btn_DeleteMemberInfo.setText("Delete");
+
+        txt_FullName.setPreferredSize(new java.awt.Dimension(140, 20));
+
+        txt_Email.setPreferredSize(new java.awt.Dimension(140, 20));
+        txt_Email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_EmailActionPerformed(evt);
+            }
+        });
+
+        txt_MemberId.setPreferredSize(new java.awt.Dimension(140, 20));
+
+        txt_Birthday.setPreferredSize(new java.awt.Dimension(140, 20));
+
+        txt_Address.setPreferredSize(new java.awt.Dimension(140, 20));
+
+        txt_State.setPreferredSize(new java.awt.Dimension(140, 20));
+
+        lbl_FullName.setText("Full Name");
+
+        lbl_Email.setText("Email");
+
+        lbl_MemberId.setText("Member ID");
+
+        lbl_Birthday.setText("Birthday");
+
+        lbl_Address.setText("Address");
+
+        lbl_State.setText("State");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbl_FullName)
+                            .addComponent(lbl_Email)
+                            .addComponent(lbl_MemberId)
+                            .addComponent(lbl_Birthday)
+                            .addComponent(lbl_Address)
+                            .addComponent(lbl_State))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txt_MemberId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_Birthday, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_Address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_State, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_Email, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_FullName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btn_UpdateMemberInfo)
+                            .addGap(73, 73, 73)
+                            .addComponent(btn_DeleteMemberInfo))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(54, 54, 54)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lbl_MemberNumber)
+                                .addComponent(lbl_Status, javax.swing.GroupLayout.Alignment.LEADING)))))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(lbl_MemberNumber)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_Status)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_UpdateMemberInfo)
+                    .addComponent(btn_DeleteMemberInfo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_FullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_FullName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_Email))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_MemberId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_MemberId))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_Birthday, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_Birthday))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_Address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_Address))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_State, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_State))
+                .addGap(33, 33, 33))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txt_EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_EmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_EmailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +201,21 @@ public class win_MemberInfo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_DeleteMemberInfo;
+    private javax.swing.JButton btn_UpdateMemberInfo;
+    private javax.swing.JLabel lbl_Address;
+    private javax.swing.JLabel lbl_Birthday;
+    private javax.swing.JLabel lbl_Email;
+    private javax.swing.JLabel lbl_FullName;
+    private javax.swing.JLabel lbl_MemberId;
+    private javax.swing.JLabel lbl_MemberNumber;
+    private javax.swing.JLabel lbl_State;
+    private javax.swing.JLabel lbl_Status;
+    private javax.swing.JTextField txt_Address;
+    private javax.swing.JTextField txt_Birthday;
+    private javax.swing.JTextField txt_Email;
+    private javax.swing.JTextField txt_FullName;
+    private javax.swing.JTextField txt_MemberId;
+    private javax.swing.JTextField txt_State;
     // End of variables declaration//GEN-END:variables
 }
