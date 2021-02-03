@@ -29,6 +29,11 @@
               <Component id="jLabel1" min="-2" pref="500" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
           </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="266" max="-2" attributes="0"/>
+              <Component id="btn_managemem" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -36,7 +41,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="499" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
+              <Component id="btn_managemem" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="253" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -50,6 +57,14 @@
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="ChocAnon"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_managemem">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Manage Members"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_managememActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

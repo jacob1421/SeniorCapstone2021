@@ -38,6 +38,7 @@ public class chocanon extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        btn_managemem = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Enter Team's Program Name");
@@ -45,6 +46,13 @@ public class chocanon extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 0, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ChocAnon");
+
+        btn_managemem.setText("Manage Members");
+        btn_managemem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_managememActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -54,17 +62,29 @@ public class chocanon extends javax.swing.JFrame {
                 .addContainerGap(214, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(186, 186, 186))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(266, 266, 266)
+                .addComponent(btn_managemem)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(jLabel1)
-                .addContainerGap(499, Short.MAX_VALUE))
+                .addGap(223, 223, 223)
+                .addComponent(btn_managemem)
+                .addContainerGap(253, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_managememActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_managememActionPerformed
+        this.setVisible(false);    
+        new ManageMember().setVisible(true);
+        
+    }//GEN-LAST:event_btn_managememActionPerformed
 
     /**
      * @param args the command line arguments
@@ -109,6 +129,7 @@ public class chocanon extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_managemem;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -27,21 +27,100 @@ public class ManageMember extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbl_title = new javax.swing.JLabel();
+        btn_back = new javax.swing.JButton();
+        lbl_textfield = new javax.swing.JLabel();
+        txt_id = new javax.swing.JTextField();
+        btn_continue = new javax.swing.JButton();
+        btn_addmem = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lbl_title.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbl_title.setText("Manage Members");
+
+        btn_back.setText("Back");
+        btn_back.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                btn_backAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        btn_back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_backActionPerformed(evt);
+            }
+        });
+
+        lbl_textfield.setText("Please Enter Member ID");
+
+        txt_id.setText("1234567");
+        txt_id.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_idActionPerformed(evt);
+            }
+        });
+
+        btn_continue.setText("Continue");
+
+        btn_addmem.setText("Add New Member");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(lbl_title)
+                    .addComponent(lbl_textfield)
+                    .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_continue)
+                    .addComponent(btn_addmem))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_back)
+                    .addComponent(lbl_title))
+                .addGap(75, 75, 75)
+                .addComponent(lbl_textfield)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(btn_continue)
+                .addGap(18, 18, 18)
+                .addComponent(btn_addmem)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
+        this.hide();
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_backActionPerformed
+
+    private void txt_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_idActionPerformed
+
+    private void btn_backAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_btn_backAncestorAdded
+        // TODO add your handling code here:
+ //       this.setVisible(false);
+        
+  //      new chocanon().setVisible(true);
+    }//GEN-LAST:event_btn_backAncestorAdded
 
     /**
      * @param args the command line arguments
@@ -79,5 +158,11 @@ public class ManageMember extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_addmem;
+    private javax.swing.JButton btn_back;
+    private javax.swing.JButton btn_continue;
+    private javax.swing.JLabel lbl_textfield;
+    private javax.swing.JLabel lbl_title;
+    private javax.swing.JTextField txt_id;
     // End of variables declaration//GEN-END:variables
 }
