@@ -106,9 +106,11 @@ public class ManageMember extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
-        this.hide();
+
+        this.setVisible(false);
         
-        // TODO add your handling code here:
+        new chocanon().setVisible(true);
+
     }//GEN-LAST:event_btn_backActionPerformed
 
     private void txt_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idActionPerformed
@@ -116,10 +118,7 @@ public class ManageMember extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_idActionPerformed
 
     private void btn_backAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_btn_backAncestorAdded
-        // TODO add your handling code here:
- //       this.setVisible(false);
-        
-  //      new chocanon().setVisible(true);
+     
     }//GEN-LAST:event_btn_backAncestorAdded
 
     /**
