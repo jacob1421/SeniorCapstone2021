@@ -1,5 +1,5 @@
 /*
-    File: ChocAnon.java
+    File: win_Main.java
     Project: Capstone Project Team #1
     University: McMurry University
     Course: COSC-4360 Spring 2021
@@ -8,7 +8,7 @@
     Created by: Jacob Bremiller
     Created: 1/24/2021
     Updated by: Jacob Bremiller
-    Updated: 1/24/2021
+    Updated: 2/1/2021
     Compiler: Apache NetBeans IDE for Java SE
     Description: The main file of the project
 */
@@ -75,6 +75,7 @@ public class win_Main extends javax.swing.JFrame {
                 .addGap(223, 223, 223)
                 .addComponent(btn_managemem)
                 .addContainerGap(253, Short.MAX_VALUE))
+                .addContainerGap(499, Short.MAX_VALUE))
         );
 
         pack();
