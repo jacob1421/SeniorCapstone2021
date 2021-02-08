@@ -109,7 +109,7 @@ public class ManageMember extends javax.swing.JFrame {
 
         this.setVisible(false);
         
-        new win_Main().setVisible(true);
+        new win_main().setVisible(true);
 
     }//GEN-LAST:event_btn_backActionPerformed
 
