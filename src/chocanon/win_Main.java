@@ -19,12 +19,12 @@ package chocanon;
  *
  * @author brozovir
  */
-public class win_Main extends javax.swing.JFrame {
+public class win_main extends javax.swing.JFrame {
 
     /**
      * Creates new form Program_Name
      */
-    public win_Main() {
+    public win_main() {
         initComponents();
     }
 
