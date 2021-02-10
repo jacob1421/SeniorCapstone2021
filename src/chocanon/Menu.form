@@ -25,28 +25,22 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btn_records" min="-2" pref="73" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btn_reports" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
-                          <Component id="btn_managemembers" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_provideservice" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="51" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="btn_requestdirectory" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="btn_manageservice" min="-2" max="-2" attributes="0"/>
-                              <Component id="btn_manageproviders" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="64" max="32767" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btn_records" max="32767" attributes="0"/>
+                  <Component id="btn_managemembers" max="32767" attributes="0"/>
+                  <Component id="btn_provideservice" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btn_reports" alignment="0" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace pref="51" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="btn_requestdirectory" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_manageproviders" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btn_manageservice" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace pref="64" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
               <Component id="lbl_menu" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -58,23 +52,23 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lbl_menu" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-              <Component id="btn_records" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btn_records" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_manageservice" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btn_reports" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btn_reports" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_manageproviders" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btn_managemembers" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="25" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btn_provideservice" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_managemembers" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_requestdirectory" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btn_provideservice" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="57" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -126,7 +120,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Menu"/>
+        <Property name="text" type="java.lang.String" value="Main Menu"/>
       </Properties>
     </Component>
   </SubComponents>
