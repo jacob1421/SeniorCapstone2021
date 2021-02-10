@@ -94,26 +94,41 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Provide Service"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_provideserviceActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_managemembers">
       <Properties>
         <Property name="text" type="java.lang.String" value="Manage Members"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_managemembersActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_manageservice">
       <Properties>
         <Property name="text" type="java.lang.String" value="Manage Service"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_manageserviceActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_manageproviders">
       <Properties>
         <Property name="text" type="java.lang.String" value="Manage Providers"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_manageprovidersActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_requestdirectory">
       <Properties>
         <Property name="text" type="java.lang.String" value="Request Directory"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_requestdirectoryActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbl_menu">
       <Properties>

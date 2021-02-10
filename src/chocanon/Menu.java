@@ -53,14 +53,39 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btn_provideservice.setText("Provide Service");
+        btn_provideservice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_provideserviceActionPerformed(evt);
+            }
+        });
 
         btn_managemembers.setText("Manage Members");
+        btn_managemembers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_managemembersActionPerformed(evt);
+            }
+        });
 
         btn_manageservice.setText("Manage Service");
+        btn_manageservice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_manageserviceActionPerformed(evt);
+            }
+        });
 
         btn_manageproviders.setText("Manage Providers");
+        btn_manageproviders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_manageprovidersActionPerformed(evt);
+            }
+        });
 
         btn_requestdirectory.setText("Request Directory");
+        btn_requestdirectory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_requestdirectoryActionPerformed(evt);
+            }
+        });
 
         lbl_menu.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbl_menu.setText("Main Menu");
@@ -119,6 +144,26 @@ public class Menu extends javax.swing.JFrame {
     private void btn_reportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reportsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_reportsActionPerformed
+
+    private void btn_managemembersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_managemembersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_managemembersActionPerformed
+
+    private void btn_provideserviceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_provideserviceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_provideserviceActionPerformed
+
+    private void btn_manageserviceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_manageserviceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_manageserviceActionPerformed
+
+    private void btn_manageprovidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_manageprovidersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_manageprovidersActionPerformed
+
+    private void btn_requestdirectoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_requestdirectoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_requestdirectoryActionPerformed
 
     /**
      * @param args the command line arguments
