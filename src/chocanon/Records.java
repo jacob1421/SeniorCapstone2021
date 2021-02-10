@@ -35,6 +35,11 @@ public class Records extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btn_servicerecords.setText("Service Records");
+        btn_servicerecords.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_servicerecordsActionPerformed(evt);
+            }
+        });
 
         btn_eftrecords.setText("EFT Records");
         btn_eftrecords.addActionListener(new java.awt.event.ActionListener() {
@@ -43,6 +48,7 @@ public class Records extends javax.swing.JFrame {
             }
         });
 
+        lbl_records.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_records.setText("Records");
 
         btn_back.setText("Back");
@@ -94,6 +100,10 @@ public class Records extends javax.swing.JFrame {
     private void btn_eftrecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eftrecordsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_eftrecordsActionPerformed
+
+    private void btn_servicerecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_servicerecordsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_servicerecordsActionPerformed
 
     /**
      * @param args the command line arguments
