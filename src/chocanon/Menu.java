@@ -61,6 +61,11 @@ public class Menu extends javax.swing.JFrame {
         btn_manageproviders.setText("Manage Providers");
 
         btn_requestdirectory.setText("Request Directory");
+        btn_requestdirectory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_requestdirectoryActionPerformed(evt);
+            }
+        });
 
         lbl_menu.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbl_menu.setText("Menu");
@@ -98,9 +103,9 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(56, 56, 56)
                 .addComponent(btn_records)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_manageservice)
-                    .addComponent(btn_reports))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_reports)
+                    .addComponent(btn_manageservice))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_manageproviders)
@@ -122,6 +127,11 @@ public class Menu extends javax.swing.JFrame {
     private void btn_reportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reportsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_reportsActionPerformed
+
+    private void btn_requestdirectoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_requestdirectoryActionPerformed
+       this.setVisible(false);
+       new RequestDirectory().setVisible(true);
+    }//GEN-LAST:event_btn_requestdirectoryActionPerformed
 
     /**
      * @param args the command line arguments
