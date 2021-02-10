@@ -27,13 +27,13 @@ public class RequestDirectory extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
-        jLabel2 = new javax.swing.JLabel();
+        dlg_DirectorySent = new javax.swing.JDialog();
+        lbl_DirectorySent = new javax.swing.JLabel();
         btn_OK = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btn_RequestDirectory = new javax.swing.JButton();
 
-        jLabel2.setText("Provider Directory Sent");
+        lbl_DirectorySent.setText("Provider Directory Sent");
 
         btn_OK.setText("OK");
         btn_OK.addActionListener(new java.awt.event.ActionListener() {
@@ -42,24 +42,24 @@ public class RequestDirectory extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        javax.swing.GroupLayout dlg_DirectorySentLayout = new javax.swing.GroupLayout(dlg_DirectorySent.getContentPane());
+        dlg_DirectorySent.getContentPane().setLayout(dlg_DirectorySentLayout);
+        dlg_DirectorySentLayout.setHorizontalGroup(
+            dlg_DirectorySentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dlg_DirectorySentLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGroup(dlg_DirectorySentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_DirectorySent)
+                    .addGroup(dlg_DirectorySentLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(btn_OK, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        dlg_DirectorySentLayout.setVerticalGroup(
+            dlg_DirectorySentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dlg_DirectorySentLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addComponent(jLabel2)
+                .addComponent(lbl_DirectorySent)
                 .addGap(18, 18, 18)
                 .addComponent(btn_OK)
                 .addContainerGap(32, Short.MAX_VALUE))
@@ -104,8 +104,8 @@ public class RequestDirectory extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_RequestDirectoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RequestDirectoryActionPerformed
-        jDialog1.setVisible(true);
-        jDialog1.setSize(300,200);
+        dlg_DirectorySent.setVisible(true);
+        dlg_DirectorySent.setSize(300,200);
     }//GEN-LAST:event_btn_RequestDirectoryActionPerformed
 
     private void btn_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_OKActionPerformed
@@ -151,8 +151,8 @@ public class RequestDirectory extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_OK;
     private javax.swing.JButton btn_RequestDirectory;
-    private javax.swing.JDialog jDialog1;
+    private javax.swing.JDialog dlg_DirectorySent;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lbl_DirectorySent;
     // End of variables declaration//GEN-END:variables
 }
