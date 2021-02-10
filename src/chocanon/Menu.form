@@ -60,9 +60,9 @@
               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
               <Component id="btn_records" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btn_manageservice" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btn_reports" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_manageservice" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -120,6 +120,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Request Directory"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_requestdirectoryActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbl_menu">
       <Properties>
