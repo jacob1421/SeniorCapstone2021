@@ -1,14 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+    File: Provider.java
+    Project: COSC-4360 Capstone Project Team #0
+    University: McMurry University
+    Course: COSC–4360 Spring 2021
+    Instructor: Mr. Brozovic
+    Programmer: Jacob Bremiller
+    Created by: Jacob Bremiller
+    Created: 2/13/2021
+    Updated by: Jacob Bremiller
+    Updated: 2/13/2021
+    Compiler: Apache NetBeans IDE for Java SE
+    Description: Class used to model the data for the providers that are pulled from the database.
  */
 package chocanon.DataClasses;
 
-/**
- *
- * @author jakeb
- */
 public class Provider extends Person{
     //Data Attributes
     private int providerNumber = 0;
@@ -28,6 +33,11 @@ public class Provider extends Person{
     
     public String getProviderType(){
         return this.providerType;
+    }
+    
+    @Override
+    public String toString(){
+        return ("First Name: " + this.getFirstName() + " Last Name: " + this.getLastName() + " Street Address: " + this.getStreetAddress() + " City: " + this.getCity() + " State: " + this.getState() + " Zip Code: " + this.getZipCode() + " Provider Number: " + this.getProviderNumber() + " Provider Type: " + this.getProviderType() + "\n");
     }
     
 }

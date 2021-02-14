@@ -1,14 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+    File: Member.java
+    Project: COSC-4360 Capstone Project Team #0
+    University: McMurry University
+    Course: COSC–4360 Spring 2021
+    Instructor: Mr. Brozovic
+    Programmer: Jacob Bremiller
+    Created by: Jacob Bremiller
+    Created: 2/13/2021
+    Updated by: Jacob Bremiller
+    Updated: 2/13/2021
+    Compiler: Apache NetBeans IDE for Java SE
+    Description: A class to model the member data coming from the database/
  */
+
 package chocanon.DataClasses;
 
-/**
- *
- * @author jakeb
- */
+
 public class Member extends Person{
     //Data Attributes
     private int cardNumber = 0;
@@ -24,4 +31,9 @@ public class Member extends Person{
         return this.cardNumber;
     }
     
+
+    @Override
+    public String toString(){
+        return ("First Name: " + this.getFirstName() + " Last Name: " + this.getLastName() + " Street Address: " + this.getStreetAddress() + " City: " + this.getCity() + " State: " + this.getState() + " Zip Code: " + this.getZipCode() + " Card Number: " + this.getCardNumber() + "\n");
+    }
 }

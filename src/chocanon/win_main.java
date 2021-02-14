@@ -1,14 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+    File: win_main.java
+    Project: COSC-4360 Capstone Project Team #0
+    University: McMurry University
+    Course: COSC–4360 Spring 2021
+    Instructor: Mr. Brozovic
+    Programmer: Jacob Bremiller
+    Created by: Jacob Bremiller
+    Created: 2/13/2021
+    Updated by: Jacob Bremiller
+    Updated: 2/13/2021
+    Compiler: Apache NetBeans IDE for Java SE
+    Description: This is the main class that will display our teams name.
  */
 package chocanon;
 
-/**
- *
- * @author jakeb
- */
 public class win_main extends javax.swing.JFrame {
 
     /**
@@ -27,17 +32,28 @@ public class win_main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbl_chocanon_heading = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lbl_chocanon_heading.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lbl_chocanon_heading.setText("Chocanon");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(116, 116, 116)
+                .addComponent(lbl_chocanon_heading)
+                .addContainerGap(126, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(lbl_chocanon_heading)
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         pack();
@@ -79,5 +95,6 @@ public class win_main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lbl_chocanon_heading;
     // End of variables declaration//GEN-END:variables
 }

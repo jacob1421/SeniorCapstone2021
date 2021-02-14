@@ -1,14 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+    File: Service.java
+    Project: COSC-4360 Capstone Project Team #0
+    University: McMurry University
+    Course: COSC–4360 Spring 2021
+    Instructor: Mr. Brozovic
+    Programmer: Jacob Bremiller
+    Created by: Jacob Bremiller
+    Created: 2/13/2021
+    Updated by: Jacob Bremiller
+    Updated: 2/13/2021
+    Compiler: Apache NetBeans IDE for Java SE
+    Description: Models the data for the services that come from the database
  */
+
 package chocanon.DataClasses;
 import java.math.BigDecimal;
-/**
- *
- * @author jakeb
- */
 
 public class Service {
     //Data attributes
@@ -17,10 +23,10 @@ public class Service {
     private BigDecimal fee = null;
     
     //Constructor
-    public Service(String name, int code, String fee){
+    public Service(String name, int code, BigDecimal fee){
         this.name = name;
         this.code = code;
-        this.fee = new BigDecimal(fee);
+        this.fee = fee;
     }
     
     public String getServiceName(){
@@ -33,6 +39,11 @@ public class Service {
     
     public BigDecimal getServiceFee(){
         return this.fee;
+    }
+    
+    @Override
+    public String toString(){
+        return ("Service Name: " + this.getServiceName() + " Code: " + this.getServiceCode() + " Fee: " + this.getServiceFee()+ "\n");
     }
         
 }
