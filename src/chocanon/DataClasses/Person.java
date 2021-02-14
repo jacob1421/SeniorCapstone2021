@@ -1,14 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+    File: Person.java
+    Project: COSC-4360 Capstone Project Team #0
+    University: McMurry University
+    Course: COSC–4360 Spring 2021
+    Instructor: Mr. Brozovic
+    Programmer: Jacob Bremiller
+    Created by: Jacob Bremiller
+    Created: 2/13/2021
+    Updated by: Jacob Bremiller
+    Updated: 2/13/2021
+    Compiler: Apache NetBeans IDE for Java SE
+    Description: Base class to model the data for member and provider
  */
+
 package chocanon.DataClasses;
 
-/**
- *
- * @author jakeb
- */
 public class Person {
     //Data Attributes
     private String firstName = "";
