@@ -53,12 +53,32 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btn_provideservice.setText("Provide Service");
+        btn_provideservice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_provideserviceActionPerformed(evt);
+            }
+        });
 
         btn_managemembers.setText("Manage Members");
+        btn_managemembers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_managemembersActionPerformed(evt);
+            }
+        });
 
         btn_manageservice.setText("Manage Service");
+        btn_manageservice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_manageserviceActionPerformed(evt);
+            }
+        });
 
         btn_manageproviders.setText("Manage Providers");
+        btn_manageproviders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_manageprovidersActionPerformed(evt);
+            }
+        });
 
         btn_requestdirectory.setText("Request Directory");
         btn_requestdirectory.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +88,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         lbl_menu.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbl_menu.setText("Menu");
+        lbl_menu.setText("Main Menu");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,22 +96,19 @@ public class Menu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_records, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_reports, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_managemembers)
-                            .addComponent(btn_provideservice))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btn_requestdirectory)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btn_manageservice)
-                                .addComponent(btn_manageproviders)))
-                        .addContainerGap(64, Short.MAX_VALUE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_records, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_managemembers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_provideservice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_reports, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btn_requestdirectory, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_manageproviders, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_manageservice, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(187, 187, 187)
+                .addGap(159, 159, 159)
                 .addComponent(lbl_menu)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -101,20 +118,20 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lbl_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
-                .addComponent(btn_records)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_reports)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_records)
                     .addComponent(btn_manageservice))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_manageproviders)
-                    .addComponent(btn_managemembers))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                    .addComponent(btn_reports)
+                    .addComponent(btn_manageproviders))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_provideservice)
+                    .addComponent(btn_managemembers)
                     .addComponent(btn_requestdirectory))
-                .addGap(50, 50, 50))
+                .addGap(18, 18, 18)
+                .addComponent(btn_provideservice)
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         pack();
@@ -128,9 +145,24 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_reportsActionPerformed
 
+    private void btn_managemembersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_managemembersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_managemembersActionPerformed
+
+    private void btn_provideserviceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_provideserviceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_provideserviceActionPerformed
+
+    private void btn_manageserviceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_manageserviceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_manageserviceActionPerformed
+
+    private void btn_manageprovidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_manageprovidersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_manageprovidersActionPerformed
+
     private void btn_requestdirectoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_requestdirectoryActionPerformed
-       this.setVisible(false);
-       new RequestDirectory().setVisible(true);
+        // TODO add your handling code here:
     }//GEN-LAST:event_btn_requestdirectoryActionPerformed
 
     /**
