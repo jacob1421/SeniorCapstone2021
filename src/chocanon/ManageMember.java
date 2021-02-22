@@ -65,8 +65,18 @@ public class ManageMember extends javax.swing.JFrame {
         });
 
         btn_continue.setText("Continue");
+        btn_continue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_continueActionPerformed(evt);
+            }
+        });
 
         btn_addmem.setText("Add New Member");
+        btn_addmem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_addmemActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -115,11 +125,25 @@ public class ManageMember extends javax.swing.JFrame {
 
     private void txt_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+
     }//GEN-LAST:event_txt_idActionPerformed
 
     private void btn_backAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_btn_backAncestorAdded
-     
+         
     }//GEN-LAST:event_btn_backAncestorAdded
+
+    private void btn_continueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_continueActionPerformed
+        // TODO add your handling code here:
+     this.setVisible(false);
+
+    }//GEN-LAST:event_btn_continueActionPerformed
+
+    private void btn_addmemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addmemActionPerformed
+        // TODO add your handling code here:
+     this.setVisible(false);
+        
+    }//GEN-LAST:event_btn_addmemActionPerformed
 
     /**
      * @param args the command line arguments

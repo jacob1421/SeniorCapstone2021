@@ -94,11 +94,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Continue"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_continueActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_addmem">
       <Properties>
         <Property name="text" type="java.lang.String" value="Add New Member"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_addmemActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
