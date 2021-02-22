@@ -7,7 +7,7 @@ package chocanon;
 
 /**
  *
- * @author ljcla
+ * @author jakeb
  */
 public class ServiceForm extends javax.swing.JFrame {
 
@@ -27,48 +27,44 @@ public class ServiceForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbl_ServiceDetails = new javax.swing.JLabel();
-        txt_DOS = new javax.swing.JTextField();
-        lbl_DOS = new javax.swing.JLabel();
+        lbl_MemberName = new javax.swing.JLabel();
+        lbl_MemberNumber = new javax.swing.JLabel();
+        lbl_CurrDateTime = new javax.swing.JLabel();
+        lbl_DateOfService = new javax.swing.JLabel();
         lbl_ServiceCode = new javax.swing.JLabel();
+        txt_MemberName = new javax.swing.JTextField();
+        txt_MemberNumber = new javax.swing.JTextField();
+        txt_CurrDateTime = new javax.swing.JTextField();
+        txt_DateOfService = new javax.swing.JTextField();
         txt_ServiceCode = new javax.swing.JTextField();
-        lbl_AdditionalComments = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txt_AdditionalComments = new javax.swing.JTextArea();
-        btn_Continue = new javax.swing.JButton();
+        lbl_FeeToBePaid = new javax.swing.JLabel();
+        btn_SubmitForm = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lbl_ServiceDetails.setText("Service Details");
+        lbl_MemberName.setText("Member Name");
 
-        txt_DOS.setText("MM-DD-YYYY");
-        txt_DOS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_DOSActionPerformed(evt);
-            }
-        });
+        lbl_MemberNumber.setText("Member Number");
 
-        lbl_DOS.setText("Date of Service ");
+        lbl_CurrDateTime.setText("Current Date & Time");
+
+        lbl_DateOfService.setText("Date Of Service");
 
         lbl_ServiceCode.setText("Service Code");
 
-        txt_ServiceCode.setText("123456");
-        txt_ServiceCode.addActionListener(new java.awt.event.ActionListener() {
+        txt_CurrDateTime.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_ServiceCodeActionPerformed(evt);
+                txt_CurrDateTimeActionPerformed(evt);
             }
         });
 
-        lbl_AdditionalComments.setText("Additional Comments");
+        lbl_FeeToBePaid.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lbl_FeeToBePaid.setText("Fee To Be Paid $0.00");
 
-        txt_AdditionalComments.setColumns(20);
-        txt_AdditionalComments.setRows(5);
-        jScrollPane1.setViewportView(txt_AdditionalComments);
-
-        btn_Continue.setText("Continue");
-        btn_Continue.addActionListener(new java.awt.event.ActionListener() {
+        btn_SubmitForm.setText("Submit Form");
+        btn_SubmitForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ContinueActionPerformed(evt);
+                btn_SubmitFormActionPerformed(evt);
             }
         });
 
@@ -76,61 +72,74 @@ public class ServiceForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_FeeToBePaid)
+                .addGap(81, 81, 81))
             .addGroup(layout.createSequentialGroup()
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_AdditionalComments)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txt_ServiceCode)
-                                .addComponent(lbl_ServiceCode)
-                                .addComponent(txt_DOS, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                                .addComponent(lbl_DOS)
-                                .addComponent(lbl_ServiceDetails))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lbl_CurrDateTime)
+                            .addComponent(lbl_MemberNumber)
+                            .addComponent(lbl_MemberName)
+                            .addComponent(btn_SubmitForm, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(36, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(btn_Continue, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(82, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_DateOfService)
+                            .addComponent(lbl_ServiceCode)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txt_MemberName)
+                                    .addComponent(txt_ServiceCode, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                    .addComponent(txt_MemberNumber)
+                                    .addComponent(txt_CurrDateTime)
+                                    .addComponent(txt_DateOfService))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(lbl_ServiceDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(lbl_FeeToBePaid)
                 .addGap(18, 18, 18)
-                .addComponent(lbl_DOS)
+                .addComponent(lbl_MemberName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_DOS, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_MemberName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_MemberNumber)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_MemberNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_CurrDateTime)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_CurrDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_DateOfService)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_DateOfService, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
                 .addComponent(lbl_ServiceCode)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_ServiceCode, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbl_AdditionalComments)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(txt_ServiceCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btn_Continue)
+                .addComponent(btn_SubmitForm, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_DOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_DOSActionPerformed
+    private void btn_SubmitFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SubmitFormActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_DOSActionPerformed
+    }//GEN-LAST:event_btn_SubmitFormActionPerformed
 
-    private void txt_ServiceCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ServiceCodeActionPerformed
+    private void txt_CurrDateTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_CurrDateTimeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_ServiceCodeActionPerformed
-
-    private void btn_ContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ContinueActionPerformed
-        this.setVisible(false);
-        new ValidateServiceCode().setVisible(true);
-    }//GEN-LAST:event_btn_ContinueActionPerformed
+    }//GEN-LAST:event_txt_CurrDateTimeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,14 +177,17 @@ public class ServiceForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_Continue;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbl_AdditionalComments;
-    private javax.swing.JLabel lbl_DOS;
+    private javax.swing.JButton btn_SubmitForm;
+    private javax.swing.JLabel lbl_CurrDateTime;
+    private javax.swing.JLabel lbl_DateOfService;
+    private javax.swing.JLabel lbl_FeeToBePaid;
+    private javax.swing.JLabel lbl_MemberName;
+    private javax.swing.JLabel lbl_MemberNumber;
     private javax.swing.JLabel lbl_ServiceCode;
-    private javax.swing.JLabel lbl_ServiceDetails;
-    private javax.swing.JTextArea txt_AdditionalComments;
-    private javax.swing.JTextField txt_DOS;
+    private javax.swing.JTextField txt_CurrDateTime;
+    private javax.swing.JTextField txt_DateOfService;
+    private javax.swing.JTextField txt_MemberName;
+    private javax.swing.JTextField txt_MemberNumber;
     private javax.swing.JTextField txt_ServiceCode;
     // End of variables declaration//GEN-END:variables
 }

@@ -23,72 +23,95 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="lbl_FeeToBePaid" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lbl_AdditionalComments" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txt_ServiceCode" max="32767" attributes="0"/>
-                              <Component id="lbl_ServiceCode" min="-2" max="-2" attributes="0"/>
-                              <Component id="txt_DOS" pref="122" max="32767" attributes="0"/>
-                              <Component id="lbl_DOS" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbl_ServiceDetails" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jScrollPane1" alignment="0" min="-2" pref="266" max="-2" attributes="0"/>
+                          <Component id="lbl_CurrDateTime" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_MemberNumber" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_MemberName" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_SubmitForm" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace pref="36" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
-                      <Component id="btn_Continue" min="-2" pref="93" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lbl_DateOfService" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_ServiceCode" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txt_MemberName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txt_ServiceCode" alignment="0" pref="200" max="32767" attributes="0"/>
+                                  <Component id="txt_MemberNumber" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txt_CurrDateTime" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txt_DateOfService" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="82" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-              <Component id="lbl_ServiceDetails" min="-2" pref="23" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Component id="lbl_FeeToBePaid" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="lbl_DOS" min="-2" max="-2" attributes="0"/>
+              <Component id="lbl_MemberName" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txt_DOS" min="-2" pref="29" max="-2" attributes="0"/>
+              <Component id="txt_MemberName" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="lbl_MemberNumber" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="txt_MemberNumber" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="lbl_CurrDateTime" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="txt_CurrDateTime" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="lbl_DateOfService" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="txt_DateOfService" min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
               <Component id="lbl_ServiceCode" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="txt_ServiceCode" min="-2" pref="29" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="lbl_AdditionalComments" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <Component id="txt_ServiceCode" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btn_Continue" min="-2" max="-2" attributes="0"/>
+              <Component id="btn_SubmitForm" min="-2" pref="52" max="-2" attributes="0"/>
               <EmptySpace pref="32" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="lbl_ServiceDetails">
+    <Component class="javax.swing.JLabel" name="lbl_MemberName">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Service Details"/>
+        <Property name="text" type="java.lang.String" value="Member Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_DOS">
+    <Component class="javax.swing.JLabel" name="lbl_MemberNumber">
       <Properties>
-        <Property name="text" type="java.lang.String" value="MM-DD-YYYY"/>
+        <Property name="text" type="java.lang.String" value="Member Number"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_DOSActionPerformed"/>
-      </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbl_DOS">
+    <Component class="javax.swing.JLabel" name="lbl_CurrDateTime">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Date of Service "/>
+        <Property name="text" type="java.lang.String" value="Current Date &amp; Time"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbl_DateOfService">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Date Of Service"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbl_ServiceCode">
@@ -96,40 +119,33 @@
         <Property name="text" type="java.lang.String" value="Service Code"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_ServiceCode">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="123456"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="txt_MemberName">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txt_MemberNumber">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txt_CurrDateTime">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_ServiceCodeActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_CurrDateTimeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbl_AdditionalComments">
+    <Component class="javax.swing.JTextField" name="txt_DateOfService">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txt_ServiceCode">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbl_FeeToBePaid">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Additional Comments"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Fee To Be Paid $0.00"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTextArea" name="txt_AdditionalComments">
-          <Properties>
-            <Property name="columns" type="int" value="20"/>
-            <Property name="rows" type="int" value="5"/>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
-    <Component class="javax.swing.JButton" name="btn_Continue">
+    <Component class="javax.swing.JButton" name="btn_SubmitForm">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Continue"/>
+        <Property name="text" type="java.lang.String" value="Submit Form"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_ContinueActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_SubmitFormActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

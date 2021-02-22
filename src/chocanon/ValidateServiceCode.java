@@ -97,7 +97,7 @@ public class ValidateServiceCode extends javax.swing.JFrame {
 
     private void lbl_GoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_GoBackActionPerformed
         this.setVisible(false);
-        new ServiceForm().setVisible(true);
+        new ServiceDetails().setVisible(true);
     }//GEN-LAST:event_lbl_GoBackActionPerformed
 
     private void lbl_YesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_YesActionPerformed
