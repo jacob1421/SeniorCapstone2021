@@ -7,7 +7,7 @@ package chocanon;
 
 /**
  *
- * @author ljcla
+ * @author jakeb
  */
 public class ServiceForm extends javax.swing.JFrame {
 
@@ -27,110 +27,21 @@ public class ServiceForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbl_ServiceDetails = new javax.swing.JLabel();
-        txt_DOS = new javax.swing.JTextField();
-        lbl_DOS = new javax.swing.JLabel();
-        lbl_ServiceCode = new javax.swing.JLabel();
-        txt_ServiceCode = new javax.swing.JTextField();
-        lbl_AdditionalComments = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txt_AdditionalComments = new javax.swing.JTextArea();
-        btn_Continue = new javax.swing.JButton();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        lbl_ServiceDetails.setText("Service Details");
-
-        txt_DOS.setText("MM-DD-YYYY");
-        txt_DOS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_DOSActionPerformed(evt);
-            }
-        });
-
-        lbl_DOS.setText("Date of Service ");
-
-        lbl_ServiceCode.setText("Service Code");
-
-        txt_ServiceCode.setText("123456");
-        txt_ServiceCode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_ServiceCodeActionPerformed(evt);
-            }
-        });
-
-        lbl_AdditionalComments.setText("Additional Comments");
-
-        txt_AdditionalComments.setColumns(20);
-        txt_AdditionalComments.setRows(5);
-        jScrollPane1.setViewportView(txt_AdditionalComments);
-
-        btn_Continue.setText("Continue");
-        btn_Continue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ContinueActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_AdditionalComments)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txt_ServiceCode)
-                                .addComponent(lbl_ServiceCode)
-                                .addComponent(txt_DOS, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                                .addComponent(lbl_DOS)
-                                .addComponent(lbl_ServiceDetails))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(btn_Continue, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(82, Short.MAX_VALUE))
+            .addGap(0, 377, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(lbl_ServiceDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lbl_DOS)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_DOS, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbl_ServiceCode)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_ServiceCode, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbl_AdditionalComments)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_Continue)
-                .addContainerGap(32, Short.MAX_VALUE))
+            .addGap(0, 365, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txt_DOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_DOSActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_DOSActionPerformed
-
-    private void txt_ServiceCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ServiceCodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_ServiceCodeActionPerformed
-
-    private void btn_ContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ContinueActionPerformed
-        this.setVisible(false);
-        new ValidateServiceCode().setVisible(true);
-    }//GEN-LAST:event_btn_ContinueActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,14 +79,5 @@ public class ServiceForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_Continue;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbl_AdditionalComments;
-    private javax.swing.JLabel lbl_DOS;
-    private javax.swing.JLabel lbl_ServiceCode;
-    private javax.swing.JLabel lbl_ServiceDetails;
-    private javax.swing.JTextArea txt_AdditionalComments;
-    private javax.swing.JTextField txt_DOS;
-    private javax.swing.JTextField txt_ServiceCode;
     // End of variables declaration//GEN-END:variables
 }

@@ -78,7 +78,7 @@ public class ValidMember2 extends javax.swing.JFrame {
 
     private void btn_ContinueToServiceFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ContinueToServiceFormActionPerformed
         this.setVisible(false);
-        new ServiceForm().setVisible(true);
+        new ServiceDetails().setVisible(true);
     }//GEN-LAST:event_btn_ContinueToServiceFormActionPerformed
 
     /**
