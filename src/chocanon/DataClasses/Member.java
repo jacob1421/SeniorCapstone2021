@@ -21,7 +21,7 @@ public class Member extends Person{
     private int cardNumber = 0;
     
     //Constructor
-    public Member(String firstName, String lastName, String streetAddress, String city, String state, int zipCode, int cardNumber){
+    public Member(String firstName, String lastName, String DateOfBirth, String email, String streetAddress, String city, String state, int zipCode, int cardNumber){
         super(firstName, lastName, streetAddress, city, state, zipCode);
         this.cardNumber = cardNumber;
     }
