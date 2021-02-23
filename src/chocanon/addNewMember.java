@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//Trey Fambrough
 package chocanon;
 
+import chocanon.DataClasses.Member;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +21,8 @@ public class addNewMember extends javax.swing.JFrame {
     public addNewMember() {
         initComponents();
     }
+    
+    //Member NewPerson = new Member(String firstName, String lastName, String streetAddress, String city, String state, int zipCode, int cardNumber);
 
     String memFirstName = "";
     String memLastName = "";
@@ -28,6 +32,8 @@ public class addNewMember extends javax.swing.JFrame {
     String memCity = "";
     String memState = "";
     String memZip = "";
+    int zipCode;
+    boolean zipCodeCheck = true;
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -251,11 +257,25 @@ public class addNewMember extends javax.swing.JFrame {
         memLastName = txt_memLastName.getText();
         memDOB = txt_dateOfBirth.getText();
         memEmail = txt_memEmail.getText();
-        String memAddress = txt_memStreetAddress.getText() + " " + txt_City.getText() + ", " + selector_State.getSelectedItem() + " " + txt_zipCode.getText();
+        memStreetAddress = txt_memStreetAddress.getText();
+        memCity = txt_City.getText();
+        memState = (String)selector_State.getSelectedItem();
+        memZip = txt_zipCode.getText();
+        try{
+            zipCode = Integer.parseInt(memZip);
+        }
+        catch(NumberFormatException nfe)
+        {
+            zipCodeCheck = false;
+        }
+        String memAddress = memStreetAddress + " " + memCity + ", " + memState + " " + memZip;
+                
         if(verifyFields()){
+            Member NewMem = new Member(memFirstName, memLastName, memDOB, memEmail, memStreetAddress, memCity, memState, zipCode, 0);
             this.setVisible(false);
             new memberAdded(memFirstName, memLastName, memDOB, memEmail, memAddress).setVisible(true);
         }
+        
     }//GEN-LAST:event_btn_addMemActionPerformed
 
     private void btn_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BackActionPerformed
@@ -269,21 +289,33 @@ public class addNewMember extends javax.swing.JFrame {
 
     //Function to Verify feilds
     public boolean verifyFields(){
-        memFirstName = txt_memFirstName.getText();
-        memLastName = txt_memLastName.getText();
-        memDOB = txt_dateOfBirth.getText();
-        memEmail = txt_memEmail.getText();
-        memStreetAddress = txt_memStreetAddress.getText();
-        memCity = txt_City.getText();
-        memZip = txt_zipCode.getText();
-        
         if(memFirstName.trim().equals("") || memLastName.trim().equals("") || memDOB.trim().equals("") || memEmail.trim().equals("") || memStreetAddress.trim().equals("")
                || memCity.trim().equals("") || memZip.trim().equals("")){
             JOptionPane.showMessageDialog(null, "One or more fields are empty");
             return false;
         }
-        else
+        if (!zipCodeCheck){
+            System.out.println(memZip + " " + zipCode + " " + zipCodeCheck);
+            JOptionPane.showMessageDialog(null, "Zipcode must be a number");
+            return false;
+        }
+        if(!zipCodeValidate()){
+            JOptionPane.showMessageDialog(null, "You must put in a valid zipcode");
+            return false;
+        }
+        
+        return true;
+    }
+    
+    public boolean zipCodeValidate(){
+        boolean zipCheck;
+        int length = String.valueOf(memZip).length();
+        System.out.println(length);
+        if(length == 5){
             return true;
+        }
+        else
+            return false;
     }
     
     /**
