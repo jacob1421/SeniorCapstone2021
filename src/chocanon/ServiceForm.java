@@ -5,9 +5,19 @@
  */
 package chocanon;
 
-/**
- *
- * @author jakeb
+/* 
+    File: ServiceForm.java
+    Project: COSC-4360 Capstone Project Team #0
+    University: McMurry University
+    Course: COSC–4360 Spring 2021
+    Instructor: Mr. Brozovic
+    Programmer: Jacob Bremiller
+    Created by: Jacob Bremiller
+    Created: 2/20/2021
+    Updated by: Jacob Bremiller
+    Updated: 2/20/2021
+    Compiler: Apache NetBeans IDE for Java SE
+    Description: Contains the service form information
  */
 public class ServiceForm extends javax.swing.JFrame {
 

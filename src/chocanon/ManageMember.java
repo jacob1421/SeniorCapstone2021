@@ -136,6 +136,7 @@ public class ManageMember extends javax.swing.JFrame {
     private void btn_continueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_continueActionPerformed
         // TODO add your handling code here:
      this.setVisible(false);
+     new win_MemberInfo().setVisible(true);
 
     }//GEN-LAST:event_btn_continueActionPerformed
 

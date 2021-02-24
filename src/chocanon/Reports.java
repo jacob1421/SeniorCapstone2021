@@ -5,9 +5,19 @@
  */
 package chocanon;
 
-/**
- *
- * @author jakeb
+/* 
+    File: Reports.java
+    Project: COSC-4360 Capstone Project Team #0
+    University: McMurry University
+    Course: COSC–4360 Spring 2021
+    Instructor: Mr. Brozovic
+    Programmer: Jacob Bremiller
+    Created by: Jacob Bremiller
+    Created: 2/23/2021
+    Updated by: Jacob Bremiller
+    Updated: 2/23/2021
+    Compiler: Apache NetBeans IDE for Java SE
+    Description: Contain buttons to different reports.
  */
 public class Reports extends javax.swing.JFrame {
 
@@ -27,17 +37,28 @@ public class Reports extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbl_Reports = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lbl_Reports.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lbl_Reports.setText("Reports");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addComponent(lbl_Reports)
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_Reports)
+                .addContainerGap(245, Short.MAX_VALUE))
         );
 
         pack();
@@ -79,5 +100,6 @@ public class Reports extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lbl_Reports;
     // End of variables declaration//GEN-END:variables
 }

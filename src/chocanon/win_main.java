@@ -94,11 +94,12 @@ public class win_main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_StartActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new Menu().setVisible(true);
     }//GEN-LAST:event_btn_StartActionPerformed
 
     private void btn_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ExitActionPerformed
-        
+        System.exit(0);
     }//GEN-LAST:event_btn_ExitActionPerformed
 
     /**

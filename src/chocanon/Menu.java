@@ -138,31 +138,44 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_recordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_recordsActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new Records().setVisible(true);
     }//GEN-LAST:event_btn_recordsActionPerformed
 
     private void btn_reportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reportsActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new Reports().setVisible(true);
     }//GEN-LAST:event_btn_reportsActionPerformed
 
     private void btn_managemembersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_managemembersActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new ManageMember().setVisible(true);
     }//GEN-LAST:event_btn_managemembersActionPerformed
 
     private void btn_provideserviceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_provideserviceActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new ProvideAService().setVisible(true);
     }//GEN-LAST:event_btn_provideserviceActionPerformed
 
     private void btn_manageserviceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_manageserviceActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new ManageMember().setVisible(true);
     }//GEN-LAST:event_btn_manageserviceActionPerformed
 
     private void btn_manageprovidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_manageprovidersActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        //new Provide().setVisible(true);
     }//GEN-LAST:event_btn_manageprovidersActionPerformed
 
     private void btn_requestdirectoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_requestdirectoryActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new RequestDirectory().setVisible(true);
     }//GEN-LAST:event_btn_requestdirectoryActionPerformed
 
     /**
