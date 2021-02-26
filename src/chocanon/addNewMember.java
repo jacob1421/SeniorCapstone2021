@@ -6,7 +6,7 @@
 //Trey Fambrough
 package chocanon;
 
-import chocanon.DataClasses.Member;
+import chocanon.Models.Member;
 import javax.swing.JOptionPane;
 
 /**
@@ -271,7 +271,7 @@ public class addNewMember extends javax.swing.JFrame {
         String memAddress = memStreetAddress + " " + memCity + ", " + memState + " " + memZip;
                 
         if(verifyFields()){
-            Member NewMem = new Member(memFirstName, memLastName, memDOB, memEmail, memStreetAddress, memCity, memState, zipCode, 0);
+           // Member NewMem = new Member(memFirstName, memLastName, memDOB, memEmail, memStreetAddress, memCity, memState, zipCode, 0);
             this.setVisible(false);
             new memberAdded(memFirstName, memLastName, memDOB, memEmail, memAddress).setVisible(true);
         }

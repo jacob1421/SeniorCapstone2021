@@ -14,10 +14,10 @@
  */
 
 package chocanon.Database;
-import chocanon.DataClasses.Member;
-import chocanon.DataClasses.Provider;
-import chocanon.DataClasses.Service;
-import chocanon.DataClasses.Visit;
+import chocanon.Models.Member;
+import chocanon.Models.Provider;
+import chocanon.Models.Service;
+import chocanon.Models.Visit;
 import java.sql.*;  
 import java.text.ParseException;
 import java.util.ArrayList;

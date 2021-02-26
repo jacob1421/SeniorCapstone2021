@@ -13,7 +13,7 @@
     Description: Models the data for the services that come from the database
  */
 
-package chocanon.DataClasses;
+package chocanon.Models;
 import java.math.BigDecimal;
 
 public class Service {

@@ -13,7 +13,7 @@
     Description: Base class to model the data for member and provider
  */
 
-package chocanon.DataClasses;
+package chocanon.Models;
 
 public class Person {
     //Data Attributes
@@ -57,6 +57,31 @@ public class Person {
     
     public int getZipCode(){
         return this.zipCode;
+    }
+    
+    //Setters
+    public void setFirstName(String firstName){
+        this.firstName = firstName;
+    }
+    
+    public void setLastName(String lastName){
+        this.lastName = lastName;
+    }
+    
+    public void setStreetAddress(String streetAddress){
+        this.streetAddress = streetAddress;
+    }
+    
+    public void setCity(String city){
+        this.city = city;
+    }
+    
+    public void setState(String state){
+        this.state = state;
+    }
+    
+    public void setZipCode(int zipCode){
+        this.zipCode = zipCode;
     }
     
 }

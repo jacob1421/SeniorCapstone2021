@@ -12,7 +12,7 @@
     Compiler: Apache NetBeans IDE for Java SE
     Description: Models the visit data that is pulled from the database.
  */
-package chocanon.DataClasses;
+package chocanon.Models;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;  
 import java.util.Date;
