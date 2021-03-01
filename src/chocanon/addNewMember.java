@@ -26,7 +26,6 @@ public class addNewMember extends javax.swing.JFrame {
 
     String memFirstName = "";
     String memLastName = "";
-    String memDOB = "";
     String memEmail = "";
     String memStreetAddress = "";
     String memCity = "";
@@ -52,7 +51,6 @@ public class addNewMember extends javax.swing.JFrame {
         txt_memFirstName = new javax.swing.JTextField();
         label_email = new javax.swing.JLabel();
         txt_memEmail = new javax.swing.JTextField();
-        label_DOB = new javax.swing.JLabel();
         label_Address = new javax.swing.JLabel();
         txt_memStreetAddress = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -62,7 +60,6 @@ public class addNewMember extends javax.swing.JFrame {
         label_Address3 = new javax.swing.JLabel();
         selector_State = new javax.swing.JComboBox<>();
         txt_City = new javax.swing.JTextField();
-        txt_dateOfBirth = new javax.swing.JTextField();
         txt_zipCode = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
@@ -100,9 +97,6 @@ public class addNewMember extends javax.swing.JFrame {
         label_email.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         label_email.setText("Email:");
 
-        label_DOB.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        label_DOB.setText("Date Of Birth:");
-
         label_Address.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         label_Address.setText("Sreet Address:");
 
@@ -136,33 +130,35 @@ public class addNewMember extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(82, 82, 82)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(label_Address2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(selector_State, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(label_Address1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txt_City, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(label_Address)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                        .addComponent(txt_memStreetAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(label_email)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txt_memEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txt_memLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(label_Name)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txt_memFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label_Address)
-                            .addComponent(label_Address2)
-                            .addComponent(label_Address3)
-                            .addComponent(label_Address1)
-                            .addComponent(label_DOB))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_memStreetAddress)
-                            .addComponent(selector_State, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_City)
-                            .addComponent(txt_dateOfBirth)
-                            .addComponent(txt_zipCode))))
+                        .addComponent(label_Address3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txt_zipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30))
         );
         jPanel1Layout.setVerticalGroup(
@@ -182,12 +178,8 @@ public class addNewMember extends javax.swing.JFrame {
                     .addComponent(label_email))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_DOB)
-                    .addComponent(txt_dateOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_memStreetAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_Address))
+                    .addComponent(label_Address)
+                    .addComponent(txt_memStreetAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_Address1)
@@ -196,11 +188,11 @@ public class addNewMember extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_Address2)
                     .addComponent(selector_State, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_Address3)
                     .addComponent(txt_zipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
                 .addComponent(btn_addMem)
                 .addContainerGap())
         );
@@ -255,7 +247,6 @@ public class addNewMember extends javax.swing.JFrame {
     private void btn_addMemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addMemActionPerformed
         memFirstName = txt_memFirstName.getText();
         memLastName = txt_memLastName.getText();
-        memDOB = txt_dateOfBirth.getText();
         memEmail = txt_memEmail.getText();
         memStreetAddress = txt_memStreetAddress.getText();
         memCity = txt_City.getText();
@@ -271,9 +262,9 @@ public class addNewMember extends javax.swing.JFrame {
         String memAddress = memStreetAddress + " " + memCity + ", " + memState + " " + memZip;
                 
         if(verifyFields()){
-            Member NewMem = new Member(memFirstName, memLastName, memDOB, memEmail, memStreetAddress, memCity, memState, zipCode, 0);
+            Member NewMem = new Member(memFirstName, memLastName, memEmail, memStreetAddress, memCity, memState, zipCode, 0);
             this.setVisible(false);
-            new memberAdded(memFirstName, memLastName, memDOB, memEmail, memAddress).setVisible(true);
+            new memberAdded(memFirstName, memLastName, memEmail, memAddress).setVisible(true);
         }
         
     }//GEN-LAST:event_btn_addMemActionPerformed
@@ -289,8 +280,7 @@ public class addNewMember extends javax.swing.JFrame {
 
     //Function to Verify feilds
     public boolean verifyFields(){
-        if(memFirstName.trim().equals("") || memLastName.trim().equals("") || memDOB.trim().equals("") || memEmail.trim().equals("") || memStreetAddress.trim().equals("")
-               || memCity.trim().equals("") || memZip.trim().equals("")){
+        if(memFirstName.trim().equals("") || memLastName.trim().equals("") || memEmail.trim().equals("") || memStreetAddress.trim().equals("") || memCity.trim().equals("") || memZip.trim().equals("")){
             JOptionPane.showMessageDialog(null, "One or more fields are empty");
             return false;
         }
@@ -364,12 +354,10 @@ public class addNewMember extends javax.swing.JFrame {
     private javax.swing.JLabel label_Address1;
     private javax.swing.JLabel label_Address2;
     private javax.swing.JLabel label_Address3;
-    private javax.swing.JLabel label_DOB;
     private javax.swing.JLabel label_Name;
     private javax.swing.JLabel label_email;
     private javax.swing.JComboBox<String> selector_State;
     private javax.swing.JTextField txt_City;
-    private javax.swing.JTextField txt_dateOfBirth;
     private javax.swing.JTextField txt_memEmail;
     private javax.swing.JTextField txt_memFirstName;
     private javax.swing.JTextField txt_memLastName;
