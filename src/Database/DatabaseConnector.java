@@ -15,6 +15,7 @@ package Database;
     Description: Contains the database connection function and the functions to pull data from the database.
  */
 
+import Logger.Log;
 import java.sql.*;  
 
 public class DatabaseConnector {
@@ -25,21 +26,29 @@ public class DatabaseConnector {
     final private String database_password = "zlyDUAagZK";
     final private String database_name = "sql5396356";
     private Connection databaseConn;
-    
-    //Track Open and Closed.
-    private static boolean databaseConnectionOpen = false;
+   
     
     public Connection getDatabaseConnection() throws SQLException, Exception{
-        if(this.databaseConnectionOpen == true){
-            throw new Exception("Close your database connection before opening a new one.");
+        Log.info("DatabaseConnector", "Checking if the database connection is closed");
+        if(this.databaseConn != null){
+            if(this.databaseConn.isClosed() != true){
+                Log.error("DatabaseConnector", "Database connection is opened while another is trying to be opened!");
+                throw new Exception("Close your database connection before opening a new one.");
+            }
         }
-        this.databaseConnectionOpen = true;
-        this.databaseConn = DriverManager.getConnection(String.format("jdbc:mysql://%s:%s/%s", this.database_host, this.database_port, this.database_name), this.database_user, this.database_password);
+        try {
+            this.databaseConn = DriverManager.getConnection(String.format("jdbc:mysql://%s:%s/%s", this.database_host, this.database_port, this.database_name), this.database_user, this.database_password);
+            Log.debug("DatabaseConnector", "SQL Connection to database established!");
+        }catch (SQLException e) {
+            Log.error("DatabaseConnector", "SQL Connection Failed!");
+            e.printStackTrace();
+        }
+
         return this.databaseConn;  
     }
     
     public void closeDatabaseConnection() throws SQLException{
-        this.databaseConnectionOpen = false;
+        Log.info("DatabaseConnector", "Database connection closed!");
         this.databaseConn.close();
     }   
 }

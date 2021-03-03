@@ -14,13 +14,18 @@
  */
 package chocanon;
 
+import Logger.Log;
 import ProviderTerminal.Controllers.TerminalController;
 import chocanon.Controllers.ChocanController;
+import static Logger.Log.*;
 
 
 public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
+        //Where do we want our logging set?
+        Log.set(LEVEL_TRACE);
+        Log.info("Main", "Main has been instantiated");
     }
 
     @SuppressWarnings("unchecked")
@@ -109,12 +114,12 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ExitActionPerformed
 
     private void btn_StartChocoholicsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_StartChocoholicsActionPerformed
-        // TODO add your handling code here:
+        Log.info("Main", "Click StartChocoholics Button");
         new ChocanController(this);
     }//GEN-LAST:event_btn_StartChocoholicsActionPerformed
 
     private void btn_StartProviderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_StartProviderActionPerformed
-        // TODO add your handling code here:
+        Log.info("Main", "Click StartProviderTerminal Button");
         new TerminalController(this);
     }//GEN-LAST:event_btn_StartProviderActionPerformed
 

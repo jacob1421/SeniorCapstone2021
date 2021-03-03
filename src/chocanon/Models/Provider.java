@@ -15,6 +15,7 @@
 package chocanon.Models;
 
 import Database.DatabaseConnector;
+import Logger.Log;
 import java.sql.*;  
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -56,6 +57,7 @@ public class Provider extends Person{
         
     //Static getters
     public static Provider getProviderByProviderNumber(int providerNumber){
+        Log.debug("Provider", "Provider Number: " + providerNumber);
         Provider providerFound = null;
         try {
             //Create Database Connection
@@ -70,6 +72,14 @@ public class Provider extends Person{
             while (rset.next()) {
                  providerFound = new Provider(rset.getInt("provider_id"), rset.getString("first_name"), rset.getString("last_name"), rset.getString("street_address"), rset.getString("city"), rset.getString("state"), rset.getInt("zip_code"), rset.getInt("provider_number"), rset.getString("provider_type"), rset.getString("provider_email"));
             }
+            
+            //Print the provider found
+            if(providerFound != null){
+                Log.debug("Provider", "Provider Found: " + providerFound.toString());
+            }else{
+                Log.debug("Provider", "No Provider Found With Provider Number: " + providerNumber);
+            }
+            
             //Close database
             dbConn.closeDatabaseConnection();
         } catch (Exception ex) {
