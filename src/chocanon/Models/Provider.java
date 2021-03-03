@@ -14,6 +14,11 @@
  */
 package chocanon.Models;
 
+import Database.DatabaseConnector;
+import java.sql.*;  
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Provider extends Person{
     //Data Attributes
     private int providerNumber = 0;
@@ -50,9 +55,26 @@ public class Provider extends Person{
     }
         
     //Static getters
-    public static Provider getProviderByProviderId(int providerId){
+    public static Provider getProviderByProviderNumber(int providerNumber){
         Provider providerFound = null;
-        /* Do the database functionality to get a provider from the database by provider id - 9 digit*/
+        try {
+            //Create Database Connection
+            DatabaseConnector dbConn = new DatabaseConnector();
+            Connection conn = dbConn.getDatabaseConnection();
+            Statement stmt = conn.createStatement();
+            //Query
+            String strSelect = String.format("SELECT provider_id, first_name, last_name, street_address, city, state, zip_code, provider_number, providertypes.provider_type, provider_email FROM chocanon_db.providers JOIN providertypes ON providers.provider_type_id = providertypes.provider_type_id WHERE provider_number = %s LIMIT 1;", providerNumber);
+            //Execute Query
+            ResultSet rset = stmt.executeQuery(strSelect);
+            //Get Results
+            while (rset.next()) {
+                 providerFound = new Provider(rset.getInt("provider_id"), rset.getString("first_name"), rset.getString("last_name"), rset.getString("street_address"), rset.getString("city"), rset.getString("state"), rset.getInt("zip_code"), rset.getInt("provider_number"), rset.getString("provider_type"), rset.getString("provider_email"));
+            }
+            //Close database
+            dbConn.closeDatabaseConnection();
+        } catch (Exception ex) {
+            Logger.getLogger(Provider.class.getName()).log(Level.SEVERE, null, ex);
+        }    
         return providerFound;
     }
     

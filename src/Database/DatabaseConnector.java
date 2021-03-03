@@ -19,24 +19,15 @@ import java.sql.*;
 
 public class DatabaseConnector {
     //Attributes
-    private String database_host = "";
-    private int database_port = 0;
-    private String database_user = "";
-    private String database_password = "";
-    private String database_name = "";
+    final private String database_host = "localhost";
+    final private int database_port = 3306;
+    final private String database_user = "chocanon_manager";
+    final private String database_password = "SomeHardPassword1234";
+    final private String database_name = "chocanon_db";
     private Connection databaseConn;
     
     //Track Open and Closed.
     private static boolean databaseConnectionOpen = false;
-    
-    
-    public DatabaseConnector(String database_host, int database_port, String database_user, String database_password, String database_name){
-        this.database_host = database_host;
-        this.database_port = database_port;
-        this.database_user = database_user;
-        this.database_password = database_password;
-        this.database_name = database_name;
-    }
     
     public Connection getDatabaseConnection() throws SQLException, Exception{
         if(this.databaseConnectionOpen == true){

@@ -40,6 +40,9 @@ public class ProvideAServiceView extends javax.swing.JFrame {
     public void setProviderTextBox(String providerNumber){
         txt_ProviderNbr.setText(providerNumber);
     }
+    public void setFocusProviderTextBox(){
+        txt_ProviderNbr.requestFocus();
+    }
     
     //Getters
     public String getProviderNumber(){

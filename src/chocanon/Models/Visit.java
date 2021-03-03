@@ -13,6 +13,7 @@
     Description: Models the visit data that is pulled from the database.
  */
 package chocanon.Models;
+import Database.DatabaseConnector;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;  
 import java.util.Date;

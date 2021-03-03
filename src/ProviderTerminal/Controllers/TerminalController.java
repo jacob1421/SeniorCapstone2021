@@ -179,10 +179,11 @@ public class TerminalController {
             if(providerNumber.equals("")){
                 provideServiceView.showMessageBox("Please provide a provider number");
             }else{
-                //Look up to see if the provider number exists in the database.
-                if(true){
-                    //We need to populate the provider with the provider that logged into the terminal
-                    provider = Provider.getProviderByProviderId(Integer.parseInt(providerNumber));
+                //Look up to see if the provider number exists in the database.Also populate the provider model instance with the provider that logged into the terminal
+                provider = Provider.getProviderByProviderNumber(Integer.parseInt(providerNumber));
+                if(provider != null){
+                    //Print the valid providers info for debugging purposes
+                    System.out.println(provider.toString());
                     
                     //Hide the provide service view
                     provideServiceView.setVisible(false);
@@ -191,9 +192,11 @@ public class TerminalController {
                     //Clear old provider number
                     provideServiceView.setProviderTextBox("");
                 }else{
+                    //Remove invalid provider number and set focus.
                     provideServiceView.showMessageBox("Invalid provider number.");
+                    provideServiceView.setFocusProviderTextBox();
+                    provideServiceView.setProviderTextBox("");
                 }
-                System.out.println(providerNumber);
             }
         }
     }

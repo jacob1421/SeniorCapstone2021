@@ -14,6 +14,7 @@
  */
 
 package chocanon.Models;
+import Database.DatabaseConnector;
 import java.math.BigDecimal;
 
 public class Service {
