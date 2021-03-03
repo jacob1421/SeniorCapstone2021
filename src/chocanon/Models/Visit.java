@@ -8,7 +8,7 @@
     Created by: Jacob Bremiller
     Created: 2/13/2021
     Updated by: Jacob Bremiller
-    Updated: 2/13/2021
+    Updated: 3/3/2021
     Compiler: Apache NetBeans IDE for Java SE
     Description: Models the visit data that is pulled from the database.
  */
@@ -29,19 +29,21 @@ public class Visit {
     private Member memberInfo = null;
     private Service serviceInfo = null;
     private String comment = "";
+    private int databaseId = 0;
     
     //Constructors
     public Visit(){
     
     }
     
-    public Visit(Provider providerInfo, Member memberInfo, Service serviceInfo, String dateOfService, String receivedVisitDateTime, String comment) throws ParseException{
+    public Visit(int databaseId, Provider providerInfo, Member memberInfo, Service serviceInfo, String dateOfService, String receivedVisitDateTime, String comment) throws ParseException{
         this.providerInfo = providerInfo;
         this.memberInfo = memberInfo;
         this.serviceInfo = serviceInfo;
         this.comment = comment;
         this.dateOfService = dateOfServiceFormatter.parse(dateOfService);
         this.receivedVisitDateTime = currentDateTimeFormatter.parse(receivedVisitDateTime);
+        this.databaseId = databaseId;
     }
     
     //Getters
@@ -69,6 +71,10 @@ public class Visit {
        return this.comment;
     }
     
+    public int getDatabaseId(){
+        return this.databaseId;
+    }
+    
     //Setters
     public void setVisitDate(String dateOfService) throws ParseException{
         this.dateOfService = dateOfServiceFormatter.parse(dateOfService);
@@ -93,11 +99,15 @@ public class Visit {
     public void setComment(String comment){
         this.comment = comment;
     }
+    public void setDatabaseId(int databaseId){
+       this.databaseId = databaseId;
+    }
     
     @Override
     public String toString(){
        return(
        "--------------------------------------------------------------------\n" +
+               "Database Id: " + this.getDatabaseId() + "\n" +
                "Received By Computer Date: " + this.receivedVisitDateTime.toString() + "\n" +
                "Provider Info: " + this.getProviderInfo().toString() +
                "Member Info: " + this.getMemberInfo().toString() +

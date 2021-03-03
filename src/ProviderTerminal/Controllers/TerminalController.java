@@ -123,17 +123,20 @@ public class TerminalController {
             swipeMemberCardView.setVisible(false);
             provideServiceView.setVisible(true);
             swipeMemberCardView.setCardNumberText("");
+            swipeMemberCardView.setMessageLabel("", Color.BLACK);
         }
     }
             
     class SearchMemberListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String userInput = swipeMemberCardView.getUserInput();
-            if(userInput.equals("")){
+            String memberCardNumber = swipeMemberCardView.getMemberCardNumber();
+            if(memberCardNumber.equals("")){
                 swipeMemberCardView.showMessageBox("Please provide a member card number");
             }else{
                 //Look up to see if the member number exists and the member is a active member in the database.
+                
+                
                 if(true){
                     //Member card number exists and the member is active
                     swipeMemberCardView.setMessageLabel("Validated", Color.GREEN);
@@ -153,7 +156,7 @@ public class TerminalController {
                         swipeMemberCardView.setMessageLabel("Invalid", Color.RED);
                     }
                 }
-                System.out.println(userInput);
+                System.out.println(memberCardNumber);
             }
         }
     }
@@ -170,15 +173,16 @@ public class TerminalController {
         }
     }
     class SearchProviderListener implements ActionListener {
+        @Override
         public void actionPerformed(ActionEvent e) {
-            String userInput = provideServiceView.getUserInput();
-            if(userInput.equals("")){
+            String providerNumber = provideServiceView.getProviderNumber();
+            if(providerNumber.equals("")){
                 provideServiceView.showMessageBox("Please provide a provider number");
             }else{
                 //Look up to see if the provider number exists in the database.
                 if(true){
                     //We need to populate the provider with the provider that logged into the terminal
-                    provider = new Provider("First Name", "Last Name", "Some Street Address", "Some City", "TX", 796540, 145236987, "Dietitian", "SomeEmail@yahoo.com");
+                    provider = Provider.getProviderByProviderId(Integer.parseInt(providerNumber));
                     
                     //Hide the provide service view
                     provideServiceView.setVisible(false);
@@ -189,7 +193,7 @@ public class TerminalController {
                 }else{
                     provideServiceView.showMessageBox("Invalid provider number.");
                 }
-                System.out.println(userInput);
+                System.out.println(providerNumber);
             }
         }
     }

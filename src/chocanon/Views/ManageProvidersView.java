@@ -1,7 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+    File: ManageProvidersView.java
+    Project: COSC-4360 Capstone Project Team #0
+    University: McMurry University
+    Course: COSC–4360 Spring 2021
+    Instructor: Mr. Brozovic
+    Programmer: Jacob Bremiller
+    Created by: Jacob Bremiller
+    Created: 2/25/2021
+    Updated by: Jacob Bremiller
+    Updated: 3/3/2021
+    Compiler: Apache NetBeans IDE for Java SE
+    Description: Allows providers to be populated in a table and search from a database.
  */
 package chocanon.Views;
 
@@ -22,9 +31,12 @@ public class ManageProvidersView extends javax.swing.JFrame {
     }
     
     
-        //Setters
+    //Setters
     public void setProviderSearchButtonListener(ActionListener e){
         btn_SearchProvider.addActionListener(e);
+    }
+    public void setManageProvidersBackButtonListener(ActionListener e){
+        btn_ProvidersBack.addActionListener(e);
     }
     
     //Getters
@@ -51,7 +63,7 @@ public class ManageProvidersView extends javax.swing.JFrame {
         btn_SearchProvider = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_Providers = new javax.swing.JTable();
-        btn_back1 = new javax.swing.JButton();
+        btn_ProvidersBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,10 +123,10 @@ public class ManageProvidersView extends javax.swing.JFrame {
             tbl_Providers.getColumnModel().getColumn(8).setResizable(false);
         }
 
-        btn_back1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/go-back-left-arrow.png"))); // NOI18N
-        btn_back1.setBorderPainted(false);
-        btn_back1.setContentAreaFilled(false);
-        btn_back1.setFocusPainted(false);
+        btn_ProvidersBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/go-back-left-arrow.png"))); // NOI18N
+        btn_ProvidersBack.setBorderPainted(false);
+        btn_ProvidersBack.setContentAreaFilled(false);
+        btn_ProvidersBack.setFocusPainted(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,7 +137,7 @@ public class ManageProvidersView extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1006, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addComponent(btn_back1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_ProvidersBack, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(btn_SearchProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -141,7 +153,7 @@ public class ManageProvidersView extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt_ProviderSearchText, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_SearchProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btn_back1))
+                    .addComponent(btn_ProvidersBack))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -186,8 +198,8 @@ public class ManageProvidersView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_ProvidersBack;
     private javax.swing.JButton btn_SearchProvider;
-    private javax.swing.JButton btn_back1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbl_Providers;
     private javax.swing.JTextField txt_ProviderSearchText;

@@ -1,7 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+    File: ManageMemberView.java
+    Project: COSC-4360 Capstone Project Team #0
+    University: McMurry University
+    Course: COSC–4360 Spring 2021
+    Instructor: Mr. Brozovic
+    Programmer: Jacob Bremiller
+    Created by: Jacob Bremiller
+    Created: 2/25/2021
+    Updated by: Jacob Bremiller
+    Updated: 3/3/2021
+    Compiler: Apache NetBeans IDE for Java SE
+    Description: Allows members to be populated in a table and searched from a database.
  */
 package chocanon.Views;
 
@@ -24,6 +33,9 @@ public class ManageMemberView extends javax.swing.JFrame {
     //Setters
     public void setMemberSearchButtonListener(ActionListener e){
         btn_SearchMember.addActionListener(e);
+    }
+    public void setManageMembersBackButtonListener(ActionListener e){
+        btn_MembersBack.addActionListener(e);
     }
     
     //Getters
@@ -50,7 +62,7 @@ public class ManageMemberView extends javax.swing.JFrame {
         tbl_Members = new javax.swing.JTable();
         btn_SearchMember = new javax.swing.JButton();
         txt_MemberSearchText = new javax.swing.JTextField();
-        btn_back1 = new javax.swing.JButton();
+        btn_MembersBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,10 +128,10 @@ public class ManageMemberView extends javax.swing.JFrame {
 
         btn_SearchMember.setText("Search");
 
-        btn_back1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/go-back-left-arrow.png"))); // NOI18N
-        btn_back1.setBorderPainted(false);
-        btn_back1.setContentAreaFilled(false);
-        btn_back1.setFocusPainted(false);
+        btn_MembersBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/go-back-left-arrow.png"))); // NOI18N
+        btn_MembersBack.setBorderPainted(false);
+        btn_MembersBack.setContentAreaFilled(false);
+        btn_MembersBack.setFocusPainted(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -131,10 +143,10 @@ public class ManageMemberView extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 957, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn_back1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_MembersBack, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_SearchMember, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(btn_SearchMember, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txt_MemberSearchText, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -142,7 +154,7 @@ public class ManageMemberView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_back1)
+                    .addComponent(btn_MembersBack)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -199,8 +211,8 @@ public class ManageMemberView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_MembersBack;
     private javax.swing.JButton btn_SearchMember;
-    private javax.swing.JButton btn_back1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbl_Members;
     private javax.swing.JTextField txt_MemberSearchText;

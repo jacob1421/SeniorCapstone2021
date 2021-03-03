@@ -1,9 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+    File: RecordsView.java
+    Project: COSC-4360 Capstone Project Team #0
+    University: McMurry University
+    Course: COSC–4360 Spring 2021
+    Instructor: Mr. Brozovic
+    Programmer: Jacob Bremiller
+    Created by: Stephen Dunn
+    Created: 2/01/2021
+    Updated by: Jacob Bremiller
+    Updated: 3/3/2021
+    Compiler: Apache NetBeans IDE for Java SE
+    Description: Contains buttons to generate the records
  */
 package chocanon.Views;
+
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -17,7 +28,13 @@ public class RecordsView extends javax.swing.JFrame {
     public RecordsView() {
         initComponents();
     }
-
+    
+    //Setters
+    public void setRecordsBackButtonListener(ActionListener e){
+        btn_RecordsBack.addActionListener(e);
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,7 +47,7 @@ public class RecordsView extends javax.swing.JFrame {
         btn_servicerecords = new javax.swing.JButton();
         btn_eftrecords = new javax.swing.JButton();
         lbl_records = new javax.swing.JLabel();
-        btn_back1 = new javax.swing.JButton();
+        btn_RecordsBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -42,10 +59,10 @@ public class RecordsView extends javax.swing.JFrame {
         lbl_records.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lbl_records.setText("Records");
 
-        btn_back1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/go-back-left-arrow.png"))); // NOI18N
-        btn_back1.setBorderPainted(false);
-        btn_back1.setContentAreaFilled(false);
-        btn_back1.setFocusPainted(false);
+        btn_RecordsBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/go-back-left-arrow.png"))); // NOI18N
+        btn_RecordsBack.setBorderPainted(false);
+        btn_RecordsBack.setContentAreaFilled(false);
+        btn_RecordsBack.setFocusPainted(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -58,7 +75,7 @@ public class RecordsView extends javax.swing.JFrame {
                 .addComponent(btn_eftrecords, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(btn_back1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_RecordsBack, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(112, 112, 112)
                 .addComponent(lbl_records)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -70,7 +87,7 @@ public class RecordsView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lbl_records, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btn_back1))
+                    .addComponent(btn_RecordsBack))
                 .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_servicerecords, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -118,7 +135,7 @@ public class RecordsView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_back1;
+    private javax.swing.JButton btn_RecordsBack;
     private javax.swing.JButton btn_eftrecords;
     private javax.swing.JButton btn_servicerecords;
     private javax.swing.JLabel lbl_records;

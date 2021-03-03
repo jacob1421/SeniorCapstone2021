@@ -8,7 +8,7 @@
     Created by: Jacob Bremiller
     Created: 2/13/2021
     Updated by: Jacob Bremiller
-    Updated: 2/13/2021
+    Updated: 3/3/2021
     Compiler: Apache NetBeans IDE for Java SE
     Description: Models the data for the services that come from the database
  */
@@ -43,6 +43,13 @@ public class Service {
     
     public BigDecimal getServiceFee(){
         return this.fee;
+    }
+    
+    //Static getters
+    public static Service getServiceByServiceId(int serviceId){
+        Service serviceFound = null;
+        /* Do the database functionality to get a service from the database by service code*/
+        return serviceFound;
     }
     
     @Override

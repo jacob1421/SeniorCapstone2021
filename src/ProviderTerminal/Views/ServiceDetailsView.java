@@ -1,7 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+    File: ServiceDetailsView.java
+    Project: COSC-4360 Capstone Project Team #0
+    University: McMurry University
+    Course: COSC–4360 Spring 2021
+    Instructor: Mr. Brozovic
+    Programmer: Jacob Bremiller
+    Created by: Lydia Clarke
+    Created: 2/02/2021
+    Updated by: Jacob Bremiller
+    Updated: 3/3/2021
+    Compiler: Apache NetBeans IDE for Java SE
+    Description: Provides the a simulation of the provider bill chocan
  */
 package ProviderTerminal.Views;
 

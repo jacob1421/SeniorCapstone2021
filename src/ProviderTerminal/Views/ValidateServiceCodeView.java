@@ -1,11 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+    File: ValidateServiceCodeView.java
+    Project: COSC-4360 Capstone Project Team #0
+    University: McMurry University
+    Course: COSC–4360 Spring 2021
+    Instructor: Mr. Brozovic
+    Programmer: Jacob Bremiller
+    Created by: Lydia Clarke
+    Created: 2/02/2021
+    Updated by: Jacob Bremiller
+    Updated: 3/3/2021
+    Compiler: Apache NetBeans IDE for Java SE
+    Description: Provides a means to validate that the service code entered by the provider is correct.
  */
 package ProviderTerminal.Views;
 
-import ProviderTerminal.Views.ServiceDetailsView;
 import java.awt.event.ActionListener;
 
 /**

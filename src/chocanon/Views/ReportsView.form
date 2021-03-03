@@ -23,24 +23,45 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="btn_back1" min="-2" pref="36" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-              <Component id="lbl_Reports" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="143" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="btn_ReportsBack" min="-2" pref="36" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                      <Component id="lbl_Reports" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btn_GenerateWeeklyProvider" pref="0" max="32767" attributes="0"/>
+                          <Component id="btn_GenerateWeeklyMember" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="btn_GenerateSummaryReport" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="lbl_Reports" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="245" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="btn_back1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btn_ReportsBack" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lbl_Reports" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="60" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btn_GenerateSummaryReport" min="-2" pref="62" max="-2" attributes="0"/>
+                  <Component id="btn_GenerateWeeklyMember" min="-2" pref="63" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Component id="btn_GenerateWeeklyProvider" min="-2" pref="63" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -54,7 +75,7 @@
         <Property name="text" type="java.lang.String" value="Reports"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_back1">
+    <Component class="javax.swing.JButton" name="btn_ReportsBack">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Resources/go-back-left-arrow.png"/>
@@ -62,6 +83,21 @@
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
         <Property name="focusPainted" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_GenerateWeeklyMember">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Generate Member Reports"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_GenerateWeeklyProvider">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Generate Provider Reports"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_GenerateSummaryReport">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Generate Summary Report"/>
       </Properties>
     </Component>
   </SubComponents>

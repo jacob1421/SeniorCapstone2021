@@ -8,14 +8,14 @@
     Created by: Jacob Bremiller
     Created: 2/13/2021
     Updated by: Jacob Bremiller
-    Updated: 2/13/2021
+    Updated: 3/3/2021
     Compiler: Apache NetBeans IDE for Java SE
     Description: Base class to model the data for member and provider
  */
 
 package chocanon.Models;
 
-public class Person {
+public abstract class Person {
     //Data Attributes
     private String firstName = "";
     private String lastName = "";

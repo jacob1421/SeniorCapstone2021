@@ -1,7 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+    File: MenuView.java
+    Project: COSC-4360 Capstone Project Team #0
+    University: McMurry University
+    Course: COSC–4360 Spring 2021
+    Instructor: Mr. Brozovic
+    Programmer: Jacob Bremiller
+    Created by: Stephen Dunn
+    Created: 2/01/2021
+    Updated by: Jacob Bremiller
+    Updated: 3/3/2021
+    Compiler: Apache NetBeans IDE for Java SE
+    Description: Contains buttons to navigate to different parts of the program.
  */
 package chocanon.Views;
 
@@ -33,7 +42,9 @@ public class MenuView extends javax.swing.JFrame {
     public void setManageReportsButtonListener(ActionListener e){
         btn_Reports.addActionListener(e);
     }
-    
+    public void setMenuBackButtonListener(ActionListener e){
+        btn_BackButtonMenu.addActionListener(e);
+    }
     
     
     /**
@@ -50,7 +61,7 @@ public class MenuView extends javax.swing.JFrame {
         btn_ManageMembers = new javax.swing.JButton();
         btn_ManageProviders = new javax.swing.JButton();
         lbl_menu = new javax.swing.JLabel();
-        btn_back1 = new javax.swing.JButton();
+        btn_BackButtonMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,10 +76,10 @@ public class MenuView extends javax.swing.JFrame {
         lbl_menu.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbl_menu.setText("Main Menu");
 
-        btn_back1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/go-back-left-arrow.png"))); // NOI18N
-        btn_back1.setBorderPainted(false);
-        btn_back1.setContentAreaFilled(false);
-        btn_back1.setFocusPainted(false);
+        btn_BackButtonMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/go-back-left-arrow.png"))); // NOI18N
+        btn_BackButtonMenu.setBorderPainted(false);
+        btn_BackButtonMenu.setContentAreaFilled(false);
+        btn_BackButtonMenu.setFocusPainted(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,7 +88,7 @@ public class MenuView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn_back1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_BackButtonMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(123, 123, 123)
                         .addComponent(lbl_menu))
                     .addGroup(layout.createSequentialGroup()
@@ -98,7 +109,7 @@ public class MenuView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lbl_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btn_back1))
+                    .addComponent(btn_BackButtonMenu))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_ManageProviders, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -152,11 +163,11 @@ public class MenuView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_BackButtonMenu;
     private javax.swing.JButton btn_ManageMembers;
     private javax.swing.JButton btn_ManageProviders;
     private javax.swing.JButton btn_Records;
     private javax.swing.JButton btn_Reports;
-    private javax.swing.JButton btn_back1;
     private javax.swing.JLabel lbl_menu;
     // End of variables declaration//GEN-END:variables
 }

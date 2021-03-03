@@ -1,10 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package chocanon.Views;
-
 /* 
     File: ReportsView.java
     Project: COSC-4360 Capstone Project Team #0
@@ -15,10 +8,15 @@ package chocanon.Views;
     Created by: Jacob Bremiller
     Created: 2/23/2021
     Updated by: Jacob Bremiller
-    Updated: 2/23/2021
+    Updated: 3/3/2021
     Compiler: Apache NetBeans IDE for Java SE
     Description: Contain buttons to different reports.
  */
+package chocanon.Views;
+
+import java.awt.event.ActionListener;
+
+
 public class ReportsView extends javax.swing.JFrame {
 
     /**
@@ -28,6 +26,11 @@ public class ReportsView extends javax.swing.JFrame {
         initComponents();
     }
 
+    //Setters
+    public void setReportsBackButtonListener(ActionListener e){
+        btn_ReportsBack.addActionListener(e);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,37 +41,61 @@ public class ReportsView extends javax.swing.JFrame {
     private void initComponents() {
 
         lbl_Reports = new javax.swing.JLabel();
-        btn_back1 = new javax.swing.JButton();
+        btn_ReportsBack = new javax.swing.JButton();
+        btn_GenerateWeeklyMember = new javax.swing.JButton();
+        btn_GenerateWeeklyProvider = new javax.swing.JButton();
+        btn_GenerateSummaryReport = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbl_Reports.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lbl_Reports.setText("Reports");
 
-        btn_back1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/go-back-left-arrow.png"))); // NOI18N
-        btn_back1.setBorderPainted(false);
-        btn_back1.setContentAreaFilled(false);
-        btn_back1.setFocusPainted(false);
+        btn_ReportsBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/go-back-left-arrow.png"))); // NOI18N
+        btn_ReportsBack.setBorderPainted(false);
+        btn_ReportsBack.setContentAreaFilled(false);
+        btn_ReportsBack.setFocusPainted(false);
+
+        btn_GenerateWeeklyMember.setText("Generate Member Reports");
+
+        btn_GenerateWeeklyProvider.setText("Generate Provider Reports");
+
+        btn_GenerateSummaryReport.setText("Generate Summary Report");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(btn_back1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91)
-                .addComponent(lbl_Reports)
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btn_ReportsBack, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(91, 91, 91)
+                        .addComponent(lbl_Reports))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btn_GenerateWeeklyProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(btn_GenerateWeeklyMember))
+                        .addGap(32, 32, 32)
+                        .addComponent(btn_GenerateSummaryReport)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_Reports)
-                .addContainerGap(245, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(btn_back1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_ReportsBack)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lbl_Reports)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_GenerateSummaryReport, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_GenerateWeeklyMember, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addComponent(btn_GenerateWeeklyProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(79, 79, 79))
         );
 
         pack();
@@ -111,7 +138,10 @@ public class ReportsView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_back1;
+    private javax.swing.JButton btn_GenerateSummaryReport;
+    private javax.swing.JButton btn_GenerateWeeklyMember;
+    private javax.swing.JButton btn_GenerateWeeklyProvider;
+    private javax.swing.JButton btn_ReportsBack;
     private javax.swing.JLabel lbl_Reports;
     // End of variables declaration//GEN-END:variables
 }
