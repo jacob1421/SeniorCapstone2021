@@ -27,7 +27,7 @@ public class DatabaseConnector {
     private Connection databaseConn;
     
     //Track Open and Closed.
-    boolean databaseConnectionOpen = false;
+    private static boolean databaseConnectionOpen = false;
     
     
     public DatabaseConnector(String database_host, int database_port, String database_user, String database_password, String database_name){
@@ -39,7 +39,7 @@ public class DatabaseConnector {
     }
     
     public Connection getDatabaseConnection() throws SQLException, Exception{
-        if(this.databaseConnectionOpen = true){
+        if(this.databaseConnectionOpen == true){
             throw new Exception("Close your database connection before opening a new one.");
         }
         this.databaseConnectionOpen = true;
