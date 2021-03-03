@@ -48,7 +48,7 @@ public class ReportsView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lbl_Reports.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        lbl_Reports.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         lbl_Reports.setText("Reports");
 
         btn_ReportsBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/go-back-left-arrow.png"))); // NOI18N
