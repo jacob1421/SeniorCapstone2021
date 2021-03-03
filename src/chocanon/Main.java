@@ -5,10 +5,8 @@
  */
 package chocanon;
 
-import ProviderTerminal.Controllers.ProvideAServiceController;
-import chocanon.Controllers.MemberController;
-import chocanon.Models.Member;
-import chocanon.Views.MemberView;
+import ProviderTerminal.Controllers.TerminalController;
+import chocanon.Controllers.ChocanController;
 
 /* 
     File: Main.java
@@ -125,12 +123,12 @@ public class Main extends javax.swing.JFrame {
 
     private void btn_StartChocoholicsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_StartChocoholicsActionPerformed
         // TODO add your handling code here:
-        new MemberController();
+        new ChocanController(this);
     }//GEN-LAST:event_btn_StartChocoholicsActionPerformed
 
     private void btn_StartProviderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_StartProviderActionPerformed
         // TODO add your handling code here:
-        new ProvideAServiceController();
+        new TerminalController(this);
     }//GEN-LAST:event_btn_StartProviderActionPerformed
 
     /**

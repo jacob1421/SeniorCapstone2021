@@ -27,12 +27,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lbl_GoBack" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lbl_ServiceName" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbl_ServiceCode" min="-2" pref="150" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lbl_ServiceName" alignment="0" pref="266" max="32767" attributes="0"/>
+                          <Component id="lbl_ServiceCode" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -40,11 +37,14 @@
                       <Component id="lbl_CheckCorrectService" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
-                      <Component id="lbl_Yes" min="-2" pref="103" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btn_CorrectServiceCode" max="32767" attributes="0"/>
+                          <Component id="btn_IncorrectServiceCode" pref="203" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="125" max="32767" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -58,10 +58,10 @@
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Component id="lbl_CheckCorrectService" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="lbl_Yes" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-              <Component id="lbl_GoBack" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="92" max="32767" attributes="0"/>
+              <Component id="btn_CorrectServiceCode" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="btn_IncorrectServiceCode" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="48" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -82,20 +82,20 @@
         <Property name="text" type="java.lang.String" value="Is this the Correct Service?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="lbl_GoBack">
+    <Component class="javax.swing.JButton" name="btn_IncorrectServiceCode">
       <Properties>
-        <Property name="text" type="java.lang.String" value="No, Return to Service Form"/>
+        <Property name="text" type="java.lang.String" value="No, Change service code"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lbl_GoBackActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_IncorrectServiceCodeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="lbl_Yes">
+    <Component class="javax.swing.JButton" name="btn_CorrectServiceCode">
       <Properties>
         <Property name="text" type="java.lang.String" value="Yes, Continue"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lbl_YesActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_CorrectServiceCodeActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

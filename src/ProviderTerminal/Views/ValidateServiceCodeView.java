@@ -5,21 +5,37 @@
  */
 package ProviderTerminal.Views;
 
-import ProviderTerminal.Views.ServiceDetails;
+import ProviderTerminal.Views.ServiceDetailsView;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author ljcla
  */
-public class ValidateServiceCode extends javax.swing.JFrame {
+public class ValidateServiceCodeView extends javax.swing.JFrame {
 
     /**
      * Creates new form ValidateServiceCode
      */
-    public ValidateServiceCode() {
+    public ValidateServiceCodeView() {
         initComponents();
     }
 
+    //Setters
+    public void setServiceCode(String serviceCode){
+        lbl_ServiceCode.setText("Service Code: " + serviceCode);
+    }
+    public void setServiceName(String serviceName){
+        lbl_ServiceName.setText("Service Name: " + serviceName);
+    }
+    
+    public void setCorrectServiceCodeButtonListener(ActionListener e){
+        btn_CorrectServiceCode.addActionListener(e);
+    }
+    public void setIncorrectServiceCodeButtonListener(ActionListener e){
+        btn_IncorrectServiceCode.addActionListener(e);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,8 +48,8 @@ public class ValidateServiceCode extends javax.swing.JFrame {
         lbl_ServiceCode = new javax.swing.JLabel();
         lbl_ServiceName = new javax.swing.JLabel();
         lbl_CheckCorrectService = new javax.swing.JLabel();
-        lbl_GoBack = new javax.swing.JButton();
-        lbl_Yes = new javax.swing.JButton();
+        btn_IncorrectServiceCode = new javax.swing.JButton();
+        btn_CorrectServiceCode = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,17 +59,17 @@ public class ValidateServiceCode extends javax.swing.JFrame {
 
         lbl_CheckCorrectService.setText("Is this the Correct Service?");
 
-        lbl_GoBack.setText("No, Return to Service Form");
-        lbl_GoBack.addActionListener(new java.awt.event.ActionListener() {
+        btn_IncorrectServiceCode.setText("No, Change service code");
+        btn_IncorrectServiceCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lbl_GoBackActionPerformed(evt);
+                btn_IncorrectServiceCodeActionPerformed(evt);
             }
         });
 
-        lbl_Yes.setText("Yes, Continue");
-        lbl_Yes.addActionListener(new java.awt.event.ActionListener() {
+        btn_CorrectServiceCode.setText("Yes, Continue");
+        btn_CorrectServiceCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lbl_YesActionPerformed(evt);
+                btn_CorrectServiceCodeActionPerformed(evt);
             }
         });
 
@@ -65,18 +81,18 @@ public class ValidateServiceCode extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(108, 108, 108)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbl_GoBack)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lbl_ServiceName)
-                                .addComponent(lbl_ServiceCode, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbl_ServiceName, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                            .addComponent(lbl_ServiceCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(121, 121, 121)
                         .addComponent(lbl_CheckCorrectService))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(lbl_Yes, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(125, Short.MAX_VALUE))
+                        .addGap(100, 100, 100)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btn_CorrectServiceCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_IncorrectServiceCode, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,24 +104,22 @@ public class ValidateServiceCode extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addComponent(lbl_CheckCorrectService)
                 .addGap(18, 18, 18)
-                .addComponent(lbl_Yes)
-                .addGap(13, 13, 13)
-                .addComponent(lbl_GoBack)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addComponent(btn_CorrectServiceCode)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_IncorrectServiceCode)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lbl_GoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_GoBackActionPerformed
-        this.setVisible(false);
-        new ServiceDetails().setVisible(true);
-    }//GEN-LAST:event_lbl_GoBackActionPerformed
+    private void btn_IncorrectServiceCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_IncorrectServiceCodeActionPerformed
 
-    private void lbl_YesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_YesActionPerformed
-        this.setVisible(false);
-        new ServiceForm().setVisible(true);
-    }//GEN-LAST:event_lbl_YesActionPerformed
+    }//GEN-LAST:event_btn_IncorrectServiceCodeActionPerformed
+
+    private void btn_CorrectServiceCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CorrectServiceCodeActionPerformed
+
+    }//GEN-LAST:event_btn_CorrectServiceCodeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,29 +138,30 @@ public class ValidateServiceCode extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ValidateServiceCode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ValidateServiceCodeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ValidateServiceCode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ValidateServiceCodeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ValidateServiceCode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ValidateServiceCodeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ValidateServiceCode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ValidateServiceCodeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ValidateServiceCode().setVisible(true);
+                new ValidateServiceCodeView().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_CorrectServiceCode;
+    private javax.swing.JButton btn_IncorrectServiceCode;
     private javax.swing.JLabel lbl_CheckCorrectService;
-    private javax.swing.JButton lbl_GoBack;
     private javax.swing.JLabel lbl_ServiceCode;
     private javax.swing.JLabel lbl_ServiceName;
-    private javax.swing.JButton lbl_Yes;
     // End of variables declaration//GEN-END:variables
 }

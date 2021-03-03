@@ -25,79 +25,73 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btn_manageproviders" max="32767" attributes="0"/>
-                          <Component id="btn_managemembers" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btn_reports" alignment="0" pref="127" max="32767" attributes="0"/>
-                          <Component id="btn_records" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="btn_back1" min="-2" pref="36" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
                       <Component id="lbl_menu" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btn_ManageProviders" max="32767" attributes="0"/>
+                          <Component id="btn_ManageMembers" min="-2" pref="155" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btn_Records" max="32767" attributes="0"/>
+                          <Component id="btn_Reports" min="-2" pref="155" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace pref="59" max="32767" attributes="0"/>
+              <EmptySpace pref="19" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="lbl_menu" min="-2" pref="30" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lbl_menu" min="-2" pref="30" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="btn_back1" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btn_manageproviders" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btn_reports" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_ManageProviders" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
+                  <Component id="btn_Reports" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btn_managemembers" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btn_records" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btn_ManageMembers" max="32767" attributes="0"/>
+                  <Component id="btn_Records" min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="139" max="32767" attributes="0"/>
+              <EmptySpace pref="41" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="btn_records">
+    <Component class="javax.swing.JButton" name="btn_Records">
       <Properties>
         <Property name="text" type="java.lang.String" value="Records"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_recordsActionPerformed"/>
-      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_reports">
+    <Component class="javax.swing.JButton" name="btn_Reports">
       <Properties>
         <Property name="text" type="java.lang.String" value="Reports"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_reportsActionPerformed"/>
-      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_managemembers">
+    <Component class="javax.swing.JButton" name="btn_ManageMembers">
       <Properties>
         <Property name="text" type="java.lang.String" value="Manage Members"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_managemembersActionPerformed"/>
-      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_manageproviders">
+    <Component class="javax.swing.JButton" name="btn_ManageProviders">
       <Properties>
         <Property name="text" type="java.lang.String" value="Manage Providers"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_manageprovidersActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbl_menu">
       <Properties>
@@ -105,6 +99,16 @@
           <Font name="Tahoma" size="12" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Main Menu"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_back1">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Resources/go-back-left-arrow.png"/>
+        </Property>
+        <Property name="borderPainted" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
+        <Property name="focusPainted" type="boolean" value="false"/>
       </Properties>
     </Component>
   </SubComponents>

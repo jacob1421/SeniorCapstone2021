@@ -6,7 +6,7 @@
 package chocanon.Views;
 
 /* 
-    File: Reports.java
+    File: ReportsView.java
     Project: COSC-4360 Capstone Project Team #0
     University: McMurry University
     Course: COSC–4360 Spring 2021
@@ -19,12 +19,12 @@ package chocanon.Views;
     Compiler: Apache NetBeans IDE for Java SE
     Description: Contain buttons to different reports.
  */
-public class Reports extends javax.swing.JFrame {
+public class ReportsView extends javax.swing.JFrame {
 
     /**
      * Creates new form Reports
      */
-    public Reports() {
+    public ReportsView() {
         initComponents();
     }
 
@@ -38,18 +38,25 @@ public class Reports extends javax.swing.JFrame {
     private void initComponents() {
 
         lbl_Reports = new javax.swing.JLabel();
+        btn_back1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbl_Reports.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lbl_Reports.setText("Reports");
 
+        btn_back1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/go-back-left-arrow.png"))); // NOI18N
+        btn_back1.setBorderPainted(false);
+        btn_back1.setContentAreaFilled(false);
+        btn_back1.setFocusPainted(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(135, 135, 135)
+                .addComponent(btn_back1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91)
                 .addComponent(lbl_Reports)
                 .addContainerGap(143, Short.MAX_VALUE))
         );
@@ -59,6 +66,9 @@ public class Reports extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lbl_Reports)
                 .addContainerGap(245, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(btn_back1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -81,25 +91,27 @@ public class Reports extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Reports.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Reports.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Reports.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Reports.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Reports().setVisible(true);
+                new ReportsView().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_back1;
     private javax.swing.JLabel lbl_Reports;
     // End of variables declaration//GEN-END:variables
 }
