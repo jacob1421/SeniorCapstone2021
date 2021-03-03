@@ -52,6 +52,11 @@ public class Service {
         /* Do the database functionality to get a service from the database by service code*/
         return serviceFound;
     }
+    public static Service[] getAllServices(){
+        Service[] allServices = null;
+        /* Do database functionality to get all the services */
+        return allServices;
+    }
     
     @Override
     public String toString(){

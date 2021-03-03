@@ -104,6 +104,23 @@ public class Visit {
        this.databaseId = databaseId;
     }
     
+    //Static getters
+    public static Visit[] getVisitsByCardNumber(int cardNumber, Date startDate, Date endDate){
+        Visit memberVisits[] = null;
+        //Database call to get all the member visits within the startDate to the endDate
+        return memberVisits;
+    }
+    public static Visit[] getVisitsByProviderNumber(int providerNumber, Date startDate, Date endDate){
+        Visit memberVisits[] = null;
+        //Database call to get all the provider visits within the startDate to the endDate
+        return memberVisits;
+    }
+    public static Visit[] getVisitsByDate(Date startDate, Date endDate){
+        Visit memberVisits[] = null;
+        //Database call to get all the visits within the startDate to the endDate
+        return memberVisits;
+    }
+    
     @Override
     public String toString(){
        return(
