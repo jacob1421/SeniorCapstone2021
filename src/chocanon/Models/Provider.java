@@ -63,7 +63,7 @@ public class Provider extends Person{
             Connection conn = dbConn.getDatabaseConnection();
             Statement stmt = conn.createStatement();
             //Query
-            String strSelect = String.format("SELECT provider_id, first_name, last_name, street_address, city, state, zip_code, provider_number, providertypes.provider_type, provider_email FROM chocanon_db.providers JOIN providertypes ON providers.provider_type_id = providertypes.provider_type_id WHERE provider_number = %s LIMIT 1;", providerNumber);
+            String strSelect = String.format("SELECT provider_id, first_name, last_name, street_address, city, state, zip_code, provider_number, providertypes.provider_type, provider_email FROM providers JOIN providertypes ON providers.provider_type_id = providertypes.provider_type_id WHERE provider_number = %s LIMIT 1;", providerNumber);
             //Execute Query
             ResultSet rset = stmt.executeQuery(strSelect);
             //Get Results
