@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package chocanon;
+package ProviderTerminal.Views;
+
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,7 +20,22 @@ public class ProvideAService extends javax.swing.JFrame {
     public ProvideAService() {
         initComponents();
     }
-
+    
+    //Setters
+    public void setSearchButtonListener(ActionListener e){
+        btn_Continue.addActionListener(e);
+    }
+    
+    //Getters
+    public String getUserInput(){
+        return txt_ProviderNbr.getText();
+    }
+    
+    //Methods
+    public void showMessageBox(String message) {
+        JOptionPane.showMessageDialog(this, message);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -91,8 +109,7 @@ public class ProvideAService extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_ContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ContinueActionPerformed
-        this.setVisible(false);
-        new ProvideAServiceMenu().setVisible(true);
+
     }//GEN-LAST:event_btn_ContinueActionPerformed
 
     private void txt_ProviderNbrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ProviderNbrActionPerformed

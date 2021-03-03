@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package chocanon;
+package ProviderTerminal.Views;
 
 /**
  *
  * @author ljcla
  */
-public class SwipeMemberCard extends javax.swing.JFrame {
+public class ValidMember extends javax.swing.JFrame {
 
     /**
-     * Creates new form SwipeMemberCard
+     * Creates new form ValidMember
      */
-    public SwipeMemberCard() {
+    public ValidMember() {
         initComponents();
     }
 
@@ -27,19 +27,22 @@ public class SwipeMemberCard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbl_SwipeMemberCard = new javax.swing.JLabel();
-        btn_OK = new javax.swing.JButton();
+        lbl_Validated = new javax.swing.JLabel();
+        btn_Continue = new javax.swing.JButton();
+        lbl_ValidMember = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lbl_SwipeMemberCard.setText("Please Swipe Member Card");
+        lbl_Validated.setText("Validated");
 
-        btn_OK.setText("OK");
-        btn_OK.addActionListener(new java.awt.event.ActionListener() {
+        btn_Continue.setText("Continue");
+        btn_Continue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_OKActionPerformed(evt);
+                btn_ContinueActionPerformed(evt);
             }
         });
+
+        lbl_ValidMember.setText("Member 123456789 is a current valid member");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -48,30 +51,36 @@ public class SwipeMemberCard extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(btn_OK, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(164, 164, 164)
+                        .addComponent(lbl_Validated))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addComponent(lbl_SwipeMemberCard)))
-                .addContainerGap(144, Short.MAX_VALUE))
+                        .addGap(133, 133, 133)
+                        .addComponent(btn_Continue, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 82, Short.MAX_VALUE)
+                .addComponent(lbl_ValidMember, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(lbl_SwipeMemberCard)
-                .addGap(32, 32, 32)
-                .addComponent(btn_OK)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addComponent(lbl_Validated)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_ValidMember, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(btn_Continue)
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_OKActionPerformed
+    private void btn_ContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ContinueActionPerformed
         this.setVisible(false);
-        new ValidMember().setVisible(true);
-    }//GEN-LAST:event_btn_OKActionPerformed
+        new SwipeMemberCard2().setVisible(true);
+    }//GEN-LAST:event_btn_ContinueActionPerformed
 
     /**
      * @param args the command line arguments
@@ -90,26 +99,27 @@ public class SwipeMemberCard extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SwipeMemberCard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ValidMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SwipeMemberCard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ValidMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SwipeMemberCard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ValidMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SwipeMemberCard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ValidMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SwipeMemberCard().setVisible(true);
+                new ValidMember().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_OK;
-    private javax.swing.JLabel lbl_SwipeMemberCard;
+    private javax.swing.JButton btn_Continue;
+    private javax.swing.JLabel lbl_ValidMember;
+    private javax.swing.JLabel lbl_Validated;
     // End of variables declaration//GEN-END:variables
 }

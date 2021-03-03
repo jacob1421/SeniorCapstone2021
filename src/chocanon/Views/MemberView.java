@@ -6,6 +6,7 @@
 package chocanon.Views;
 
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,9 +31,10 @@ public class MemberView extends javax.swing.JFrame {
         return txt_SearchText.getText();
     }
     
-    
-    
-    
+    //Methods
+    public void showMessageBox(String message) {
+        JOptionPane.showMessageDialog(this, message);
+    }
     
     
     /**

@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package chocanon;
+package ProviderTerminal.Views;
 
 /**
  *
  * @author ljcla
  */
-public class ValidMember2 extends javax.swing.JFrame {
+public class SwipeMemberCard extends javax.swing.JFrame {
 
     /**
-     * Creates new form ValidMember2
+     * Creates new form SwipeMemberCard
      */
-    public ValidMember2() {
+    public SwipeMemberCard() {
         initComponents();
     }
 
@@ -27,20 +27,17 @@ public class ValidMember2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbl_Validated = new javax.swing.JLabel();
-        lbl_Validmember = new javax.swing.JLabel();
-        btn_ContinueToServiceForm = new javax.swing.JButton();
+        lbl_SwipeMemberCard = new javax.swing.JLabel();
+        btn_OK = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lbl_Validated.setText("Validated");
+        lbl_SwipeMemberCard.setText("Please Swipe Member Card");
 
-        lbl_Validmember.setText("Member 123456789 is a current valid member");
-
-        btn_ContinueToServiceForm.setText("Continue To Service Form");
-        btn_ContinueToServiceForm.addActionListener(new java.awt.event.ActionListener() {
+        btn_OK.setText("OK");
+        btn_OK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ContinueToServiceFormActionPerformed(evt);
+                btn_OKActionPerformed(evt);
             }
         });
 
@@ -51,35 +48,30 @@ public class ValidMember2 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addComponent(lbl_Validated))
+                        .addGap(149, 149, 149)
+                        .addComponent(btn_OK, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(lbl_Validmember, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(btn_ContinueToServiceForm, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(87, Short.MAX_VALUE))
+                        .addGap(126, 126, 126)
+                        .addComponent(lbl_SwipeMemberCard)))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(lbl_Validated)
-                .addGap(18, 18, 18)
-                .addComponent(lbl_Validmember)
-                .addGap(38, 38, 38)
-                .addComponent(btn_ContinueToServiceForm)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addGap(100, 100, 100)
+                .addComponent(lbl_SwipeMemberCard)
+                .addGap(32, 32, 32)
+                .addComponent(btn_OK)
+                .addContainerGap(131, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_ContinueToServiceFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ContinueToServiceFormActionPerformed
+    private void btn_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_OKActionPerformed
         this.setVisible(false);
-        new ServiceDetails().setVisible(true);
-    }//GEN-LAST:event_btn_ContinueToServiceFormActionPerformed
+        new ValidMember().setVisible(true);
+    }//GEN-LAST:event_btn_OKActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,27 +90,26 @@ public class ValidMember2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ValidMember2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SwipeMemberCard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ValidMember2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SwipeMemberCard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ValidMember2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SwipeMemberCard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ValidMember2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SwipeMemberCard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ValidMember2().setVisible(true);
+                new SwipeMemberCard().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_ContinueToServiceForm;
-    private javax.swing.JLabel lbl_Validated;
-    private javax.swing.JLabel lbl_Validmember;
+    private javax.swing.JButton btn_OK;
+    private javax.swing.JLabel lbl_SwipeMemberCard;
     // End of variables declaration//GEN-END:variables
 }

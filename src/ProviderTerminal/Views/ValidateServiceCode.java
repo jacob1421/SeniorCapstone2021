@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package chocanon;
+package ProviderTerminal.Views;
+
+import ProviderTerminal.Views.ServiceDetails;
 
 /**
  *
@@ -102,7 +104,7 @@ public class ValidateServiceCode extends javax.swing.JFrame {
 
     private void lbl_YesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_YesActionPerformed
         this.setVisible(false);
-        new ServiceFees().setVisible(true);
+        new ServiceForm().setVisible(true);
     }//GEN-LAST:event_lbl_YesActionPerformed
 
     /**

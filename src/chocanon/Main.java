@@ -5,6 +5,7 @@
  */
 package chocanon;
 
+import ProviderTerminal.Controllers.ProvideAServiceController;
 import chocanon.Controllers.MemberController;
 import chocanon.Models.Member;
 import chocanon.Views.MemberView;
@@ -69,6 +70,11 @@ public class Main extends javax.swing.JFrame {
         lbl_subHeadingClassYear.setText("COSC-4360 Spring 2021");
 
         btn_StartProvider.setText("Start Provider Terminal");
+        btn_StartProvider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_StartProviderActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,11 +125,13 @@ public class Main extends javax.swing.JFrame {
 
     private void btn_StartChocoholicsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_StartChocoholicsActionPerformed
         // TODO add your handling code here:
-        MemberView v = new MemberView();
-        Member mem = new Member("JAcob", "test", "", "", "", 123123, 4214124, true);
-        MemberController c = new MemberController(mem, v);
-        v.setVisible(true);
+        new MemberController();
     }//GEN-LAST:event_btn_StartChocoholicsActionPerformed
+
+    private void btn_StartProviderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_StartProviderActionPerformed
+        // TODO add your handling code here:
+        new ProvideAServiceController();
+    }//GEN-LAST:event_btn_StartProviderActionPerformed
 
     /**
      * @param args the command line arguments

@@ -21,9 +21,12 @@ public class Member extends Person{
     private int cardNumber = 0; //9 Digit Card Number - Page 627
     private boolean activeMember = false;
     
-    //Constructor
-    public Member(String firstName, String lastName, String streetAddress, String city, String state, int zipCode, int cardNumber, boolean activeMember){
-        super(firstName, lastName, streetAddress, city, state, zipCode);
+    //Constructors
+    public Member(){
+    }
+    
+    public Member(String firstName, String lastName, String streetAddress, String city, String state, int zipCode, int cardNumber, String emailAddress, boolean activeMember){
+        super(firstName, lastName, streetAddress, city, state, zipCode, emailAddress);
         this.cardNumber = cardNumber;
         this.activeMember = activeMember;
     }

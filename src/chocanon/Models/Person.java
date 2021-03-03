@@ -23,15 +23,20 @@ public class Person {
     private String city = "";
     private String state = "";
     private int zipCode = 0;
+    private String emailAddress = "";
     
-    //Constructor
-    public Person(String firstName, String lastName, String streetAddress, String city, String state, int zipCode){
+    //Constructors
+    public Person(){
+    }
+    
+    public Person(String firstName, String lastName, String streetAddress, String city, String state, int zipCode, String emailAddress){
        this.firstName = firstName;
        this.lastName = lastName;
        this.streetAddress = streetAddress;
        this.city = city;
        this.state = state;
        this.zipCode = zipCode;
+       this.emailAddress = emailAddress;
     }
     
     //Getters
@@ -59,6 +64,11 @@ public class Person {
         return this.zipCode;
     }
     
+    public String getEmailAddress(){
+        return this.emailAddress;
+    }
+    
+    
     //Setters
     public void setFirstName(String firstName){
         this.firstName = firstName;
@@ -82,6 +92,10 @@ public class Person {
     
     public void setZipCode(int zipCode){
         this.zipCode = zipCode;
+    }
+    
+    public void setEmailAddress(String emailAddress){
+        this.emailAddress = emailAddress;
     }
     
 }

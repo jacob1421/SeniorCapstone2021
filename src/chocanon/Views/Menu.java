@@ -3,7 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package chocanon;
+package chocanon.Views;
+
+import chocanon.Views.Reports;
+import ProviderTerminal.Views.RequestDirectory;
+import ProviderTerminal.Views.ProvideAService;
+import chocanon.ManageMember;
+import chocanon.Records;
 
 /**
  *
@@ -29,11 +35,8 @@ public class Menu extends javax.swing.JFrame {
 
         btn_records = new javax.swing.JButton();
         btn_reports = new javax.swing.JButton();
-        btn_provideservice = new javax.swing.JButton();
         btn_managemembers = new javax.swing.JButton();
-        btn_manageservice = new javax.swing.JButton();
         btn_manageproviders = new javax.swing.JButton();
-        btn_requestdirectory = new javax.swing.JButton();
         lbl_menu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,13 +55,6 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        btn_provideservice.setText("Provide Service");
-        btn_provideservice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_provideserviceActionPerformed(evt);
-            }
-        });
-
         btn_managemembers.setText("Manage Members");
         btn_managemembers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,24 +62,10 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        btn_manageservice.setText("Manage Service");
-        btn_manageservice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_manageserviceActionPerformed(evt);
-            }
-        });
-
         btn_manageproviders.setText("Manage Providers");
         btn_manageproviders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_manageprovidersActionPerformed(evt);
-            }
-        });
-
-        btn_requestdirectory.setText("Request Directory");
-        btn_requestdirectory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_requestdirectoryActionPerformed(evt);
             }
         });
 
@@ -95,43 +77,35 @@ public class Menu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_records, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_managemembers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_provideservice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_reports, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btn_requestdirectory, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_manageproviders, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_manageservice, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(64, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(159, 159, 159)
-                .addComponent(lbl_menu)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btn_manageproviders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_managemembers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btn_reports, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                            .addComponent(btn_records, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(159, 159, 159)
+                        .addComponent(lbl_menu)))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbl_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
+                .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_records)
-                    .addComponent(btn_manageservice))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_reports)
-                    .addComponent(btn_manageproviders))
-                .addGap(18, 18, 18)
+                    .addComponent(btn_manageproviders)
+                    .addComponent(btn_reports))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_managemembers)
-                    .addComponent(btn_requestdirectory))
-                .addGap(18, 18, 18)
-                .addComponent(btn_provideservice)
-                .addContainerGap(57, Short.MAX_VALUE))
+                    .addComponent(btn_records))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         pack();
@@ -154,29 +128,11 @@ public class Menu extends javax.swing.JFrame {
         new ManageMember().setVisible(true);
     }//GEN-LAST:event_btn_managemembersActionPerformed
 
-    private void btn_provideserviceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_provideserviceActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        new ProvideAService().setVisible(true);
-    }//GEN-LAST:event_btn_provideserviceActionPerformed
-
-    private void btn_manageserviceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_manageserviceActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        new ManageMember().setVisible(true);
-    }//GEN-LAST:event_btn_manageserviceActionPerformed
-
     private void btn_manageprovidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_manageprovidersActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         //new Provide().setVisible(true);
     }//GEN-LAST:event_btn_manageprovidersActionPerformed
-
-    private void btn_requestdirectoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_requestdirectoryActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        new RequestDirectory().setVisible(true);
-    }//GEN-LAST:event_btn_requestdirectoryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,11 +173,8 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_managemembers;
     private javax.swing.JButton btn_manageproviders;
-    private javax.swing.JButton btn_manageservice;
-    private javax.swing.JButton btn_provideservice;
     private javax.swing.JButton btn_records;
     private javax.swing.JButton btn_reports;
-    private javax.swing.JButton btn_requestdirectory;
     private javax.swing.JLabel lbl_menu;
     // End of variables declaration//GEN-END:variables
 }

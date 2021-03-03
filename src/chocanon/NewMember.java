@@ -13,12 +13,12 @@ import javax.swing.JOptionPane;
  *
  * @author treyfambrough
  */
-public class addNewMember extends javax.swing.JFrame {
+public class NewMember extends javax.swing.JFrame {
 
     /**
      * Creates new form addNewMember
      */
-    public addNewMember() {
+    public NewMember() {
         initComponents();
     }
     
@@ -70,16 +70,12 @@ public class addNewMember extends javax.swing.JFrame {
         setTitle("Add New Member");
         setBackground(new java.awt.Color(200, 200, 200));
 
-        jPanel2.setBackground(new java.awt.Color(51, 153, 255));
-
         btn_Back.setText("Back");
         btn_Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_BackActionPerformed(evt);
             }
         });
-
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
         btn_addMem.setText("Add Member");
         btn_addMem.addActionListener(new java.awt.event.ActionListener() {
@@ -335,20 +331,21 @@ public class addNewMember extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(addNewMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(addNewMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(addNewMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(addNewMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new addNewMember().setVisible(true);
+                new NewMember().setVisible(true);
             }
         });
     }

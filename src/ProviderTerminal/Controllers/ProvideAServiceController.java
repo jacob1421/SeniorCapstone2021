@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package chocanon.Controllers;
+package ProviderTerminal.Controllers;
 
-import chocanon.Models.Member;
-import chocanon.Views.MemberView;
+import ProviderTerminal.Views.ProvideAService;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,23 +13,12 @@ import java.awt.event.ActionListener;
  *
  * @author jakeb
  */
-public class MemberController{
-    private Member[] model = new Member[20]; //Max query of 20 members at a time.
-    private MemberView view = new MemberView();
+public class ProvideAServiceController {
+    private ProvideAService view = new ProvideAService();
     
-    public MemberController(){
+    public ProvideAServiceController(){
         this.view.setVisible(true);
         view.setSearchButtonListener(new SearchListener());
-    }
-
-    //Setters for Model
-    public void setMemberFirstName(String firstName){
-        //this.model.setFirstName(firstName);
-    }
-    
-    //Setters for View
-    public void updateView(){
-        
     }
     
     //Inner Classes
@@ -38,11 +26,11 @@ public class MemberController{
         public void actionPerformed(ActionEvent e) {
             String userInput = view.getUserInput();
             if(userInput.equals("")){
-                view.showMessageBox("Please provide search input");
+                view.showMessageBox("Please provide a provider number");
             }else{
+                //Look up to see if the provider number exists in the database.
                 System.out.println(userInput);
             }
         }
     }
-    
 }

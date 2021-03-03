@@ -22,13 +22,17 @@ public class Service {
     private int code = 0;
     private BigDecimal fee = null;
     
-    //Constructor
+    //Constructors
+    public Service(){
+    }
+    
     public Service(String name, int code, BigDecimal fee){
         this.name = name;
         this.code = code;
         this.fee = fee;
     }
     
+    //Getters
     public String getServiceName(){
         return this.name;
     }
