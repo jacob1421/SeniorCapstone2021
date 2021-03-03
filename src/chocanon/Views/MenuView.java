@@ -73,7 +73,7 @@ public class MenuView extends javax.swing.JFrame {
 
         btn_ManageProviders.setText("Manage Providers");
 
-        lbl_menu.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbl_menu.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         lbl_menu.setText("Main Menu");
 
         btn_BackButtonMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/go-back-left-arrow.png"))); // NOI18N
@@ -89,7 +89,7 @@ public class MenuView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btn_BackButtonMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(123, 123, 123)
+                        .addGap(65, 65, 65)
                         .addComponent(lbl_menu))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)

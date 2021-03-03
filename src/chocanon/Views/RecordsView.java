@@ -56,7 +56,7 @@ public class RecordsView extends javax.swing.JFrame {
 
         btn_eftrecords.setText("EFT Records");
 
-        lbl_records.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbl_records.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         lbl_records.setText("Records");
 
         btn_RecordsBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/go-back-left-arrow.png"))); // NOI18N
@@ -84,11 +84,11 @@ public class RecordsView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_RecordsBack)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lbl_records, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btn_RecordsBack))
-                .addGap(59, 59, 59)
+                        .addComponent(lbl_records, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_servicerecords, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_eftrecords, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
