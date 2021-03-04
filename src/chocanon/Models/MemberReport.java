@@ -14,8 +14,6 @@
  */
 package chocanon.Models;
 
-import java.util.Date;
-
 
 public class MemberReport {
     //Data Attributes

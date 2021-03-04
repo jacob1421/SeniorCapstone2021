@@ -15,8 +15,6 @@
 package chocanon.Models;
 
 import java.math.BigDecimal;
-import java.util.Date;
-
 /**
  *
  * @author jakeb

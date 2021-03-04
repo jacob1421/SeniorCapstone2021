@@ -27,8 +27,6 @@ import java.util.Locale;
 
 public class Visit {
     //Date Format
-//    SimpleDateFormat currentDateTimeFormatter = new SimpleDateFormat("MM-dd-YYYY HH:mm:ss");
-//    SimpleDateFormat dateOfServiceFormatter = new SimpleDateFormat("MM-dd-YYYY");
     SimpleDateFormat currentDateTimeFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
     SimpleDateFormat dateOfServiceFormatter = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
     
