@@ -18,6 +18,7 @@ import Logger.Log;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;  
 import java.util.ArrayList;
@@ -27,8 +28,8 @@ import java.util.Locale;
 
 public class Visit {
     //Date Format
-    SimpleDateFormat currentDateTimeFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
-    SimpleDateFormat dateOfServiceFormatter = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+    SimpleDateFormat currentDateTimeFormatter = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss", Locale.ENGLISH);
+    SimpleDateFormat dateOfServiceFormatter = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
     
     //Data Attributes
     private Date receivedVisitDateTime = null; //Date and time that the visit was recieved by chocanon
@@ -44,6 +45,16 @@ public class Visit {
     
     }
     
+    //Constructor for saving a visit
+    public Visit(Provider providerInfo, Member memberInfo, Service serviceInfo, String dateOfService, String comment) throws ParseException{
+        this.providerInfo = providerInfo;
+        this.memberInfo = memberInfo;
+        this.serviceInfo = serviceInfo;
+        this.comment = comment;
+        this.dateOfService = dateOfServiceFormatter.parse(dateOfService);
+    }
+    
+    //Constructor for loading a visit
     public Visit(int databaseId, Provider providerInfo, Member memberInfo, Service serviceInfo, String dateOfService, String receivedVisitDateTime, String comment) throws ParseException{
         this.providerInfo = providerInfo;
         this.memberInfo = memberInfo;
@@ -55,12 +66,12 @@ public class Visit {
     }
     
     //Getters
-    public Date getVisitDate(){
-        return this.dateOfService;
+    public String getVisitDate(){
+        return dateOfServiceFormatter.format(this.dateOfService);
     }
     
-    public Date getReceivedVisitDateTime(){
-        return this.receivedVisitDateTime;
+    public String getReceivedVisitDateTime(){
+        return currentDateTimeFormatter.format(this.receivedVisitDateTime);
     }
     
     public Provider getProviderInfo(){
@@ -84,14 +95,6 @@ public class Visit {
     }
     
     //Setters
-    public void setVisitDate(String dateOfService) throws ParseException{
-        this.dateOfService = dateOfServiceFormatter.parse(dateOfService);
-    }
-    
-    public void setReceivedVisitDateTime(String receivedVisitDateTime) throws ParseException{
-        this.receivedVisitDateTime = currentDateTimeFormatter.parse(receivedVisitDateTime);
-    }
-    
     public void setProviderInfo(Provider providerInfo){
         this.providerInfo = providerInfo;
     }
@@ -109,6 +112,39 @@ public class Visit {
     }
     public void setDatabaseId(int databaseId){
        this.databaseId = databaseId;
+    }
+    
+    //Methods
+    public static String convertDateFormat(String date, String current_date_format, String new_date_format) throws ParseException{
+        DateFormat current_format = new SimpleDateFormat(current_date_format);
+        DateFormat new_format = new SimpleDateFormat(new_date_format);
+        Date date_current = current_format.parse(date);
+        return new_format.format(date_current);
+    }
+    
+    public int saveToDatabase(){
+        int affectedRows = 0;
+        try {
+            //Create Database Connection
+            DatabaseConnector dbConn = new DatabaseConnector();
+            Connection conn = dbConn.getDatabaseConnection();
+            Statement stmt = conn.createStatement();
+            //Query
+            String strSelect = String.format("INSERT INTO chocanon_db.visits(provider_id, member_id, service_id, visit_date, comment) VALUES(%s,%s,%s,'%s','%s');", this.providerInfo.getDatabaseId(), this.memberInfo.getDatabaseId(), this.serviceInfo.getDatabaseId(), Visit.convertDateFormat(this.getVisitDate(), "MM-dd-yyyy", "yyyy-MM-dd"), this.comment);
+            Log.debug("Visit", "Query: " + strSelect);
+            //Execute Query
+            affectedRows = stmt.executeUpdate(strSelect);
+            if(affectedRows > 0){
+                Log.debug("Visit", affectedRows + " rows were affected.");
+            }else{
+                Log.debug("Visit", "Save To Database Failed..");
+            }
+            //Close database
+            dbConn.closeDatabaseConnection();
+        } catch (Exception ex) {
+            Log.error("Visit", ex.toString());
+        }  
+        return affectedRows;
     }
     
     //Static getters
@@ -132,10 +168,11 @@ public class Visit {
                         Provider.getProviderByProviderDbId(rset.getInt("provider_id")),
                         Member.getMemberByMemberDbId(rset.getInt("member_id")),
                         Service.getServiceByServiceId(rset.getInt("service_id")),
-                        rset.getString("visit_date"),
-                        rset.getString("received_visit_ts"),
+                        Visit.convertDateFormat(rset.getString("visit_date"), "yyyy-MM-dd", "MM-dd-yyyy"),
+                        Visit.convertDateFormat(rset.getString("received_visit_ts"), "yyyy-MM-dd HH:mm:ss", "MM-dd-yyyy HH:mm:ss"),
                         rset.getString("comment")
                 );
+                
                 Log.debug("Visit", "Found Visit: \n" + v.toString());
                 //Add Visit
                 memberVisits.add(v);
@@ -175,8 +212,8 @@ public class Visit {
                         Provider.getProviderByProviderDbId(rset.getInt("provider_id")),
                         Member.getMemberByMemberDbId(rset.getInt("member_id")),
                         Service.getServiceByServiceId(rset.getInt("service_id")),
-                        rset.getString("visit_date"),
-                        rset.getString("received_visit_ts"),
+                        Visit.convertDateFormat(rset.getString("visit_date"), "yyyy-MM-dd", "MM-dd-yyyy"),
+                        Visit.convertDateFormat(rset.getString("received_visit_ts"), "yyyy-MM-dd HH:mm:ss", "MM-dd-yyyy HH:mm:ss"),
                         rset.getString("comment")
                 );
                 Log.debug("Visit", "Found Visit: \n" + v.toString());
@@ -218,8 +255,8 @@ public class Visit {
                         Provider.getProviderByProviderDbId(rset.getInt("provider_id")),
                         Member.getMemberByMemberDbId(rset.getInt("member_id")),
                         Service.getServiceByServiceId(rset.getInt("service_id")),
-                        rset.getString("visit_date"),
-                        rset.getString("received_visit_ts"),
+                        Visit.convertDateFormat(rset.getString("visit_date"), "yyyy-MM-dd", "MM-dd-yyyy"),
+                        Visit.convertDateFormat(rset.getString("received_visit_ts"), "yyyy-MM-dd HH:mm:ss", "MM-dd-yyyy HH:mm:ss"),
                         rset.getString("comment")
                 );
                 Log.debug("Visit", "Found Visit: \n" + v.toString());
@@ -242,14 +279,19 @@ public class Visit {
     
     @Override
     public String toString(){
+       String recVDT = "";
+       if(this.receivedVisitDateTime != null){
+            recVDT = currentDateTimeFormatter.format(this.receivedVisitDateTime);
+       }
        return(
        "--------------------------------------------------------------------\n" +
                "Database Id: " + this.getDatabaseId() + "\n" +
-               "Received By Computer Date: " + this.receivedVisitDateTime.toString() + "\n" +
+         
+               "Received By Computer Date: " + recVDT + "\n" +
                "Provider Info: " + this.getProviderInfo().toString() +
                "Member Info: " + this.getMemberInfo().toString() +
                "Service Info: " + this.getServiceInfo().toString() +
-               "Visit Date: " + this.dateOfService.toString() + "\n" +
+               "Visit Date: " + dateOfServiceFormatter.format(this.dateOfService) + "\n" +
                "Comment: " + this.comment +
         "\n--------------------------------------------------------------------\n"
         );

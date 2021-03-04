@@ -17,6 +17,7 @@ package ProviderTerminal.Views;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,6 +35,12 @@ public class ServiceDetailsView extends javax.swing.JFrame {
     //Getters
     public String getServiceCodeTxt(){
         return txt_ServiceCode.getText();
+    }
+    public String getAdditionalComment(){
+        return txt_AdditionalComments.getText();
+    }
+    public String getDateOfService(){
+        return txt_DOS.getText();
     }
     
     //Setters
@@ -56,6 +63,9 @@ public class ServiceDetailsView extends javax.swing.JFrame {
         lbl_FeedbackMessage.setForeground(messageColor);
         lbl_FeedbackMessage.setText(feedbackMessage);
     } 
+    public void showMessageBox(String message) {
+        JOptionPane.showMessageDialog(this, message);
+    }
     
     //Methods
     public void setFocusServiceCode(){
