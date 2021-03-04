@@ -22,7 +22,7 @@ public class MemberReport {
     private Member mem = null;
     private Visit[] memberVisits = null;
     
-    public MemberReport(Member mem, Date startDate, Date endDate){
+    public MemberReport(Member mem, String startDate, String endDate){
         //Set the member for the report
         this.mem = mem;
         //Get the members visits between the start and end date

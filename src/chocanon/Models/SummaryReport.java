@@ -25,7 +25,7 @@ public class SummaryReport {
     //Data Attributes
     private Visit[] providerVisits = null;
     
-    public SummaryReport(Date startDate, Date endDate){
+    public SummaryReport(String startDate, String endDate){
         this.providerVisits = Visit.getVisitsByDate(startDate, endDate);
     }
     

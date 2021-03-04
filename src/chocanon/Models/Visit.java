@@ -14,14 +14,23 @@
  */
 package chocanon.Models;
 import Database.DatabaseConnector;
+import Logger.Log;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;  
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.Locale;
 
 public class Visit {
     //Date Format
-    SimpleDateFormat currentDateTimeFormatter = new SimpleDateFormat("MM-dd-YYYY HH:mm:ss");
-    SimpleDateFormat dateOfServiceFormatter = new SimpleDateFormat("MM-dd-YYYY");
+//    SimpleDateFormat currentDateTimeFormatter = new SimpleDateFormat("MM-dd-YYYY HH:mm:ss");
+//    SimpleDateFormat dateOfServiceFormatter = new SimpleDateFormat("MM-dd-YYYY");
+    SimpleDateFormat currentDateTimeFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
+    SimpleDateFormat dateOfServiceFormatter = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
     
     //Data Attributes
     private Date receivedVisitDateTime = null; //Date and time that the visit was recieved by chocanon
@@ -105,20 +114,132 @@ public class Visit {
     }
     
     //Static getters
-    public static Visit[] getVisitsByCardNumber(int cardNumber, Date startDate, Date endDate){
-        Visit memberVisits[] = null;
-        //Database call to get all the member visits within the startDate to the endDate
-        return memberVisits;
+    public static Visit[] getVisitsByCardNumber(int cardNumber, String startDate, String endDate){
+        ArrayList<Visit> memberVisits = new ArrayList<>(); 
+        try {
+            //Create Database Connection
+            DatabaseConnector dbConn = new DatabaseConnector();
+            Connection conn = dbConn.getDatabaseConnection();
+            Statement stmt = conn.createStatement();
+            //Query
+            String strSelect = String.format("SELECT visit_id, provider_id, chocanon_db.visits.member_id, service_id, visit_date, comment, received_visit_ts FROM chocanon_db.visits JOIN members ON members.member_id = chocanon_db.visits.member_id WHERE card_number = %s AND visit_date BETWEEN CAST('%s' AS DATE) AND CAST('%s' AS DATE)", cardNumber, startDate, endDate);
+            Log.debug("Visit", "Query: " + strSelect);
+            //Execute Query
+            ResultSet rset = stmt.executeQuery(strSelect);
+            //Get Results
+            while (rset.next()) {
+                //Build the visit
+                Visit v = new Visit(
+                        rset.getInt("visit_id"),
+                        Provider.getProviderByProviderDbId(rset.getInt("provider_id")),
+                        Member.getMemberByMemberDbId(rset.getInt("member_id")),
+                        Service.getServiceByServiceId(rset.getInt("service_id")),
+                        rset.getString("visit_date"),
+                        rset.getString("received_visit_ts"),
+                        rset.getString("comment")
+                );
+                Log.debug("Visit", "Found Visit: \n" + v.toString());
+                //Add Visit
+                memberVisits.add(v);
+            }
+            
+            if(memberVisits.size() > 0){
+                Log.debug("Visit", "Found " + memberVisits.size() + " Visits");
+            }else{
+                Log.debug("Visit", "No Visits Found With Card Number: " + cardNumber);
+            }
+            
+            //Close database
+            dbConn.closeDatabaseConnection();
+        } catch (Exception ex) {
+            Log.error("Visit", ex.toString());
+        }  
+        
+        return Arrays.stream(memberVisits.toArray()).toArray(Visit[]::new);
     }
-    public static Visit[] getVisitsByProviderNumber(int providerNumber, Date startDate, Date endDate){
-        Visit memberVisits[] = null;
-        //Database call to get all the provider visits within the startDate to the endDate
-        return memberVisits;
+    public static Visit[] getVisitsByProviderNumber(int providerNumber, String startDate, String endDate){
+        ArrayList<Visit> memberVisits = new ArrayList<>(); 
+        try {
+            //Create Database Connection
+            DatabaseConnector dbConn = new DatabaseConnector();
+            Connection conn = dbConn.getDatabaseConnection();
+            Statement stmt = conn.createStatement();
+            //Query
+            String strSelect = String.format("SELECT visit_id, chocanon_db.visits.provider_id, member_id, service_id, visit_date, comment, received_visit_ts FROM chocanon_db.visits JOIN providers ON providers.provider_id = chocanon_db.visits.provider_id WHERE provider_number = %s AND visit_date BETWEEN CAST('%s' AS DATE) AND CAST('%s' AS DATE)", providerNumber, startDate, endDate);
+            Log.debug("Visit", "Query: " + strSelect);
+            //Execute Query
+            ResultSet rset = stmt.executeQuery(strSelect);
+            //Get Results
+            while (rset.next()) {
+                //Build the visit
+                Visit v = new Visit(
+                        rset.getInt("visit_id"),
+                        Provider.getProviderByProviderDbId(rset.getInt("provider_id")),
+                        Member.getMemberByMemberDbId(rset.getInt("member_id")),
+                        Service.getServiceByServiceId(rset.getInt("service_id")),
+                        rset.getString("visit_date"),
+                        rset.getString("received_visit_ts"),
+                        rset.getString("comment")
+                );
+                Log.debug("Visit", "Found Visit: \n" + v.toString());
+                //Add Visit
+                memberVisits.add(v);
+            }
+            
+            if(memberVisits.size() > 0){
+                Log.debug("Visit", "Found " + memberVisits.size() + " Visits");
+            }else{
+                Log.debug("Visit", "No Visits Found With Provider Number: " + providerNumber);
+            }
+            
+            //Close database
+            dbConn.closeDatabaseConnection();
+        } catch (Exception ex) {
+            Log.error("Visit", ex.toString());
+        }  
+        
+        return Arrays.stream(memberVisits.toArray()).toArray(Visit[]::new);
     }
-    public static Visit[] getVisitsByDate(Date startDate, Date endDate){
-        Visit memberVisits[] = null;
-        //Database call to get all the visits within the startDate to the endDate
-        return memberVisits;
+    public static Visit[] getVisitsByDate(String startDate, String endDate){
+        ArrayList<Visit> memberVisits = new ArrayList<>(); 
+        try {
+            //Create Database Connection
+            DatabaseConnector dbConn = new DatabaseConnector();
+            Connection conn = dbConn.getDatabaseConnection();
+            Statement stmt = conn.createStatement();
+            //Query
+            String strSelect = String.format("SELECT visit_id, chocanon_db.visits.provider_id, member_id, service_id, visit_date, comment, received_visit_ts FROM chocanon_db.visits JOIN providers ON providers.provider_id = chocanon_db.visits.provider_id WHERE visit_date BETWEEN CAST('%s' AS DATE) AND CAST('%s' AS DATE)", startDate, endDate);
+            Log.debug("Visit", "Query: " + strSelect);
+            //Execute Query
+            ResultSet rset = stmt.executeQuery(strSelect);
+            //Get Results
+            while (rset.next()) {
+                //Build the visit
+                Visit v = new Visit(
+                        rset.getInt("visit_id"),
+                        Provider.getProviderByProviderDbId(rset.getInt("provider_id")),
+                        Member.getMemberByMemberDbId(rset.getInt("member_id")),
+                        Service.getServiceByServiceId(rset.getInt("service_id")),
+                        rset.getString("visit_date"),
+                        rset.getString("received_visit_ts"),
+                        rset.getString("comment")
+                );
+                Log.debug("Visit", "Found Visit: \n" + v.toString());
+                //Add Visit
+                memberVisits.add(v);
+            }
+            
+            if(memberVisits.size() > 0){
+                Log.debug("Visit", "Found " + memberVisits.size() + " Visits");
+            }
+            
+            //Close database
+            dbConn.closeDatabaseConnection();
+        } catch (Exception ex) {
+            Log.error("Visit", ex.toString());
+        }  
+        
+        return Arrays.stream(memberVisits.toArray()).toArray(Visit[]::new);
     }
     
     @Override

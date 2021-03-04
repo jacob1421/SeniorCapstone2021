@@ -66,6 +66,7 @@ public class Provider extends Person{
             Statement stmt = conn.createStatement();
             //Query
             String strSelect = String.format("SELECT provider_id, first_name, last_name, street_address, city, state, zip_code, provider_number, providertypes.provider_type, provider_email FROM providers JOIN providertypes ON providers.provider_type_id = providertypes.provider_type_id WHERE provider_number = %s LIMIT 1;", providerNumber);
+            Log.debug("Provider", "Query: " + strSelect);
             //Execute Query
             ResultSet rset = stmt.executeQuery(strSelect);
             //Get Results
@@ -83,10 +84,44 @@ public class Provider extends Person{
             //Close database
             dbConn.closeDatabaseConnection();
         } catch (Exception ex) {
-            Logger.getLogger(Provider.class.getName()).log(Level.SEVERE, null, ex);
+            Log.error("Provider", ex.toString());
         }    
         return providerFound;
     }
+    
+    public static Provider getProviderByProviderDbId(int providerDatabaseId){
+        Log.debug("Provider", "Provider Id " + providerDatabaseId);
+        Provider providerFound = null;
+        try {
+            //Create Database Connection
+            DatabaseConnector dbConn = new DatabaseConnector();
+            Connection conn = dbConn.getDatabaseConnection();
+            Statement stmt = conn.createStatement();
+            //Query
+            String strSelect = String.format("SELECT provider_id, first_name, last_name, street_address, city, state, zip_code, provider_number, providertypes.provider_type, provider_email FROM providers JOIN providertypes ON providers.provider_type_id = providertypes.provider_type_id WHERE provider_id = %s LIMIT 1;", providerDatabaseId);
+            Log.debug("Provider", "Query: " + strSelect);
+            //Execute Query
+            ResultSet rset = stmt.executeQuery(strSelect);
+            //Get Results
+            while (rset.next()) {
+                 providerFound = new Provider(rset.getInt("provider_id"), rset.getString("first_name"), rset.getString("last_name"), rset.getString("street_address"), rset.getString("city"), rset.getString("state"), rset.getInt("zip_code"), rset.getInt("provider_number"), rset.getString("provider_type"), rset.getString("provider_email"));
+            }
+            
+            //Print the provider found
+            if(providerFound != null){
+                Log.debug("Provider", "Provider Found: " + providerFound.toString());
+            }else{
+                Log.debug("Provider", "No Provider Found With Provider Id: " + providerDatabaseId);
+            }
+            
+            //Close database
+            dbConn.closeDatabaseConnection();
+        } catch (Exception ex) {
+            Log.error("Provider", ex.toString());
+        }    
+        return providerFound;
+    }
+    
     
     @Override
     public String toString(){

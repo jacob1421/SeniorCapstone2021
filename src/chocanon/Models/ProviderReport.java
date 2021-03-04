@@ -25,7 +25,7 @@ public class ProviderReport {
     private Provider provider = null;
     private Visit[] providerVisits = null;
     
-    public ProviderReport(Provider provider, Date startDate, Date endDate){
+    public ProviderReport(Provider provider, String startDate, String endDate){
         //Set the provider for the report
         this.provider = provider;
         //Get the provider visits between the start and end date

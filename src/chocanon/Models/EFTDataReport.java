@@ -25,7 +25,7 @@ public class EFTDataReport {
     //Data Attributes
     private Visit[] providerVisits = null;
     
-    public EFTDataReport(Date startDate, Date endDate){
+    public EFTDataReport(String startDate, String endDate){
         this.providerVisits = Visit.getVisitsByDate(startDate, endDate);
     }
     
