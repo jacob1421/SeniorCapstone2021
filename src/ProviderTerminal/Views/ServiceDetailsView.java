@@ -37,8 +37,11 @@ public class ServiceDetailsView extends javax.swing.JFrame {
     }
     
     //Setters
-    public void setSubmitBillButtonListener(ActionListener e){
-        btn_SubmitBill.addActionListener(e);
+    public void setSubmitBillChocanButtonListener(ActionListener e){
+        btn_SubmitBillChocan.addActionListener(e);
+    }
+    public void setServiceDetailsBackButtonListener(ActionListener e){
+        btn_ServiceDetailsBackButton.addActionListener(e);
     }
     
     public void setServiceCodeTextListener(FocusListener e){
@@ -62,6 +65,11 @@ public class ServiceDetailsView extends javax.swing.JFrame {
     public void setFocusAdditionalComments(){
         txt_AdditionalComments.requestFocus();
     }
+    public void resetForm(){
+        txt_DOS.setText("");
+        txt_ServiceCode.setText("");
+        txt_AdditionalComments.setText("");
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -80,20 +88,17 @@ public class ServiceDetailsView extends javax.swing.JFrame {
         lbl_AdditionalComments = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_AdditionalComments = new javax.swing.JTextArea();
-        btn_SubmitBill = new javax.swing.JButton();
+        btn_SubmitBillChocan = new javax.swing.JButton();
         lbl_FeedbackMessage = new javax.swing.JLabel();
+        btn_ServiceDetailsBackButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbl_ServiceDetails.setText("Service Details");
 
-        txt_DOS.setText("MM-DD-YYYY");
-
         lbl_DOS.setText("Date of Service ");
 
         lbl_ServiceCode.setText("Service Code");
-
-        txt_ServiceCode.setText("123456");
 
         lbl_AdditionalComments.setText("Additional Comments");
 
@@ -101,18 +106,24 @@ public class ServiceDetailsView extends javax.swing.JFrame {
         txt_AdditionalComments.setRows(5);
         jScrollPane1.setViewportView(txt_AdditionalComments);
 
-        btn_SubmitBill.setText("Submit Bill");
+        btn_SubmitBillChocan.setText("Submit Bill To Chocan");
 
         lbl_FeedbackMessage.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+
+        btn_ServiceDetailsBackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/go-back-left-arrow.png"))); // NOI18N
+        btn_ServiceDetailsBackButton.setBorderPainted(false);
+        btn_ServiceDetailsBackButton.setContentAreaFilled(false);
+        btn_ServiceDetailsBackButton.setFocusPainted(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addComponent(btn_ServiceDetailsBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_SubmitBill, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                    .addComponent(btn_SubmitBillChocan, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
                     .addComponent(lbl_AdditionalComments)
                     .addComponent(txt_ServiceCode)
                     .addComponent(lbl_ServiceCode)
@@ -121,13 +132,16 @@ public class ServiceDetailsView extends javax.swing.JFrame {
                     .addComponent(lbl_ServiceDetails)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
                     .addComponent(lbl_FeedbackMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(lbl_ServiceDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(lbl_ServiceDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_ServiceDetailsBackButton))
                 .addGap(18, 18, 18)
                 .addComponent(lbl_DOS)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -141,7 +155,7 @@ public class ServiceDetailsView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_SubmitBill, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_SubmitBillChocan, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbl_FeedbackMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -189,7 +203,8 @@ public class ServiceDetailsView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_SubmitBill;
+    private javax.swing.JButton btn_ServiceDetailsBackButton;
+    private javax.swing.JButton btn_SubmitBillChocan;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_AdditionalComments;
     private javax.swing.JLabel lbl_DOS;

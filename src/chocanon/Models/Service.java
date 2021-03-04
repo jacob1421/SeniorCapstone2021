@@ -86,6 +86,39 @@ public class Service {
         return serviceFound;
     }
     
+    public static Service getServiceByServiceCode(int serviceCode){
+        Service serviceFound = null;
+        Log.debug("Service", "Service Code: " + serviceCode);
+        try {
+            //Create Database Connection
+            DatabaseConnector dbConn = new DatabaseConnector();
+            Connection conn = dbConn.getDatabaseConnection();
+            Statement stmt = conn.createStatement();
+            //Query
+            String strSelect = String.format("SELECT name, fee, code FROM chocanon_db.services WHERE code = %s LIMIT 1;", serviceCode);
+            Log.debug("Service", "Query: " + strSelect);
+            //Execute Query
+            ResultSet rset = stmt.executeQuery(strSelect);
+            //Get Results
+            while (rset.next()) {
+                 serviceFound = new Service(rset.getString("name"), rset.getInt("code"), rset.getBigDecimal("fee"));
+            }
+            
+            //Print the provider found
+            if(serviceFound != null){
+                Log.debug("Service", "Service Found: " + serviceFound.toString());
+            }else{
+                Log.debug("Service", "No Service Found With Service Id: " + serviceCode);
+            }
+            
+            //Close database
+            dbConn.closeDatabaseConnection();
+        } catch (Exception ex) {
+            Log.error("Service", ex.toString());
+        }    
+        return serviceFound;
+    }
+        
     public static Service[] getAllServices(){
         ArrayList<Service> allServices = new ArrayList<>(); 
         try {

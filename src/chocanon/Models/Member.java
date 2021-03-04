@@ -93,7 +93,7 @@ public class Member extends Person{
             //Close database
             dbConn.closeDatabaseConnection();
         } catch (Exception ex) {
-            Log.error("Provider", ex.toString());
+            Log.error("Member", ex.toString());
         }    
         return memberFound;
     }
