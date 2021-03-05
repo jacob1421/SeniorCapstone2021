@@ -179,6 +179,8 @@ public class TerminalController {
                         //Hide service details and show swipe card
                         Log.info("TerminalController", "Hiding ServiceDetailsView");
                         serviceDetailsView.setVisible(false);
+                        Log.info("TerminalController", "Resetting data fields in ServiceDetailsView");
+                        serviceDetailsView.resetForm();
                         Log.info("TerminalController", "Showing SwipeMemberCardView");
                         swipeMemberCardView.setVisible(true);
                     }else{
@@ -189,14 +191,6 @@ public class TerminalController {
             } catch (ParseException ex) {
                 Log.error("TerminalController", ex);
             }
-            
-            
-            /* Do things to the views*/
-            Log.info("TerminalController", "Hiding ServiceDetails View");
-            serviceDetailsView.setVisible(false);
-            serviceDetailsView.resetForm();
-            Log.info("TerminalController", "Showing SwipeMemberCard View");
-            swipeMemberCardView.setVisible(true);
         }
     }
    

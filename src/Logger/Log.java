@@ -1,7 +1,13 @@
 package Logger;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
 
 /** A low overhead, lightweight logging system.
  * @author Nathan Sweet <misc@n4te.com> */
@@ -165,9 +171,24 @@ public class Log {
 
 	/** Performs the actual logging. Default implementation logs to System.out. Extended and use {@link Log#logger} set to handle
 	 * logging differently. */
-	static public class Logger {
-		private final long firstLogTime = System.currentTimeMillis();
-
+	static public class Logger{
+		private final long firstLogTime;
+                private final SimpleDateFormat formatter = new SimpleDateFormat("MM_dd_yyyy_HH_mm_ss");
+                private final String logFileName;
+                private final File logFile;      
+                
+                public Logger(){
+                    this.firstLogTime = System.currentTimeMillis();
+                    this.logFileName = "Logs\\LogFile_" + formatter.format(new Date()) + ".log";
+                    this.logFile = new File(logFileName); 
+                    try {
+                        this.logFile.getParentFile().mkdirs();
+                        this.logFile.createNewFile();
+                    } catch (IOException ex) {
+                        java.util.logging.Logger.getLogger(Log.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                
 		public void log (int level, String category, String message, Throwable ex) {
 			StringBuilder builder = new StringBuilder(256);
 
@@ -181,21 +202,21 @@ public class Log {
 			builder.append(seconds);
 
 			switch (level) {
-			case LEVEL_ERROR:
-				builder.append(" ERROR: ");
-				break;
-			case LEVEL_WARN:
-				builder.append("  WARN: ");
-				break;
-			case LEVEL_INFO:
-				builder.append("  INFO: ");
-				break;
-			case LEVEL_DEBUG:
-				builder.append(" DEBUG: ");
-				break;
-			case LEVEL_TRACE:
-				builder.append(" TRACE: ");
-				break;
+                            case LEVEL_ERROR:
+                                    builder.append(" ERROR: ");
+                                    break;
+                            case LEVEL_WARN:
+                                    builder.append("  WARN: ");
+                                    break;
+                            case LEVEL_INFO:
+                                    builder.append("  INFO: ");
+                                    break;
+                            case LEVEL_DEBUG:
+                                    builder.append(" DEBUG: ");
+                                    break;
+                            case LEVEL_TRACE:
+                                    builder.append(" TRACE: ");
+                            break;
 			}
 
 			if (category != null) {
@@ -217,8 +238,17 @@ public class Log {
 		}
 
 		/** Prints the message to System.out. Called by the default implementation of {@link #log(int, String, String, Throwable)}. */
-		protected void print (String message) {
-			System.out.println(message);
+		protected void print (String message){
+                    //Save to file
+                    try {
+                        FileWriter logFileWrite = new FileWriter(logFile, true);
+                        logFileWrite.write(message + "\n");
+                        logFileWrite.close();
+                    } catch (IOException ex) {
+                        Log.error("Logger", ex);
+                    }
+                    //Print to user
+                    System.out.println(message);
 		}
 	}
 }
