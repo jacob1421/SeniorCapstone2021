@@ -20,6 +20,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -50,6 +53,8 @@ public class TerminalController {
         swipeMemberCardView.setSearchButtonListener(new SearchMemberListener());
         swipeMemberCardView.setBackCardSwipeButtonListener(new CardSwipeBackButtonListener());
         serviceDetailsView.setServiceCodeTextListener(new ServiceCodeListener());
+        serviceDetailsView.setServiceDetailsBackButtonListener(new ServiceDetailsBackButtonListener());
+        serviceDetailsView.setSubmitBillChocanButtonListener(new SubmitBillChocanButtonListener());
         validateServiceCodeView.setCorrectServiceCodeButtonListener(new CorrectServiceCodeListener());
         validateServiceCodeView.setIncorrectServiceCodeButtonListener(new IncorrectServiceCodeListener());
         
@@ -98,43 +103,97 @@ public class TerminalController {
     
     //Listeners For ServiceDetails View
     class ServiceCodeListener implements FocusListener {
-        String currentEnteredServiceCode = serviceDetailsView.getServiceCodeTxt();
+        String currentEnteredServiceCode = "";
         @Override
         public void focusLost(FocusEvent e) {
             //We check to make sure we got a new service code when we lost focus.
-            Log.debug("TerminalController", "Initial Service Code Text: " + currentEnteredServiceCode);
-            if((!serviceDetailsView.getServiceCodeTxt().equals(currentEnteredServiceCode)) && (!currentEnteredServiceCode.equals(""))){
+            Log.debug("TerminalController", "Initial Service Code Text: " + currentEnteredServiceCode + " Service View Txt: " + serviceDetailsView.getServiceCodeTxt());
+            if(serviceDetailsView.getServiceCodeTxt().equals(currentEnteredServiceCode) != true){
                 //Set the new service code
                 currentEnteredServiceCode = serviceDetailsView.getServiceCodeTxt();
                 Log.debug("TerminalController", "New Captured Service Code Text: " + currentEnteredServiceCode);
                 //Look up the service code if the service code isnt found display error
-                if(true){
+                service = Service.getServiceByServiceCode(Integer.parseInt(currentEnteredServiceCode));
+                if(service == null){
+                    //Invalid service code
+                   Log.info("TerminalController", "Set the MessageLabel to 'Invalid Service Code' and text color to red!");
+                   serviceDetailsView.setMessageLabel("Invalid Service Code!", Color.RED);
+                }else{
                     //Set validate service code view data - Service name will come from the database
                     Log.info("TerminalController", "Set the service code and service name in the ValidateServiceCode View");
                     validateServiceCodeView.setServiceCode(currentEnteredServiceCode);
-                    Log.debug("TerminalController", "Service Code Set To: " + currentEnteredServiceCode);
-                    validateServiceCodeView.setServiceName("Some Random Service Name");
-                    Log.debug("TerminalController", "Service Name Set To: " + "UPDATE WHEN DB QUERY REQUEST IS ADDED");
+                    Log.debug("TerminalController", "Service Code Set To: " + service.getServiceCode());
+                    validateServiceCodeView.setServiceName(service.getServiceName());
+                    Log.debug("TerminalController", "Service Name Set To: " + service.getServiceName());
                     
                     //Hide service details view and show validate service code view
                     Log.info("TerminalController", "Hiding ServiceDetails View");
                     serviceDetailsView.setVisible(false);
                     Log.info("TerminalController", "Showing ValidateServiceCode View");
                     validateServiceCodeView.setVisible(true);
-                }else{
-                   Log.info("TerminalController", "Set the MessageLabel to 'Invalid Service Code' and text color to red!");
-                   serviceDetailsView.setMessageLabel("Invalid Service Code!", Color.RED);
                 }
             }
         }
 
         @Override
         public void focusGained(FocusEvent e) {
+            currentEnteredServiceCode = serviceDetailsView.getServiceCodeTxt();
             Log.info("TerminalController", "MessageLabel set to empty and text color black");
             serviceDetailsView.setMessageLabel("", Color.BLACK);
         }
     }
     
+    class ServiceDetailsBackButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Log.info("TerminalController", "Hiding ServiceDetails View");
+            serviceDetailsView.setVisible(false);
+            serviceDetailsView.resetForm();
+            Log.info("TerminalController", "Showing SwipeMemberCard View");
+            swipeMemberCardView.setVisible(true);
+        }
+    }
+    
+    class SubmitBillChocanButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try {
+                /* Submit the visit data to the database*/
+                if(serviceDetailsView.getDateOfService().equals("") == true){
+                    Log.info("TerminalController", "User did not provide a date of service");
+                    serviceDetailsView.setMessageLabel("Please provide a date of service!", Color.RED);   
+                }else if(service == null){
+                    Log.info("TerminalController", "User did not provide a service code");
+                    serviceDetailsView.setMessageLabel("Please provide a service code!", Color.RED);
+                }else if(provider != null && member != null && service != null && serviceDetailsView.getDateOfService().equals("") == false){
+                    //Save the visit to the database
+                    visit = new Visit(provider, member, service, serviceDetailsView.getDateOfService(), serviceDetailsView.getAdditionalComment());
+                    Log.debug("TerminalController", "Visit Saved To Database: " + visit.toString());
+                    int dataSaved = visit.saveToDatabase();
+                    if(dataSaved > 0){
+                        Log.info("TerminalController", "Visit Saved To Database successfully");
+                        serviceDetailsView.showMessageBox("Visit was successfully sent to Chocan!");
+                        //After save remove it from the controller
+                        visit = null;
+                        Log.info("TerminalController", "Removing the saved visit from the controller models");
+                        //Hide service details and show swipe card
+                        Log.info("TerminalController", "Hiding ServiceDetailsView");
+                        serviceDetailsView.setVisible(false);
+                        Log.info("TerminalController", "Resetting data fields in ServiceDetailsView");
+                        serviceDetailsView.resetForm();
+                        Log.info("TerminalController", "Showing SwipeMemberCardView");
+                        swipeMemberCardView.setVisible(true);
+                    }else{
+                        Log.info("TerminalController", "Visit Saved To Database unsuccessfully");
+                        serviceDetailsView.showMessageBox("Visit was unsuccessfully sent to Chocan!");
+                    }
+                }
+            } catch (ParseException ex) {
+                Log.error("TerminalController", ex);
+            }
+        }
+    }
+   
     
     //Listeners For SwipeMemberCardView View
     class CardSwipeBackButtonListener implements ActionListener {
@@ -160,10 +219,14 @@ public class TerminalController {
                 swipeMemberCardView.showMessageBox("Please provide a member card number");
             }else{
                 //Look up to see if the member number exists and the member is a active member in the database.
-                
-                
-                if(true){
-                    //Member card number exists and the member is active
+                member = Member.getMemberByCardNumber(Integer.parseInt(memberCardNumber));
+                if(member == null){
+                    Log.info("TerminalController", "Member Card Number does not exist in the database at all");
+                    swipeMemberCardView.setMessageLabel("Invalid Card Number", Color.RED);
+                }else if(member.getMembershipStatus() == false){
+                    Log.info("TerminalController", "Member Card Number is suspened and displayed the amount they owe for the unpaid previous month.");
+                    swipeMemberCardView.setMessageLabel("Member suspended. Member owes $10.00 from previous month.", Color.RED); //Money is made up but we need to find out where to find this value
+                }else if(member.getMembershipStatus() == true){
                     Log.info("TerminalController", "Card number exists and the member is active");
                     swipeMemberCardView.setMessageLabel("Validated", Color.GREEN);
                     if (swipeMemberCardView.showBillDialog() == JOptionPane.YES_OPTION) {
@@ -173,19 +236,15 @@ public class TerminalController {
                         Log.info("TerminalController", "Hiding SwipeMemberCard View");
                         //Hide the swipe card
                         swipeMemberCardView.setVisible(false);
+                        //Clear the old SwipeMemberCardView label
+                        swipeMemberCardView.setCardNumberText("");
+                        swipeMemberCardView.setMessageLabel("", Color.BLACK);
                     }
                     Log.info("TerminalController", "Resetting the CardNumberTextBox back to empty");
                     //Reset for a new user input.
                     swipeMemberCardView.setCardNumberText("");
-                }else{
-                    //Member is valid but member does not have an active account
-                    if(true){
-                        Log.info("TerminalController", "Member Card Number is suspened and displayed the amount they owe for the unpaid previous month.");
-                        swipeMemberCardView.setMessageLabel("Member suspended. Member owes $10.00 from previous month.", Color.RED); //Money is made up but we need to find out where to find this value
-                    }else{
-                        Log.info("TerminalController", "Member Card Number does not exist in the database at all");
-                        swipeMemberCardView.setMessageLabel("Invalid", Color.RED);
-                    }
+                    //Clear the old SwipeMemberCardView label
+                    swipeMemberCardView.setMessageLabel("", Color.BLACK);
                 }
             }
         }

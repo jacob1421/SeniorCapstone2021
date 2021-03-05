@@ -15,6 +15,12 @@
 
 package chocanon.Models;
 
+import Database.DatabaseConnector;
+import Logger.Log;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 
 public class Member extends Person{
     //Data Attributes
@@ -61,7 +67,67 @@ public class Member extends Person{
     //Static getters
     public static Member getMemberByCardNumber(int cardNumber){
         Member memberFound = null;
-        /* Do the database functionality to get a member from the database by card number - 9 digit*/
+        Log.debug("Member", "Card Number: " + cardNumber);
+        try {
+            //Create Database Connection
+            DatabaseConnector dbConn = new DatabaseConnector();
+            Connection conn = dbConn.getDatabaseConnection();
+            Statement stmt = conn.createStatement();
+            //Query
+            String strSelect = String.format("SELECT member_id, first_name, last_name, street_address, city, state, zip_code, card_number, email_address, active_membership FROM chocanon_db.members WHERE card_number = %s LIMIT 1;", cardNumber);            
+            Log.debug("Member", "Query: " + strSelect);
+            //Execute Query
+            ResultSet rset = stmt.executeQuery(strSelect);
+            //Get Results
+            while (rset.next()) {
+                 memberFound = new Member(rset.getInt("member_id"), rset.getString("first_name"), rset.getString("last_name"), rset.getString("street_address"), rset.getString("city"), rset.getString("state"), rset.getInt("zip_code"), rset.getInt("card_number"), rset.getString("email_address"), rset.getBoolean("active_membership"));
+            }
+            
+            //Print the provider found
+            if(memberFound != null){
+                Log.debug("Member", "Member Found: " + memberFound.toString());
+            }else{
+                Log.debug("Member", "No Member Found With Card Number: " + cardNumber);
+            }
+            
+            //Close database
+            dbConn.closeDatabaseConnection();
+        } catch (Exception ex) {
+            Log.error("Member", ex.toString());
+        }    
+        return memberFound;
+    }
+    
+    public static Member getMemberByMemberDbId(int databaseId){
+        Log.debug("Member", "Member DatabaseId: " + databaseId);
+        Member memberFound = null;
+        try {
+            //Create Database Connection
+            DatabaseConnector dbConn = new DatabaseConnector();
+            Connection conn = dbConn.getDatabaseConnection();
+            Statement stmt = conn.createStatement();
+            //Query
+            String strSelect = String.format("SELECT member_id, first_name, last_name, street_address, city, state, zip_code, card_number, email_address, active_membership FROM chocanon_db.members WHERE member_id = %s LIMIT 1;", databaseId);
+            Log.debug("Member", "Query: " + strSelect);
+            //Execute Query
+            ResultSet rset = stmt.executeQuery(strSelect);
+            //Get Results
+            while (rset.next()) {
+                 memberFound = new Member(rset.getInt("member_id"), rset.getString("first_name"), rset.getString("last_name"), rset.getString("street_address"), rset.getString("city"), rset.getString("state"), rset.getInt("zip_code"), rset.getInt("card_number"), rset.getString("email_address"), rset.getBoolean("active_membership"));
+            }
+            
+            //Print the provider found
+            if(memberFound != null){
+                Log.debug("Member", "Member Found: " + memberFound.toString());
+            }else{
+                Log.debug("Member", "No Member Found With Member Database Id: " + databaseId);
+            }
+            
+            //Close database
+            dbConn.closeDatabaseConnection();
+        } catch (Exception ex) {
+            Log.error("Member", ex.toString());
+        }    
         return memberFound;
     }
     
