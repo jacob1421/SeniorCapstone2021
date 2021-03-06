@@ -179,7 +179,12 @@ public class ChocanController {
                     if(manageMembersView.removeSelectedMember() == -1){
                         manageMembersView.showMessageBox("Please select a member to delete!");
                     }else{
-                        System.out.println("Deleting member: " + memberDatabaseId);
+                        Log.debug("Member", "Deleting member: " + memberDatabaseId);
+                        if(Member.deleteMemberByDatabaseId(memberDatabaseId) > 0){
+                            manageMembersView.showMessageBox("Member was successfully deleted!");
+                        }else{
+                            manageMembersView.showMessageBox("Member was unsuccessfully deleted!");
+                        }
                     }
                 } 
             }

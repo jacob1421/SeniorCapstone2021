@@ -85,7 +85,7 @@ public class Member extends Person{
              Statement stmt = conn.createStatement();
              //Query
              searchText = "%" + searchText + "%";
-             String strSelect = String.format("SELECT member_id, first_name, last_name, street_address, city, state, zip_code, email_address, card_number, active_membership FROM chocanon_db.members WHERE first_name LIKE('%s') OR last_name LIKE('%s') OR card_number LIKE('%s');", searchText, searchText, searchText);
+             String strSelect = String.format("SELECT member_id, first_name, last_name, street_address, city, state, zip_code, email_address, card_number, active_membership FROM chocanon_db.members WHERE (first_name LIKE('%s') OR last_name LIKE('%s') OR card_number LIKE('%s')) AND deleted = 0 LIMIT 25;", searchText, searchText, searchText);
              Log.debug("Member", "Query: " + strSelect);
              //Execute Query
              ResultSet rset = stmt.executeQuery(strSelect);
@@ -113,8 +113,34 @@ public class Member extends Person{
          return Arrays.stream(membersFound.toArray()).toArray(Member[]::new);
     }
     
-    public static void deleteMemberByDatabaseId(){
+    public static int deleteMemberByDatabaseId(int databaseId){
+        int affectedRows = 0;
+        try {
+            //Create Database Connection
+            DatabaseConnector dbConn = new DatabaseConnector();
+            Connection conn = dbConn.getDatabaseConnection();
+            Statement stmt = conn.createStatement();
+            //Query
+            String strSelect = String.format("UPDATE chocanon_db.members SET deleted = 1 WHERE member_id = %s", databaseId);
+            Log.debug("Member", "Query: " + strSelect);
+            //Execute Query
+            affectedRows = stmt.executeUpdate(strSelect);
+            if(affectedRows > 0){
+                Log.debug("Member", affectedRows + " rows were affected.");
+            }else{
+                Log.debug("Member", "Delete From Database Failed..");
+            }
+            //Close database
+            dbConn.closeDatabaseConnection();
+        } catch (Exception ex) {
+            Log.error("Member", ex.toString());
+        }  
+        return affectedRows;
+    }
     
+    public static int insertNewMember(Member mem){
+        
+        return 1;
     }
     
     @Override
