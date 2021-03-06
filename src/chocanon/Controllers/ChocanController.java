@@ -14,6 +14,7 @@
  */
 package chocanon.Controllers;
 
+import Logger.Log;
 import chocanon.Main;
 import chocanon.Models.Member;
 import chocanon.Models.Provider;
@@ -26,6 +27,7 @@ import chocanon.Views.RecordsView;
 import chocanon.Views.ReportsView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -57,12 +59,19 @@ public class ChocanController {
         menuView.setManageRecordsButtonListener(new ManageRecordsButtonListener());
         menuView.setManageReportsButtonListener(new ManageReportsButtonListener());
         menuView.setMenuBackButtonListener(new menuBackButtonListener());
+        
         manageMembersView.setMemberSearchButtonListener(new MemberSearchListener());
         manageMembersView.setManageMembersBackButtonListener(new ManageMembersBackButtonListener());
+        manageMembersView.setManageMembersAddButtonListener(new AddMemberButtonListener());
+        manageMembersView.setManageMembersDeleteButtonListener(new DeleteMemberButtonListener());
+        manageMembersView.setManageMembersEditButtonListener(new EditMemberButtonListener());
+        
         manageProvidersView.setProviderSearchButtonListener(new ProviderSearchListener());
         manageProvidersView.setManageProvidersBackButtonListener(new ManageProvidersBackButtonListener());
+        
         reportsView.setReportsBackButtonListener(new ReportsBackButtonListener());
         recordsView.setRecordsBackButtonListener(new RecordsBackButtonListener());
+        
         
         //Show our intro view
         this.mainView.setVisible(false);
@@ -113,6 +122,10 @@ public class ChocanController {
         @Override
         public void actionPerformed(ActionEvent e) {
             manageMembersView.setVisible(false);
+            //Clear the search text and table
+            manageMembersView.clearSearchText();
+            manageMembersView.clearTable();
+            members = null;
             menuView.setVisible(true);
         }
     }
@@ -123,11 +136,64 @@ public class ChocanController {
             if(userInput.equals("")){
                 manageMembersView.showMessageBox("Please provide search input");
             }else{
+                //Clear the search text and table
+                manageMembersView.clearSearchText();
+                manageMembersView.clearTable();
+                members = null;
+                Log.debug("ChocanController", "Search Text: " + userInput);
                 //Search database
-                System.out.println(userInput);
+                members = Member.getMembersByNameOrCardNumber(userInput);
+                //Add members to the table
+                for(int i = 0;i < members.length;i++){
+                    manageMembersView.addRowMember(members[i]);
+                }
             }
         }
     }
+    
+    class SaveMemberButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("Saving member");
+        }
+    }
+    class EditMemberButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int memberDatabaseId = manageMembersView.getMemberDatabaseIdSelected();
+            if(memberDatabaseId == -1){
+                manageMembersView.showMessageBox("Please select a member to edit!");
+            }else{
+                System.out.println("Editing member: " + memberDatabaseId);
+            }
+        }
+    }
+    class DeleteMemberButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int memberDatabaseId = manageMembersView.getMemberDatabaseIdSelected();
+            if(memberDatabaseId == -1){
+                manageMembersView.showMessageBox("Please select a member to delete!");
+            }else{
+                if (manageMembersView.showDeleteDialog() == JOptionPane.YES_OPTION) {
+                    if(manageMembersView.removeSelectedMember() == -1){
+                        manageMembersView.showMessageBox("Please select a member to delete!");
+                    }else{
+                        System.out.println("Deleting member: " + memberDatabaseId);
+                    }
+                } 
+            }
+        }
+    }
+    class AddMemberButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("Adding member");
+        }
+    }
+    
+    
+    
     
     //Listeners For ManageProvidersView View
     class ManageProvidersBackButtonListener implements ActionListener {
