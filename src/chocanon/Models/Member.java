@@ -143,6 +143,18 @@ public class Member extends Person{
         return 1;
     }
     
+    //Search function
+    public static Member findMemberbyId(Member[] memArray, int targetDatabaseId){
+        Member foundMem = null;
+        for(int i = 0;i < memArray.length;i++){
+            if(memArray[i].getDatabaseId() == targetDatabaseId){
+                foundMem = memArray[i];
+                break;
+            }
+        }
+        return foundMem;
+    }
+    
     @Override
     public String toString(){
         return ("Database Id: " + this.getDatabaseId() + " First Name: " + this.getFirstName() + " Last Name: " + this.getLastName() + " Street Address: " + this.getStreetAddress() + " City: " + this.getCity() + " State: " + this.getState() + " Zip Code: " + this.getZipCode() + " Card Number: " + this.getCardNumber() + " Membership Status: " + this.getMembershipStatus() + "\n");
