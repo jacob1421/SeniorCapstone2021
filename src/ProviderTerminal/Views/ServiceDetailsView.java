@@ -84,6 +84,7 @@ public class ServiceDetailsView extends javax.swing.JFrame {
         lbl_FeedbackMessage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         lbl_ServiceDetails.setText("Service Details");
 

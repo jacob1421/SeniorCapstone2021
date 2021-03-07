@@ -161,6 +161,7 @@ public class EditAddProviderView extends javax.swing.JFrame {
         cbx_Type = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         lbl_FirstName.setText("First Name");
 

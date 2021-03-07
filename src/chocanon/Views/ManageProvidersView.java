@@ -170,6 +170,7 @@ public class ManageProvidersView extends javax.swing.JFrame {
         btn_Delete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         tbl_Providers.setModel(provCustJTable);
         tbl_Providers.getTableHeader().setReorderingAllowed(false);
