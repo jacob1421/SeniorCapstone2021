@@ -97,7 +97,7 @@ public class Member extends Person{
              while (rset.next()) {
                  //Build the member
                  Member m = new Member(rset.getInt("member_id"), rset.getString("first_name"), rset.getString("last_name"), rset.getString("street_address"), rset.getString("city"), rset.getString("state"), rset.getInt("zip_code"), rset.getInt("card_number"), rset.getString("email_address"), rset.getBoolean("active_membership"));
-                 Log.debug("Member", "Found Member: \n" + m.toString());
+                 Log.debug("Member", "Found Member: " + m.toString());
                  //Add Member
                  membersFound.add(m);
              }
