@@ -18,6 +18,7 @@ import Logger.Log;
 import ProviderTerminal.Controllers.TerminalController;
 import chocanon.Controllers.ChocanController;
 import static Logger.Log.*;
+import chocanon.Models.Provider;
 
 
 public class Main extends javax.swing.JFrame {

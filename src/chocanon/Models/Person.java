@@ -147,7 +147,7 @@ public abstract class Person {
             {"Texas","TX"},
             {"Utah","UT"},
             {"Vermont","VT"},
-            {"Virginia","VI"},
+            {"Virginia","VA"},
             {"Washington","WA"},
             {"West Virginia","WV"},
             {"Wisconsin","WI"},

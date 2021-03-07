@@ -1,5 +1,5 @@
 /* 
-    File: EditAddMemberView.java
+    File: EditAddProviderView.java
     Project: COSC-4360 Capstone Project Team #0
     University: McMurry University
     Course: COSC–4360 Spring 2021
@@ -10,87 +10,97 @@
     Updated by: Jacob Bremiller
     Updated: 3/6/2021
     Compiler: Apache NetBeans IDE for Java SE
-    Description: Provides the user a way to edit and add new members
+    Description: Provides the user a way to edit and add new providers
  */
 package chocanon.Views;
 
 import java.awt.event.ActionListener;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author jakeb
  */
-public class EditAddMemberView extends javax.swing.JFrame {
+public class EditAddProviderView extends javax.swing.JFrame {
 
     /**
-     * Creates new form NewMemberView
+     * Creates new form NewProviderView
      */
-    public EditAddMemberView() {
+    public EditAddProviderView() {
         initComponents();
     }
     //Setters
-    public void setEditAddMemberSaveListener(ActionListener e){
+    public void setEditAddProviderSaveListener(ActionListener e){
         btn_Save.addActionListener(e);
     }
-    public void setEditAddMemberCancelListener(ActionListener e){
+    public void setEditAddProviderCancelListener(ActionListener e){
         btn_Cancel.addActionListener(e);
     }
-    public void setMemberFirstName(String firstName){
+    public void setProviderFirstName(String firstName){
         txt_FirstName.setText(firstName);
     }
-    public void setMemberLastName(String lastName){
+    public void setProviderLastName(String lastName){
         txt_LastName.setText(lastName);
     }
-    public void setMemberStreetAddress(String streetAddress){
+    public void setProviderStreetAddress(String streetAddress){
         txt_StreetAddress.setText(streetAddress);
     }
-    public void setMemberCity(String city){
+    public void setProviderCity(String city){
         txt_City.setText(city);
     }
-    public void setMemberZipCode(String zipCode){
+    public void setProviderZipCode(String zipCode){
         txt_ZipCode.setText(zipCode);
     }
-    public void setMemberEmailAddress(String emailAddress){
+    public void setProviderEmailAddress(String emailAddress){
         txt_EmailAddress.setText(emailAddress);
     }
-    public void setMemberCardNumber(String cardNumber){
-        txt_CardNumber.setText(cardNumber);
+    public void setProviderNumber(String providerNumber){
+        txt_ProviderNumber.setText(providerNumber);
     }
-    public void setMemberState(String state){
+    public void setProviderState(String state){
         cbx_State.setSelectedItem(state);
     }
-    public void setMembershipStatus(Boolean membershipStatus){
-        chk_MembershipStatus.setSelected(membershipStatus);
+    public void setProviderType(String providerType){
+        cbx_Type.setSelectedItem(providerType);
     }
     
+    //Combo Box Updates
+    public void addProviderType(String providerType){
+        cbx_Type.addItem(providerType);
+    }
+    public void clearProviderTypes(){
+        cbx_Type.removeAllItems();
+    }
+    
+    
     //Getters
-    public String getMemberFirstName(){
+    public String getProviderFirstName(){
         return txt_FirstName.getText();
     }
-    public String getMemberLastName(){
+    public String getProviderLastName(){
         return txt_LastName.getText();
     }
-    public String getMemberStreetAddress(){
+    public String getProviderStreetAddress(){
         return txt_StreetAddress.getText();
     }
-    public String getMemberCity(){
+    public String getProviderCity(){
         return txt_City.getText();
     }
-    public String getMemberZipCode(){
+    public String getProviderZipCode(){
         return txt_ZipCode.getText();
     }
-    public String getMemberEmailAddress(){
+    public String getProviderEmailAddress(){
         return txt_EmailAddress.getText();
     }
-    public String getMemberCardNumber(){
-        return txt_CardNumber.getText();
+    public String getProviderNumber(){
+        return txt_ProviderNumber.getText();
     }
-    public String getMemberState(){
+    public String getProviderState(){
         return cbx_State.getSelectedItem().toString();
     }
-    public Boolean getMembershipStatus(){
-        return chk_MembershipStatus.isSelected();
+    public String getProviderType(){
+        return cbx_Type.getSelectedItem().toString();
     }
     
     //Methods
@@ -104,9 +114,9 @@ public class EditAddMemberView extends javax.swing.JFrame {
         txt_City.setText("");
         txt_ZipCode.setText("");
         txt_EmailAddress.setText("");
-        txt_CardNumber.setText("");
+        txt_ProviderNumber.setText("");
         cbx_State.setSelectedItem("");
-        chk_MembershipStatus.setSelected(false); 
+        cbx_Type.setSelectedItem(""); 
     }
     
     /**
@@ -124,17 +134,16 @@ public class EditAddMemberView extends javax.swing.JFrame {
         lbl_City = new javax.swing.JLabel();
         lbl_ZipCode = new javax.swing.JLabel();
         lbl_EmailAdress = new javax.swing.JLabel();
-        lbl_CardNumber = new javax.swing.JLabel();
+        lbl_ProviderNumber = new javax.swing.JLabel();
         lbl_State = new javax.swing.JLabel();
-        lbl_MembershipStatus = new javax.swing.JLabel();
+        lbl_ProviderType = new javax.swing.JLabel();
         txt_FirstName = new javax.swing.JTextField();
         txt_LastName = new javax.swing.JTextField();
         txt_StreetAddress = new javax.swing.JTextField();
         txt_City = new javax.swing.JTextField();
         txt_ZipCode = new javax.swing.JTextField();
         txt_EmailAddress = new javax.swing.JTextField();
-        txt_CardNumber = new javax.swing.JTextField();
-        chk_MembershipStatus = new javax.swing.JCheckBox();
+        txt_ProviderNumber = new javax.swing.JTextField();
         btn_Save = new javax.swing.JButton();
         btn_Cancel = new javax.swing.JButton();
         cbx_State = new javax.swing.JComboBox(new String[]{
@@ -149,6 +158,7 @@ public class EditAddMemberView extends javax.swing.JFrame {
             "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia",
             "Wisconsin", "Wyoming"
         });
+        cbx_Type = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -164,17 +174,11 @@ public class EditAddMemberView extends javax.swing.JFrame {
 
         lbl_EmailAdress.setText("Email Address");
 
-        lbl_CardNumber.setText("Card Number");
+        lbl_ProviderNumber.setText("Provider Number");
 
         lbl_State.setText("State");
 
-        lbl_MembershipStatus.setText("Membership Status");
-
-        chk_MembershipStatus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chk_MembershipStatusActionPerformed(evt);
-            }
-        });
+        lbl_ProviderType.setText("Provider Type");
 
         btn_Save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/save.png"))); // NOI18N
         btn_Save.setText("Save");
@@ -188,47 +192,46 @@ public class EditAddMemberView extends javax.swing.JFrame {
             }
         });
 
+        cbx_Type.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbx_TypeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn_Save, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)
-                                .addComponent(btn_Cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lbl_CardNumber)
-                                    .addComponent(lbl_ZipCode)
-                                    .addComponent(lbl_City)
-                                    .addComponent(lbl_StreetAddress)
-                                    .addComponent(lbl_LastName)
-                                    .addComponent(lbl_FirstName)
-                                    .addComponent(lbl_State)
-                                    .addComponent(lbl_EmailAdress))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txt_LastName)
-                                    .addComponent(txt_StreetAddress, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_CardNumber, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_City, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_EmailAddress, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_ZipCode, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_FirstName, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbx_State, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(41, Short.MAX_VALUE))
+                        .addComponent(btn_Save, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(btn_Cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(lbl_MembershipStatus)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbl_ProviderNumber)
+                            .addComponent(lbl_ZipCode)
+                            .addComponent(lbl_City)
+                            .addComponent(lbl_StreetAddress)
+                            .addComponent(lbl_LastName)
+                            .addComponent(lbl_FirstName)
+                            .addComponent(lbl_State)
+                            .addComponent(lbl_EmailAdress)
+                            .addComponent(lbl_ProviderType))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chk_MembershipStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txt_LastName)
+                            .addComponent(txt_StreetAddress, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_ProviderNumber, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_City, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_EmailAddress, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_ZipCode, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_FirstName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbx_State, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbx_Type, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,21 +262,21 @@ public class EditAddMemberView extends javax.swing.JFrame {
                     .addComponent(cbx_State, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_CardNumber)
-                    .addComponent(txt_CardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_ProviderNumber)
+                    .addComponent(txt_ProviderNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_EmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_EmailAdress))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chk_MembershipStatus)
-                    .addComponent(lbl_MembershipStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_ProviderType, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbx_Type, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Save, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         txt_LastName.getAccessibleContext().setAccessibleName("");
@@ -281,18 +284,18 @@ public class EditAddMemberView extends javax.swing.JFrame {
         txt_City.getAccessibleContext().setAccessibleName("");
         txt_ZipCode.getAccessibleContext().setAccessibleName("");
         txt_EmailAddress.getAccessibleContext().setAccessibleName("");
-        txt_CardNumber.getAccessibleContext().setAccessibleName("");
+        txt_ProviderNumber.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void chk_MembershipStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chk_MembershipStatusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chk_MembershipStatusActionPerformed
-
     private void cbx_StateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_StateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbx_StateActionPerformed
+
+    private void cbx_TypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_TypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbx_TypeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -311,27 +314,21 @@ public class EditAddMemberView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditAddMemberView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditAddProviderView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditAddMemberView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditAddProviderView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditAddMemberView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditAddProviderView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditAddMemberView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditAddProviderView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EditAddMemberView().setVisible(true);
+                new EditAddProviderView().setVisible(true);
             }
         });
     }
@@ -340,21 +337,21 @@ public class EditAddMemberView extends javax.swing.JFrame {
     private javax.swing.JButton btn_Cancel;
     private javax.swing.JButton btn_Save;
     private javax.swing.JComboBox<String> cbx_State;
-    private javax.swing.JCheckBox chk_MembershipStatus;
-    private javax.swing.JLabel lbl_CardNumber;
+    private javax.swing.JComboBox<String> cbx_Type;
     private javax.swing.JLabel lbl_City;
     private javax.swing.JLabel lbl_EmailAdress;
     private javax.swing.JLabel lbl_FirstName;
     private javax.swing.JLabel lbl_LastName;
-    private javax.swing.JLabel lbl_MembershipStatus;
+    private javax.swing.JLabel lbl_ProviderNumber;
+    private javax.swing.JLabel lbl_ProviderType;
     private javax.swing.JLabel lbl_State;
     private javax.swing.JLabel lbl_StreetAddress;
     private javax.swing.JLabel lbl_ZipCode;
-    private javax.swing.JTextField txt_CardNumber;
     private javax.swing.JTextField txt_City;
     private javax.swing.JTextField txt_EmailAddress;
     private javax.swing.JTextField txt_FirstName;
     private javax.swing.JTextField txt_LastName;
+    private javax.swing.JTextField txt_ProviderNumber;
     private javax.swing.JTextField txt_StreetAddress;
     private javax.swing.JTextField txt_ZipCode;
     // End of variables declaration//GEN-END:variables

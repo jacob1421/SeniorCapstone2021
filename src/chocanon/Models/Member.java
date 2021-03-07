@@ -216,7 +216,7 @@ public class Member extends Person{
     }
     
     //Search function
-    public static Member findMemberbyId(Member[] memArray, int targetDatabaseId){
+    public static Member findMemberById(Member[] memArray, int targetDatabaseId){
         Member foundMem = null;
         for(int i = 0;i < memArray.length;i++){
             if(memArray[i].getDatabaseId() == targetDatabaseId){

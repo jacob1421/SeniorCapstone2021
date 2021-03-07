@@ -25,49 +25,39 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="btn_Save" min="-2" pref="135" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="btn_Cancel" min="-2" pref="135" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lbl_CardNumber" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbl_ZipCode" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbl_City" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbl_StreetAddress" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbl_LastName" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbl_FirstName" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbl_State" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbl_EmailAdress" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="txt_LastName" max="32767" attributes="0"/>
-                                  <Component id="txt_StreetAddress" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txt_CardNumber" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txt_City" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txt_EmailAddress" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txt_ZipCode" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txt_FirstName" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="cbx_State" alignment="0" min="-2" pref="208" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="41" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="btn_Save" min="-2" pref="135" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="btn_Cancel" min="-2" pref="135" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                      <Component id="lbl_MembershipStatus" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lbl_ProviderNumber" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_ZipCode" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_City" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_StreetAddress" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_LastName" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_FirstName" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_State" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_EmailAdress" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_ProviderType" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="chk_MembershipStatus" min="-2" pref="208" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="txt_LastName" max="32767" attributes="0"/>
+                          <Component id="txt_StreetAddress" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txt_ProviderNumber" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txt_City" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txt_EmailAddress" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txt_ZipCode" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txt_FirstName" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cbx_State" alignment="0" min="-2" pref="208" max="-2" attributes="0"/>
+                          <Component id="cbx_Type" min="-2" pref="208" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
+              <EmptySpace pref="47" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -106,8 +96,8 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbl_CardNumber" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txt_CardNumber" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="lbl_ProviderNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txt_ProviderNumber" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -115,16 +105,16 @@
                   <Component id="lbl_EmailAdress" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="chk_MembershipStatus" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbl_MembershipStatus" min="-2" pref="21" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lbl_ProviderType" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
+                  <Component id="cbx_Type" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btn_Save" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="btn_Cancel" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="28" max="32767" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -160,9 +150,9 @@
         <Property name="text" type="java.lang.String" value="Email Address"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbl_CardNumber">
+    <Component class="javax.swing.JLabel" name="lbl_ProviderNumber">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Card Number"/>
+        <Property name="text" type="java.lang.String" value="Provider Number"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbl_State">
@@ -170,9 +160,9 @@
         <Property name="text" type="java.lang.String" value="State"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbl_MembershipStatus">
+    <Component class="javax.swing.JLabel" name="lbl_ProviderType">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Membership Status"/>
+        <Property name="text" type="java.lang.String" value="Provider Type"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_FirstName">
@@ -202,15 +192,10 @@
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
       </AccessibilityProperties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_CardNumber">
+    <Component class="javax.swing.JTextField" name="txt_ProviderNumber">
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
       </AccessibilityProperties>
-    </Component>
-    <Component class="javax.swing.JCheckBox" name="chk_MembershipStatus">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chk_MembershipStatusActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_Save">
       <Properties>
@@ -234,6 +219,14 @@
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox(new String[]{&#xa;    &quot;&quot;,&quot;Alabama&quot;, &quot;Alaska&quot;, &quot;Arizona&quot;, &quot;Arkansas&quot;, &quot;California&quot;,&#xa;    &quot;Colorado&quot;, &quot;Connecticut&quot;, &quot;Delaware&quot;, &quot;Florida&quot;, &quot;Georgia&quot;,&#xa;    &quot;Hawaii&quot;, &quot;Idaho&quot;, &quot;Illinois&quot;, &quot;Indiana&quot;, &quot;Iowa&quot;, &quot;Kansas&quot;,&#xa;    &quot;Kentucky&quot;, &quot;Louisiana&quot;, &quot;Maine&quot;, &quot;Maryland&quot;, &quot;Massachusetts&quot;,&#xa;    &quot;Michigan&quot;, &quot;Minnesota&quot;, &quot;Mississippi&quot;, &quot;Missouri&quot;, &quot;Montana&quot;,&#xa;    &quot;Nebraska&quot;, &quot;Nevada&quot;, &quot;New Hampshire&quot;, &quot;New Jersey&quot;, &quot;New Mexico&quot;,&#xa;    &quot;New York&quot;, &quot;North Carolina&quot;, &quot;North Dakota&quot;, &quot;Ohio&quot;, &quot;Oklahoma&quot;,&#xa;    &quot;Oregon&quot;, &quot;Pennsylvania&quot;, &quot;Rhode Island&quot;, &quot;South Carolina&quot;, &quot;South Dakota&quot;,&#xa;    &quot;Tennessee&quot;, &quot;Texas&quot;, &quot;Utah&quot;, &quot;Vermont&quot;, &quot;Virginia&quot;, &quot;Washington&quot;, &quot;West Virginia&quot;,&#xa;    &quot;Wisconsin&quot;, &quot;Wyoming&quot;&#xa;})"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbx_Type">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbx_TypeActionPerformed"/>
+      </Events>
+      <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>

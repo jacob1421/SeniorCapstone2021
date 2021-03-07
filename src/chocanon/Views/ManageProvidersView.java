@@ -61,7 +61,7 @@ public class ManageProvidersView extends javax.swing.JFrame {
         tbl_Providers.getColumnModel().getColumn(4).setPreferredWidth(80);
         tbl_Providers.getColumnModel().getColumn(5).setPreferredWidth(4);
         tbl_Providers.getColumnModel().getColumn(6).setPreferredWidth(20);
-        tbl_Providers.getColumnModel().getColumn(7).setPreferredWidth(40);
+        tbl_Providers.getColumnModel().getColumn(7).setPreferredWidth(80);
         tbl_Providers.getColumnModel().getColumn(8).setPreferredWidth(140);
         tbl_Providers.getColumnModel().getColumn(9).setPreferredWidth(80);
         
@@ -143,7 +143,7 @@ public class ManageProvidersView extends javax.swing.JFrame {
         }
 
         public void addRow(Provider newProvider){
-            //this.addRow(new Object[]{newMem.getDatabaseId(),newMem.getFirstName(), newMem.getLastName(), newMem.getStreetAddress(), newMem.getCity(), newMem.getState(), newMem.getZipCode(), newMem.getCardNumber(), newMem.getEmailAddress(), newMem.getMembershipStatus()});
+            this.addRow(new Object[]{newProvider.getDatabaseId(),newProvider.getFirstName(), newProvider.getLastName(), newProvider.getStreetAddress(), newProvider.getCity(), newProvider.getState(), newProvider.getZipCode(), newProvider.getProviderNumber(), newProvider.getEmailAddress(), newProvider.getProviderType()});
         }
         public void deleteRow(int rowIndex){
             this.removeRow(rowIndex);
