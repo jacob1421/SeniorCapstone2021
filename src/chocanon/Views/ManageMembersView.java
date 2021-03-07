@@ -1,5 +1,5 @@
 /* 
-    File: ManageMemberView.java
+    File: ManageMembersView.java
     Project: COSC-4360 Capstone Project Team #0
     University: McMurry University
     Course: COSC–4360 Spring 2021
@@ -17,7 +17,6 @@ package chocanon.Views;
 import chocanon.Models.Member;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
@@ -25,12 +24,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author jakeb
  */
-public class ManageMemberView extends javax.swing.JFrame {
+public class ManageMembersView extends javax.swing.JFrame {
     MemberCustomJTable memCustJTable;
     /**
      * Creates new form ManageMember
      */
-    public ManageMemberView() {
+    public ManageMembersView() {
         String[] columns = new String[] {
             "databaseId", "First Name", "Last Name", "Street Address", "City", "State", "Zip Code", "Card Number", "Email Address", "Membership Status"
         };
@@ -43,10 +42,12 @@ public class ManageMemberView extends javax.swing.JFrame {
                 false, false, false, false, false, false, false, false, false, false
             };
 
+            @Override
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
 
+            @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
@@ -255,14 +256,22 @@ public class ManageMemberView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ManageMemberView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManageMembersView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ManageMemberView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManageMembersView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ManageMemberView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManageMembersView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ManageMemberView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManageMembersView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -275,7 +284,7 @@ public class ManageMemberView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManageMemberView().setVisible(true);
+                new ManageMembersView().setVisible(true);
             }
         });
     }

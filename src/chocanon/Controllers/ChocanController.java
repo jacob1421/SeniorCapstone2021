@@ -20,7 +20,8 @@ import chocanon.Models.Member;
 import chocanon.Models.Provider;
 import chocanon.Models.Service;
 import chocanon.Models.Visit;
-import chocanon.Views.ManageMemberView;
+import chocanon.Views.EditAddMemberView;
+import chocanon.Views.ManageMembersView;
 import chocanon.Views.ManageProvidersView;
 import chocanon.Views.MenuView;
 import chocanon.Views.RecordsView;
@@ -35,16 +36,17 @@ import javax.swing.JOptionPane;
  */
 public class ChocanController {
     //Data Attributes
-    Provider providers[] = null;
-    Member members[] = null;
-    Visit visits[] = null;
-    Service services[] = null;
-    
+    private Provider providers[] = null;
+    private Member members[] = null;
+    private Visit visits[] = null;
+    private Service services[] = null;
+    private Member editMember = null;
     
     //Views
     private Main mainView = null;
     final private MenuView menuView = new MenuView();
-    final private ManageMemberView manageMembersView = new ManageMemberView();
+    final private ManageMembersView manageMembersView = new ManageMembersView();
+    final private EditAddMemberView editAddMemberView = new EditAddMemberView();
     final private ManageProvidersView manageProvidersView = new ManageProvidersView();
     final private ReportsView reportsView = new ReportsView();
     final private RecordsView recordsView = new RecordsView();
@@ -66,6 +68,8 @@ public class ChocanController {
         manageMembersView.setManageMembersDeleteButtonListener(new DeleteMemberButtonListener());
         manageMembersView.setManageMembersEditButtonListener(new EditMemberButtonListener());
         
+        editAddMemberView.setEditAddMemberCancelListener(new CancelMemberButtonListener());
+        
         manageProvidersView.setProviderSearchButtonListener(new ProviderSearchListener());
         manageProvidersView.setManageProvidersBackButtonListener(new ManageProvidersBackButtonListener());
         
@@ -77,7 +81,7 @@ public class ChocanController {
         this.mainView.setVisible(false);
         menuView.setVisible(true);
     }
-    
+   
     /* LISTENERS FOR VIEWS */
     
     //Listeners For MenuView View
@@ -157,6 +161,14 @@ public class ChocanController {
             System.out.println("Saving member");
         }
     }
+    class CancelMemberButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            editAddMemberView.setVisible(false);
+            manageMembersView.setVisible(true);
+            editAddMemberView.resetForm();
+        }
+    }
     class EditMemberButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -164,7 +176,28 @@ public class ChocanController {
             if(memberDatabaseId == -1){
                 manageMembersView.showMessageBox("Please select a member to edit!");
             }else{
-                System.out.println("Editing member: " + memberDatabaseId);
+                editAddMemberView.setVisible(true);
+                editMember = Member.findMemberbyId(members, memberDatabaseId);
+                if(editMember == null){
+                    //Error. Something went wrong. We couldnt find the member in the members array.
+                    manageMembersView.showMessageBox("Unexpected error, could not find the member!");
+                    Log.error("ChocanController", "We couldnt find the member in the members array.");
+                }else{
+                    //Set everything in the editAddMemberView
+                    editAddMemberView.setMemberFirstName(editMember.getFirstName());
+                    editAddMemberView.setMemberLastName(editMember.getLastName());
+                    editAddMemberView.setMemberStreetAddress(editMember.getStreetAddress());
+                    editAddMemberView.setMemberCity(editMember.getCity());
+                    editAddMemberView.setMemberZipCode(String.valueOf(editMember.getZipCode()));
+                    editAddMemberView.setMemberEmailAddress(editMember.getEmailAddress());
+                    editAddMemberView.setMemberCardNumber(String.valueOf(editMember.getCardNumber()));
+                    editAddMemberView.setMemberState(Member.biTranslateState(editMember.getState(), "FULL"));
+                    editAddMemberView.setMembershipStatus(editMember.getMembershipStatus());
+                    
+                    manageMembersView.setVisible(false);
+                    editAddMemberView.setVisible(true);
+                }
+                Log.info("ChocanController", "Editing member: " + memberDatabaseId);
             }
         }
     }

@@ -28,10 +28,10 @@ import javax.swing.JOptionPane;
  */
 public class TerminalController {
     //Data attributes
-    Provider provider = null;
-    Member member = null;
-    Service service = null; 
-    Visit visit = null;
+    private Provider provider = null;
+    private Member member = null;
+    private Service service = null; 
+    private Visit visit = null;
     
     //Views
     private Main mainView = null;
