@@ -121,7 +121,7 @@ public class ManageMembersView extends javax.swing.JFrame {
     }
     
     //Getters
-    public String getUserInput(){
+    public String getSearchInput(){
         return txt_MemberSearchText.getText();
     }
     

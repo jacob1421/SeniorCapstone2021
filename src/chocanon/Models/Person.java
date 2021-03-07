@@ -174,7 +174,7 @@ public abstract class Person {
                 }   
             break;
             default:
-                returnState = null;
+                returnState = "";
             break;
         }
         

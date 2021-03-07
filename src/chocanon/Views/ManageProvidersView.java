@@ -81,7 +81,7 @@ public class ManageProvidersView extends javax.swing.JFrame {
     }
     
     //Getters
-    public String getUserInput(){
+    public String getSearchInput(){
         return txt_ProviderSearchText.getText();
     }
     
