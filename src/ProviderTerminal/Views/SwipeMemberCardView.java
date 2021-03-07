@@ -83,11 +83,6 @@ public class SwipeMemberCardView extends javax.swing.JFrame {
         lbl_SwipeMemberCard.setText("Please Swipe or Enter Member Card Number");
 
         btn_CardNumberSubmit.setText("Confirm Membership");
-        btn_CardNumberSubmit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_CardNumberSubmitActionPerformed(evt);
-            }
-        });
 
         lbl_FeedbackMessage.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
@@ -129,10 +124,6 @@ public class SwipeMemberCardView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_CardNumberSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CardNumberSubmitActionPerformed
-
-    }//GEN-LAST:event_btn_CardNumberSubmitActionPerformed
 
     /**
      * @param args the command line arguments

@@ -15,16 +15,30 @@
 
 package chocanon.Models;
 import Database.DatabaseConnector;
+import Logger.Log;
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Service {
     //Data attributes
+    private int databaseId = 0;
     private String name = "";
     private int code = 0;
     private BigDecimal fee = null;
     
     //Constructors
     public Service(){
+    }
+    
+    public Service(int databaseId, String name, int code, BigDecimal fee){
+        this.databaseId = databaseId;
+        this.name = name;
+        this.code = code;
+        this.fee = fee;
     }
     
     public Service(String name, int code, BigDecimal fee){
@@ -45,12 +59,105 @@ public class Service {
     public BigDecimal getServiceFee(){
         return this.fee;
     }
+    public int getDatabaseId(){
+        return this.databaseId;
+    }
     
     //Static getters
     public static Service getServiceByServiceId(int serviceId){
         Service serviceFound = null;
-        /* Do the database functionality to get a service from the database by service code*/
+        Log.debug("Service", "Service Id: " + serviceId);
+        try {
+            //Create Database Connection
+            DatabaseConnector dbConn = new DatabaseConnector();
+            Connection conn = dbConn.getDatabaseConnection();
+            Statement stmt = conn.createStatement();
+            //Query
+            String strSelect = String.format("SELECT service_id, name, fee, code FROM chocanon_db.services WHERE service_id = %s LIMIT 1;", serviceId);
+            Log.debug("Service", "Query: " + strSelect);
+            //Execute Query
+            ResultSet rset = stmt.executeQuery(strSelect);
+            //Get Results
+            while (rset.next()) {
+                 serviceFound = new Service(rset.getInt("service_id"), rset.getString("name"), rset.getInt("code"), rset.getBigDecimal("fee"));
+            }
+            
+            //Print the provider found
+            if(serviceFound != null){
+                Log.debug("Service", "Service Found: " + serviceFound.toString());
+            }else{
+                Log.debug("Service", "No Service Found With Service Id: " + serviceId);
+            }
+            
+            //Close database
+            dbConn.closeDatabaseConnection();
+        } catch (Exception ex) {
+            Log.error("Service", ex.toString());
+        }    
         return serviceFound;
+    }
+    
+    public static Service getServiceByServiceCode(int serviceCode){
+        Service serviceFound = null;
+        Log.debug("Service", "Service Code: " + serviceCode);
+        try {
+            //Create Database Connection
+            DatabaseConnector dbConn = new DatabaseConnector();
+            Connection conn = dbConn.getDatabaseConnection();
+            Statement stmt = conn.createStatement();
+            //Query
+            String strSelect = String.format("SELECT service_id, name, fee, code FROM chocanon_db.services WHERE code = %s LIMIT 1;", serviceCode);
+            Log.debug("Service", "Query: " + strSelect);
+            //Execute Query
+            ResultSet rset = stmt.executeQuery(strSelect);
+            //Get Results
+            while (rset.next()) {
+                 serviceFound = new Service(rset.getInt("service_id"), rset.getString("name"), rset.getInt("code"), rset.getBigDecimal("fee"));
+            }
+            
+            //Print the provider found
+            if(serviceFound != null){
+                Log.debug("Service", "Service Found: " + serviceFound.toString());
+            }else{
+                Log.debug("Service", "No Service Found With Service Id: " + serviceCode);
+            }
+            
+            //Close database
+            dbConn.closeDatabaseConnection();
+        } catch (Exception ex) {
+            Log.error("Service", ex.toString());
+        }    
+        return serviceFound;
+    }
+        
+    public static Service[] getAllServices(){
+        ArrayList<Service> allServices = new ArrayList<>(); 
+        try {
+            //Create Database Connection
+            DatabaseConnector dbConn = new DatabaseConnector();
+            Connection conn = dbConn.getDatabaseConnection();
+            Statement stmt = conn.createStatement();
+            //Query
+            String strSelect = String.format("SELECT service_id, name, fee, code FROM chocanon_db.services;");
+            Log.debug("Service", "Query: " + strSelect);
+            //Execute Query
+            ResultSet rset = stmt.executeQuery(strSelect);
+            //Get Results
+            while (rset.next()) {
+                //Build the service
+                Service s = new Service(rset.getInt("service_id"), rset.getString("name"), rset.getInt("code"), rset.getBigDecimal("fee"));
+                Log.debug("Service", "Found Service: " + s.toString());
+                //Add Service
+                allServices.add(s);
+            }
+            
+            //Close database
+            dbConn.closeDatabaseConnection();
+        } catch (Exception ex) {
+            Log.error("Service", ex.toString());
+        }  
+        
+        return Arrays.stream(allServices.toArray()).toArray(Service[]::new);
     }
     
     @Override
