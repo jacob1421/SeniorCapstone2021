@@ -15,6 +15,7 @@
 package chocanon.Views;
 
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,7 +34,17 @@ public class RecordsView extends javax.swing.JFrame {
     public void setRecordsBackButtonListener(ActionListener e){
         btn_RecordsBack.addActionListener(e);
     }
+    public void setRecordsServiceRecordsButtonListener(ActionListener e){
+        btn_servicerecords.addActionListener(e);
+    }
+    public void setRecordsEftRecordsButtonListener(ActionListener e){
+        btn_eftrecords.addActionListener(e);
+    }
     
+    //Methods
+    public void showMessageBox(String message) {
+        JOptionPane.showMessageDialog(this, message);
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.

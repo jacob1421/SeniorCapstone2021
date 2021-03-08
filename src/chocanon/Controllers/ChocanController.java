@@ -19,6 +19,7 @@ import chocanon.Main;
 import chocanon.Models.Member;
 import chocanon.Models.Provider;
 import chocanon.Models.Service;
+import chocanon.Models.ServicesReport;
 import chocanon.Models.Visit;
 import chocanon.Views.EditAddMemberView;
 import chocanon.Views.EditAddProviderView;
@@ -29,6 +30,10 @@ import chocanon.Views.RecordsView;
 import chocanon.Views.ReportsView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -88,8 +93,10 @@ public class ChocanController {
         editAddProviderView.setEditAddProviderSaveListener(new SaveProviderButtonListener());
         
         reportsView.setReportsBackButtonListener(new ReportsBackButtonListener());
-        recordsView.setRecordsBackButtonListener(new RecordsBackButtonListener());
         
+        recordsView.setRecordsBackButtonListener(new RecordsBackButtonListener());
+        recordsView.setRecordsServiceRecordsButtonListener(new RecordsServiceRecordsButtonListener());
+                
         //Get fresh copy of provider types
         Provider.providerTypes = Provider.getAllProviderTypes();
         editAddProviderView.clearProviderTypes();
@@ -605,6 +612,22 @@ public class ChocanController {
         public void actionPerformed(ActionEvent e) {
             reportsView.setVisible(false);
             menuView.setVisible(true);
+        }
+    }
+    class RecordsServiceRecordsButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ServicesReport serReport = new ServicesReport();
+            try {
+                serReport.generateReportPDF();
+                recordsView.showMessageBox("Service Records Successfully Generated!");
+            } catch (FileNotFoundException ex) {
+                Log.error("ChocanController", ex);
+                recordsView.showMessageBox("Generation of service record report failed!");
+            } catch (IOException ex) {
+                Log.error("ChocanController", ex);
+                recordsView.showMessageBox("Generation of service record report failed!");
+            }
         }
     }
 }
