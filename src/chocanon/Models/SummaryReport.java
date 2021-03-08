@@ -14,6 +14,17 @@
  */
 package chocanon.Models;
 
+import com.itextpdf.io.font.FontConstants;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.List;
+import com.itextpdf.layout.element.ListItem;
+import com.itextpdf.layout.element.Paragraph;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.math.BigDecimal;
 /**
  *
@@ -23,14 +34,20 @@ public class SummaryReport {
     //Data Attributes
     private Visit[] providerVisits = null;
     
-    public SummaryReport(String startDate, String endDate){
-        this.providerVisits = Visit.getVisitsByDate(startDate, endDate);
+    public SummaryReport(Visit[] providerVisits){
+        this.providerVisits = providerVisits;
     }
     
     //Getters
     public int getNumberOfConsultationsByProviderNumber(int providerNumber){
         /* Get the number of per provider consultations by using a loop etc*/
-        return 0;
+        int numConsultations = 0;
+        for(int i =0;i<this.providerVisits.length;i++){
+            if(this.providerVisits[0].getProviderInfo().getProviderNumber() == providerNumber){
+                numConsultations +=1;
+            }
+        }
+        return numConsultations;
     }
     
     public BigDecimal getTotalFeeByProviderNumber(int providerNumber){
@@ -78,7 +95,27 @@ public class SummaryReport {
     
         Filename Format: SummaryReportMM-DD-YYY -> SummaryReport03-03-2021.pdf
     */
-    public void generateReportPDF(){
-        
+    public void generateReportPDF() throws FileNotFoundException, IOException{
+PdfWriter writer = new PdfWriter("SUMMMARYREPORT.PDF");
+PdfDocument pdf = new PdfDocument(writer);
+Document document = new Document(pdf);
+// Create a PdfFont
+// Add a Paragraph
+document.add(new Paragraph("iText is:"));
+// Create a List
+List list = new List()
+    .setSymbolIndent(12)
+    .setListSymbol("\u2022");
+// Add ListItem objects
+list.add(new ListItem("Never gonna give you up"))
+    .add(new ListItem("Never gonna let you down"))
+    .add(new ListItem("Never gonna run around and desert you"))
+    .add(new ListItem("Never gonna make you cry"))
+    .add(new ListItem("Never gonna say goodbye"))
+    .add(new ListItem("Never gonna tell a lie and hurt you"));
+// Add the list
+document.add(list);
+document.close();
+
     }
 }

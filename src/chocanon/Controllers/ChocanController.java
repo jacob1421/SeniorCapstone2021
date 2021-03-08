@@ -19,6 +19,7 @@ import chocanon.Main;
 import chocanon.Models.Member;
 import chocanon.Models.Provider;
 import chocanon.Models.Service;
+import chocanon.Models.SummaryReport;
 import chocanon.Models.Visit;
 import chocanon.Views.EditAddMemberView;
 import chocanon.Views.EditAddProviderView;
@@ -29,6 +30,9 @@ import chocanon.Views.RecordsView;
 import chocanon.Views.ReportsView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -88,6 +92,8 @@ public class ChocanController {
         editAddProviderView.setEditAddProviderSaveListener(new SaveProviderButtonListener());
         
         reportsView.setReportsBackButtonListener(new ReportsBackButtonListener());
+        reportsView.setReportsSummaryReportButtonListener(new ReportsSummaryReportButtonListener());
+        
         recordsView.setRecordsBackButtonListener(new RecordsBackButtonListener());
         
         //Get fresh copy of provider types
@@ -605,6 +611,20 @@ public class ChocanController {
         public void actionPerformed(ActionEvent e) {
             reportsView.setVisible(false);
             menuView.setVisible(true);
+        }
+    }
+    class ReportsSummaryReportButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            //Date Queries To SQL MUST BE YYYY-MM-DD
+   //         visits = Visit.getVisitsByDate("2021-02-01", "2021-02-03");
+            SummaryReport sr = new SummaryReport(visits);
+            try {
+                sr.generateReportPDF();
+            } catch (IOException ex) {
+                Logger.getLogger(ChocanController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            visits = null;
         }
     }
 }
