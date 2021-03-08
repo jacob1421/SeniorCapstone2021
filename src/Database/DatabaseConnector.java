@@ -20,11 +20,11 @@ import java.sql.*;
 
 public class DatabaseConnector {
     //Attributes
-    final private String database_host = "sql5.freesqldatabase.com";
+    final private String database_host = "localhost";
     final private int database_port = 3306;
-    final private String database_user = "sql5396356";
-    final private String database_password = "zlyDUAagZK";
-    final private String database_name = "sql5396356";
+    final private String database_user = "chocanon_manager";
+    final private String database_password = "SomeHardPassword1234";
+    final private String database_name = "chocanon_db";
     private Connection databaseConn;
     
     //Date Queries To SQL MUST BE YYYY-MM-DD

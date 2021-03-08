@@ -18,6 +18,7 @@ import Logger.Log;
 import ProviderTerminal.Controllers.TerminalController;
 import chocanon.Controllers.ChocanController;
 import static Logger.Log.*;
+import chocanon.Models.Provider;
 
 
 public class Main extends javax.swing.JFrame {
@@ -39,6 +40,7 @@ public class Main extends javax.swing.JFrame {
         btn_StartProvider = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         lbl_SoftwareName.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         lbl_SoftwareName.setText("Chocanon Software");

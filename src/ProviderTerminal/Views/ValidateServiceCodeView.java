@@ -60,6 +60,7 @@ public class ValidateServiceCodeView extends javax.swing.JFrame {
         btn_CorrectServiceCode = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         lbl_ServiceCode.setText("Service Code: 123456");
 

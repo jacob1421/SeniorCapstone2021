@@ -103,6 +103,7 @@ public class ServiceDetailsView extends javax.swing.JFrame {
         btn_ServiceDetailsBackButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         lbl_ServiceDetails.setText("Service Details");
 

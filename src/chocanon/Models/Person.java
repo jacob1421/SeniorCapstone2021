@@ -98,4 +98,86 @@ public abstract class Person {
         this.emailAddress = emailAddress;
     }
     
+    //Static Methods
+    public static String biTranslateState(String currentStateRepresentation, String returnRepresentation){
+        String returnState = null;
+        String[][] statesMap = new String[][]{
+            {"Alabama", "AL"},
+            {"Alaska","AK"},
+            {"Arizona","AZ"},
+            {"Arkansas","AR"},
+            {"California","CA"},
+            {"Colorado","CO"},
+            {"Connecticut","CT"},
+            {"Delaware","DE"},
+            {"Florida","FL"},
+            {"Georgia","GA"},
+            {"Hawaii","HI"},
+            {"Idaho","ID"},
+            {"Illinois","IL"},
+            {"Indiana","IN"},
+            {"Iowa","IA"},
+            {"Kansas","KS"},
+            {"Kentucky","KY"},
+            {"Louisiana","LA"},
+            {"Maine","ME"},
+            {"Maryland","MD"},
+            {"Massachusetts","MA"},
+            {"Michigan","MI"},
+            {"Minnesota","MN"},
+            {"Mississippi","MS"},
+            {"Missouri","MO"},
+            {"Montana","MT"},
+            {"Nebraska","NE"},
+            {"Nevada","NV"},
+            {"New Hampshire","NH"},
+            {"New Jersey","NJ"},
+            {"New Mexico","NM"},
+            {"New York","NY"},
+            {"North Carolina","NC"},
+            {"North Dakota","ND"},
+            {"Ohio","OH"},
+            {"Oklahoma","OK"},
+            {"Oregon","OR"},
+            {"Pennsylvania","PA"},
+            {"Rhode Island","RI"},
+            {"South Carolina","SC"},
+            {"South Dakota","SD"},
+            {"Tennessee","TN"},
+            {"Texas","TX"},
+            {"Utah","UT"},
+            {"Vermont","VT"},
+            {"Virginia","VA"},
+            {"Washington","WA"},
+            {"West Virginia","WV"},
+            {"Wisconsin","WI"},
+            {"Wyoming","WY"}
+        };
+        
+        switch(returnRepresentation){
+            //Takes the full state and returns the abbreviation name
+            case "ABBR":
+                for(int i = 0;i < statesMap.length;i++){
+                    if(currentStateRepresentation.equals(statesMap[i][0])){
+                        returnState = statesMap[i][1];
+                        break;
+                    }
+                }
+            break;
+            //Takes the abbreviation state and returns the full state name
+            case "FULL":
+                for(int i = 0;i < statesMap.length;i++){
+                    if(currentStateRepresentation.equals(statesMap[i][1])){
+                        returnState = statesMap[i][0];
+                        break;
+                    }
+                }   
+            break;
+            default:
+                returnState = "";
+            break;
+        }
+        
+        return returnState;
+    }
 }

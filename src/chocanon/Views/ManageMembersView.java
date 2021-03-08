@@ -1,5 +1,5 @@
 /* 
-    File: ManageProvidersView.java
+    File: ManageMembersView.java
     Project: COSC-4360 Capstone Project Team #0
     University: McMurry University
     Course: COSC–4360 Spring 2021
@@ -10,11 +10,11 @@
     Updated by: Jacob Bremiller
     Updated: 3/3/2021
     Compiler: Apache NetBeans IDE for Java SE
-    Description: Allows providers to be populated in a table and searched from a database.
+    Description: Allows members to be populated in a table and searched from a database.
  */
 package chocanon.Views;
 
-import chocanon.Models.Provider;
+import chocanon.Models.Member;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
@@ -24,20 +24,20 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author jakeb
  */
-public class ManageProvidersView extends javax.swing.JFrame {
-    ProviderCustomJTable provCustJTable;
+public class ManageMembersView extends javax.swing.JFrame {
+    MemberCustomJTable memCustJTable;
     /**
-     * Creates new form ManageProvider
+     * Creates new form ManageMember
      */
-    public ManageProvidersView() {
+    public ManageMembersView() {
         String[] columns = new String[] {
-            "databaseId", "First Name", "Last Name", "Street Address", "City", "State", "Zip Code", "Provider Number", "Email Address", "Provider Type"
+            "databaseId", "First Name", "Last Name", "Street Address", "City", "State", "Zip Code", "Card Number", "Email Address", "Membership Status"
         };
         Object[][] data = new Object[][] {
         };
         
-        provCustJTable = new ProviderCustomJTable(data, columns){
-            Class[] types = new Class [] {Integer.class, String.class, String.class, String.class, String.class, String.class, Integer.class, Integer.class, String.class, String.class};
+        memCustJTable = new MemberCustomJTable(data, columns){
+            Class[] types = new Class [] {Integer.class, String.class, String.class, String.class, String.class, String.class, Integer.class, Integer.class, String.class, Boolean.class};
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false, false, false
             };
@@ -54,96 +54,94 @@ public class ManageProvidersView extends javax.swing.JFrame {
         };
         
         initComponents();
-
-        tbl_Providers.getColumnModel().getColumn(1).setPreferredWidth(60);
-        tbl_Providers.getColumnModel().getColumn(2).setPreferredWidth(60);
-        tbl_Providers.getColumnModel().getColumn(3).setPreferredWidth(180);
-        tbl_Providers.getColumnModel().getColumn(4).setPreferredWidth(80);
-        tbl_Providers.getColumnModel().getColumn(5).setPreferredWidth(4);
-        tbl_Providers.getColumnModel().getColumn(6).setPreferredWidth(20);
-        tbl_Providers.getColumnModel().getColumn(7).setPreferredWidth(80);
-        tbl_Providers.getColumnModel().getColumn(8).setPreferredWidth(140);
-        tbl_Providers.getColumnModel().getColumn(9).setPreferredWidth(80);
+        //tbl_Members.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        tbl_Members.getColumnModel().getColumn(1).setPreferredWidth(60);
+        tbl_Members.getColumnModel().getColumn(2).setPreferredWidth(60);
+        tbl_Members.getColumnModel().getColumn(3).setPreferredWidth(180);
+        tbl_Members.getColumnModel().getColumn(4).setPreferredWidth(80);
+        tbl_Members.getColumnModel().getColumn(5).setPreferredWidth(4);
+        tbl_Members.getColumnModel().getColumn(6).setPreferredWidth(20);
+        tbl_Members.getColumnModel().getColumn(7).setPreferredWidth(40);
+        tbl_Members.getColumnModel().getColumn(8).setPreferredWidth(140);
+        tbl_Members.getColumnModel().getColumn(9).setPreferredWidth(80);
         
         //Hide the databaseId column. This is needed for delete and update
-        tbl_Providers.getColumnModel().getColumn(0).setMinWidth(0);
-        tbl_Providers.getColumnModel().getColumn(0).setMaxWidth(0);
-        tbl_Providers.getColumnModel().getColumn(0).setResizable(false);
-        tbl_Providers.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        tbl_Members.getColumnModel().getColumn(0).setMinWidth(0);
+        tbl_Members.getColumnModel().getColumn(0).setMaxWidth(0);
+        tbl_Members.getColumnModel().getColumn(0).setResizable(false);
+        tbl_Members.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
 
     //Setters
-    public void setProviderSearchButtonListener(ActionListener e){
-        btn_SearchProvider.addActionListener(e);
+    public void setMemberSearchButtonListener(ActionListener e){
+        btn_SearchMember.addActionListener(e);
     }
-    public void setManageProvidersBackButtonListener(ActionListener e){
-        btn_ProvidersBack.addActionListener(e);
+    public void setManageMembersBackButtonListener(ActionListener e){
+        btn_MembersBack.addActionListener(e);
     }
-    
-    //Getters
-    public String getSearchInput(){
-        return txt_ProviderSearchText.getText();
-    }
-    
-    public void setManageProvidersEditButtonListener(ActionListener e){
+    public void setManageMembersEditButtonListener(ActionListener e){
         btn_Edit.addActionListener(e);
     }
-    public void setManageProvidersAddButtonListener(ActionListener e){
+    public void setManageMembersAddButtonListener(ActionListener e){
         btn_Add.addActionListener(e);
     }
-    public void setManageProvidersDeleteButtonListener(ActionListener e){
+    public void setManageMembersDeleteButtonListener(ActionListener e){
         btn_Delete.addActionListener(e);
     }
     
-    public int getProviderDatabaseIdSelected(){
-        int selectedRow = tbl_Providers.getSelectedRow();
+    public int getMemberDatabaseIdSelected(){
+        int selectedRow = tbl_Members.getSelectedRow();
         if(selectedRow == -1){
             return selectedRow;
         }else{
-            return (Integer)tbl_Providers.getValueAt(selectedRow, 0);
+            return (Integer)tbl_Members.getValueAt(selectedRow, 0);
         }
     }
     
-    public int removeSelectedProvider(){
-        int selectedRow = tbl_Providers.getSelectedRow();
+    public int removeSelectedMember(){
+        int selectedRow = tbl_Members.getSelectedRow();
         if(selectedRow == -1){
             return selectedRow;
         }else{
-            provCustJTable.removeRow(selectedRow);
+            memCustJTable.removeRow(selectedRow);
             return 1;
         }
     }
     
-    public void addRowProvider(Provider prov){
-        provCustJTable.addRow(prov);
+    public void addRowMember(Member mem){
+        memCustJTable.addRow(mem);
     }
     
     public void clearTable(){
-        provCustJTable.setRowCount(0);
+        memCustJTable.setRowCount(0);
     }
     
     public void clearSearchText(){
-        txt_ProviderSearchText.setText("");
+        txt_MemberSearchText.setText("");
     }
-   
+    
+    //Getters
+    public String getSearchInput(){
+        return txt_MemberSearchText.getText();
+    }
     
     //Methods
     public void showMessageBox(String message) {
         JOptionPane.showMessageDialog(this, message);
     }
     public int showDeleteDialog(){
-        int selectedChoice = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the selected provider?", "Delete Provider", JOptionPane.YES_NO_OPTION);
+        int selectedChoice = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the selected member?", "Delete Member", JOptionPane.YES_NO_OPTION);
         return selectedChoice;
     }
     
     //Inner class
-    class ProviderCustomJTable extends DefaultTableModel{
-        public ProviderCustomJTable(Object[][] data, Object[] columnNames){
+    class MemberCustomJTable extends DefaultTableModel{
+        public MemberCustomJTable(Object[][] data, Object[] columnNames){
             super(data, columnNames);
         }
 
-        public void addRow(Provider newProvider){
-            this.addRow(new Object[]{newProvider.getDatabaseId(),newProvider.getFirstName(), newProvider.getLastName(), newProvider.getStreetAddress(), newProvider.getCity(), newProvider.getState(), newProvider.getZipCode(), newProvider.getProviderNumber(), newProvider.getEmailAddress(), newProvider.getProviderType()});
+        public void addRow(Member newMem){
+            this.addRow(new Object[]{newMem.getDatabaseId(),newMem.getFirstName(), newMem.getLastName(), newMem.getStreetAddress(), newMem.getCity(), newMem.getState(), newMem.getZipCode(), newMem.getCardNumber(), newMem.getEmailAddress(), newMem.getMembershipStatus()});
         }
         public void deleteRow(int rowIndex){
             this.removeRow(rowIndex);
@@ -161,10 +159,10 @@ public class ManageProvidersView extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_Providers = new javax.swing.JTable();
-        btn_SearchProvider = new javax.swing.JButton();
-        txt_ProviderSearchText = new javax.swing.JTextField();
-        btn_ProvidersBack = new javax.swing.JButton();
+        tbl_Members = new javax.swing.JTable();
+        btn_SearchMember = new javax.swing.JButton();
+        txt_MemberSearchText = new javax.swing.JTextField();
+        btn_MembersBack = new javax.swing.JButton();
         btn_Edit = new javax.swing.JButton();
         btn_Add = new javax.swing.JButton();
         btn_Delete = new javax.swing.JButton();
@@ -172,26 +170,26 @@ public class ManageProvidersView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        tbl_Providers.setModel(provCustJTable);
-        tbl_Providers.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(tbl_Providers);
+        tbl_Members.setModel(memCustJTable);
+        tbl_Members.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tbl_Members);
 
-        btn_SearchProvider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/search.png"))); // NOI18N
-        btn_SearchProvider.setText("Search");
+        btn_SearchMember.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/search.png"))); // NOI18N
+        btn_SearchMember.setText("Search");
 
-        btn_ProvidersBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/go-back-left-arrow.png"))); // NOI18N
-        btn_ProvidersBack.setBorderPainted(false);
-        btn_ProvidersBack.setContentAreaFilled(false);
-        btn_ProvidersBack.setFocusPainted(false);
+        btn_MembersBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/go-back-left-arrow.png"))); // NOI18N
+        btn_MembersBack.setBorderPainted(false);
+        btn_MembersBack.setContentAreaFilled(false);
+        btn_MembersBack.setFocusPainted(false);
 
         btn_Edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/edit.png"))); // NOI18N
-        btn_Edit.setText("Edit Provider");
+        btn_Edit.setText("Edit Member");
 
         btn_Add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/add.png"))); // NOI18N
-        btn_Add.setText("Add New Provider");
+        btn_Add.setText("Add New Member");
 
         btn_Delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/delete.png"))); // NOI18N
-        btn_Delete.setText("Delete Provider");
+        btn_Delete.setText("Delete Member");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -200,7 +198,7 @@ public class ManageProvidersView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn_ProvidersBack, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_MembersBack, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -215,20 +213,20 @@ public class ManageProvidersView extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(btn_Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(btn_SearchProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btn_SearchMember, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txt_ProviderSearchText, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addComponent(txt_MemberSearchText, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(btn_ProvidersBack)
+                .addComponent(btn_MembersBack)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btn_SearchProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_ProviderSearchText, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_SearchMember, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_MemberSearchText, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btn_Add, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -259,14 +257,22 @@ public class ManageProvidersView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ManageProvidersView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManageMembersView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ManageProvidersView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManageMembersView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ManageProvidersView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManageMembersView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ManageProvidersView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManageMembersView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -279,7 +285,7 @@ public class ManageProvidersView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManageProvidersView().setVisible(true);
+                new ManageMembersView().setVisible(true);
             }
         });
     }
@@ -288,10 +294,10 @@ public class ManageProvidersView extends javax.swing.JFrame {
     private javax.swing.JButton btn_Add;
     private javax.swing.JButton btn_Delete;
     private javax.swing.JButton btn_Edit;
-    private javax.swing.JButton btn_ProvidersBack;
-    private javax.swing.JButton btn_SearchProvider;
+    private javax.swing.JButton btn_MembersBack;
+    private javax.swing.JButton btn_SearchMember;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tbl_Providers;
-    private javax.swing.JTextField txt_ProviderSearchText;
+    private javax.swing.JTable tbl_Members;
+    private javax.swing.JTextField txt_MemberSearchText;
     // End of variables declaration//GEN-END:variables
 }

@@ -71,6 +71,7 @@ public class ProvideAServiceView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("chocan terminal");
+        setResizable(false);
 
         lbl_ChocAnTerminal.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         lbl_ChocAnTerminal.setText("ChocAn Terminal");
