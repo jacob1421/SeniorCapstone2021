@@ -15,7 +15,11 @@
 package chocanon.Views;
 
 import java.awt.event.ActionListener;
+import javax.swing.Box;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -44,6 +48,28 @@ public class RecordsView extends javax.swing.JFrame {
     //Methods
     public void showMessageBox(String message) {
         JOptionPane.showMessageDialog(this, message);
+    }
+    
+    public String[] getFromAndToDate(String startDate, String endDate){
+      JTextField fromDateField = new JTextField(10);
+      fromDateField.setText(startDate);
+      
+      JTextField toDateField = new JTextField(10);
+      toDateField.setText(endDate);
+      
+      //Create panel
+      JPanel myPanel = new JPanel();
+      myPanel.add(new JLabel("Start Date:"));
+      myPanel.add(fromDateField);
+      myPanel.add(Box.createHorizontalStrut(15));
+      myPanel.add(new JLabel("End Date:"));
+      myPanel.add(toDateField);
+      
+      int result = JOptionPane.showConfirmDialog(null, myPanel, "Please enter start and end date.", JOptionPane.OK_CANCEL_OPTION);
+      if (result == JOptionPane.OK_OPTION) {
+            return new String[]{fromDateField.getText(),toDateField.getText()};
+      }
+      return null;
     }
     
     /**

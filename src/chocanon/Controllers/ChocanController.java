@@ -16,6 +16,7 @@ package chocanon.Controllers;
 
 import Logger.Log;
 import chocanon.Main;
+import chocanon.Models.EFTDataReport;
 import chocanon.Models.Member;
 import chocanon.Models.Provider;
 import chocanon.Models.Service;
@@ -28,6 +29,7 @@ import chocanon.Views.ManageProvidersView;
 import chocanon.Views.MenuView;
 import chocanon.Views.RecordsView;
 import chocanon.Views.ReportsView;
+import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
@@ -96,7 +98,8 @@ public class ChocanController {
         
         recordsView.setRecordsBackButtonListener(new RecordsBackButtonListener());
         recordsView.setRecordsServiceRecordsButtonListener(new RecordsServiceRecordsButtonListener());
-                
+        recordsView.setRecordsEftRecordsButtonListener(new RecordsETFDataRecordsButtonListener());
+        
         //Get fresh copy of provider types
         Provider.providerTypes = Provider.getAllProviderTypes();
         editAddProviderView.clearProviderTypes();
@@ -627,6 +630,43 @@ public class ChocanController {
             } catch (IOException ex) {
                 Log.error("ChocanController", ex);
                 recordsView.showMessageBox("Generation of service record report failed!");
+            }
+        }
+    }
+    class RecordsETFDataRecordsButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String[] fromAndToDates = recordsView.getFromAndToDate("", "");
+            if(fromAndToDates == null){
+                return;
+            }
+            while(fromAndToDates[0].equals("") || fromAndToDates[1].equals("")){
+                //Validations
+                if(fromAndToDates[0].equals("")){
+                    recordsView.showMessageBox("Please provide a start date");
+                    fromAndToDates = recordsView.getFromAndToDate(fromAndToDates[0], fromAndToDates[1]);
+                    if(fromAndToDates == null){
+                        return;
+                    }
+                }
+                if(fromAndToDates[1].equals("")){
+                    recordsView.showMessageBox("Please provide a end date");
+                    fromAndToDates = recordsView.getFromAndToDate(fromAndToDates[0], fromAndToDates[1]);
+                    if(fromAndToDates == null){
+                        return;
+                    }
+                }
+            }
+            EFTDataReport eftDataReport = new EFTDataReport(fromAndToDates[0], fromAndToDates[1]);
+            try {
+                eftDataReport.generateReportPDF();
+                recordsView.showMessageBox("EFT Data Report Successfully Generated!");
+            } catch (FileNotFoundException ex) {
+                Log.error("ChocanController", ex);
+                recordsView.showMessageBox("Generation of EFT Data report failed!");
+            } catch (IOException ex) {
+                Log.error("ChocanController", ex);
+                recordsView.showMessageBox("Generation of EFT Data report failed!");
             }
         }
     }
