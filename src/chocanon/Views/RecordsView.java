@@ -14,7 +14,11 @@
  */
 package chocanon.Views;
 
+import com.github.lgooddatepicker.components.DatePicker;
+import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import javax.swing.Box;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -51,23 +55,32 @@ public class RecordsView extends javax.swing.JFrame {
     }
     
     public String[] getFromAndToDate(String startDate, String endDate){
-      JTextField fromDateField = new JTextField(10);
-      fromDateField.setText(startDate);
+      final DatePickerSettings startDateSettings = new DatePickerSettings();
+      final DatePickerSettings endDateSettings = new DatePickerSettings();
+      startDateSettings.setFormatForDatesCommonEra("yyyy-MM-dd");
+      endDateSettings.setFormatForDatesCommonEra("yyyy-MM-dd");
       
-      JTextField toDateField = new JTextField(10);
-      toDateField.setText(endDate);
+      final DatePicker startDatePicker = new DatePicker(startDateSettings);
+      final DatePicker endDatePicker = new DatePicker(endDateSettings);
+      
+      if(startDate.equals("") != true){
+        startDatePicker.setDate(LocalDate.parse(startDate));
+      }
+      if(endDate.equals("") != true){
+        endDatePicker.setDate(LocalDate.parse(endDate));
+      }
       
       //Create panel
       JPanel myPanel = new JPanel();
       myPanel.add(new JLabel("Start Date:"));
-      myPanel.add(fromDateField);
+      myPanel.add(startDatePicker);
       myPanel.add(Box.createHorizontalStrut(15));
       myPanel.add(new JLabel("End Date:"));
-      myPanel.add(toDateField);
+      myPanel.add(endDatePicker);
       
       int result = JOptionPane.showConfirmDialog(null, myPanel, "Please enter start and end date.", JOptionPane.OK_CANCEL_OPTION);
       if (result == JOptionPane.OK_OPTION) {
-            return new String[]{fromDateField.getText(),toDateField.getText()};
+            return new String[]{startDatePicker.getText(),endDatePicker.getText()};
       }
       return null;
     }
@@ -87,6 +100,7 @@ public class RecordsView extends javax.swing.JFrame {
         btn_RecordsBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Records");
         setResizable(false);
 
         btn_servicerecords.setText("Service Records");

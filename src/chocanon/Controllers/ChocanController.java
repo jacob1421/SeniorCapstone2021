@@ -316,6 +316,8 @@ public class ChocanController {
     class EditMemberButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            editAddMemberView.setTitle("Edit Member");
+            
             int memberDatabaseId = manageMembersView.getMemberDatabaseIdSelected();
             if(memberDatabaseId == -1){
                 manageMembersView.showMessageBox("Please select a member to edit!");
@@ -369,6 +371,7 @@ public class ChocanController {
     class AddMemberButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            editAddMemberView.setTitle("Add New Member");
             manageMembersView.setVisible(false);
             editAddMemberView.setVisible(true);
         }
@@ -444,6 +447,8 @@ public class ChocanController {
     class EditProviderButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            editAddProviderView.setTitle("Edit Provider");
+            
             int providerDatabaseId = manageProvidersView.getProviderDatabaseIdSelected();
             if(providerDatabaseId == -1){
                 manageProvidersView.showMessageBox("Please select a provider to edit!");
@@ -474,6 +479,7 @@ public class ChocanController {
     class AddProviderButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            editAddProviderView.setTitle("Add New Provider");
             manageProvidersView.setVisible(false);
             editAddProviderView.setVisible(true);
         }
