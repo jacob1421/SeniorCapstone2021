@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.logging.Level;
 
@@ -174,19 +175,12 @@ public class Log {
 	static public class Logger{
 		private final long firstLogTime;
                 private final SimpleDateFormat formatter = new SimpleDateFormat("MM_dd_yyyy_HH_mm_ss");
-                private final String logFileName;
                 private final File logFile;      
                 
                 public Logger(){
                     this.firstLogTime = System.currentTimeMillis();
-                    this.logFileName = "Logs\\LogFile_" + formatter.format(new Date()) + ".log";
-                    this.logFile = new File(logFileName); 
-                    try {
-                        this.logFile.getParentFile().mkdirs();
-                        this.logFile.createNewFile();
-                    } catch (IOException ex) {
-                        java.util.logging.Logger.getLogger(Log.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    this.logFile = new File(String.format("%s\\Logs\\LogFile_%s.log", System.getProperty("user.dir"), formatter.format(new Date())));
+                    this.logFile.getParentFile().mkdirs();
                 }
                 
 		public void log (int level, String category, String message, Throwable ex) {

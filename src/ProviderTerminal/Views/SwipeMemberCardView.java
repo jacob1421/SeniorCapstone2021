@@ -78,6 +78,7 @@ public class SwipeMemberCardView extends javax.swing.JFrame {
         btn_BackCardSwipe = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Card Swipe");
         setResizable(false);
 
         lbl_SwipeMemberCard.setText("Please Swipe or Enter Member Card Number");

@@ -49,6 +49,7 @@ public class ReportsView extends javax.swing.JFrame {
         btn_GenerateSummaryReport = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Reports");
         setResizable(false);
 
         lbl_Reports.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
