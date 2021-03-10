@@ -16,9 +16,11 @@ package chocanon.Controllers;
 
 import Logger.Log;
 import chocanon.Main;
+import chocanon.Models.EFTDataReport;
 import chocanon.Models.Member;
 import chocanon.Models.Provider;
 import chocanon.Models.Service;
+import chocanon.Models.ServicesReport;
 import chocanon.Models.Visit;
 import chocanon.Views.EditAddMemberView;
 import chocanon.Views.EditAddProviderView;
@@ -27,9 +29,14 @@ import chocanon.Views.ManageProvidersView;
 import chocanon.Views.MenuView;
 import chocanon.Views.RecordsView;
 import chocanon.Views.ReportsView;
+import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import static java.lang.Integer.parseInt;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -89,7 +96,10 @@ public class ChocanController {
         editAddProviderView.setEditAddProviderSaveListener(new SaveProviderButtonListener());
         
         reportsView.setReportsBackButtonListener(new ReportsBackButtonListener());
+        
         recordsView.setRecordsBackButtonListener(new RecordsBackButtonListener());
+        recordsView.setRecordsServiceRecordsButtonListener(new RecordsServiceRecordsButtonListener());
+        recordsView.setRecordsEftRecordsButtonListener(new RecordsETFDataRecordsButtonListener());
         
         //Get fresh copy of provider types
         Provider.providerTypes = Provider.getAllProviderTypes();
@@ -339,6 +349,8 @@ public class ChocanController {
     class EditMemberButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            editAddMemberView.setTitle("Edit Member");
+            
             int memberDatabaseId = manageMembersView.getMemberDatabaseIdSelected();
             if(memberDatabaseId == -1){
                 manageMembersView.showMessageBox("Please select a member to edit!");
@@ -392,6 +404,7 @@ public class ChocanController {
     class AddMemberButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            editAddMemberView.setTitle("Add New Member");
             manageMembersView.setVisible(false);
             editAddMemberView.setVisible(true);
         }
@@ -467,6 +480,8 @@ public class ChocanController {
     class EditProviderButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            editAddProviderView.setTitle("Edit Provider");
+            
             int providerDatabaseId = manageProvidersView.getProviderDatabaseIdSelected();
             if(providerDatabaseId == -1){
                 manageProvidersView.showMessageBox("Please select a provider to edit!");
@@ -497,6 +512,7 @@ public class ChocanController {
     class AddProviderButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            editAddProviderView.setTitle("Add New Provider");
             manageProvidersView.setVisible(false);
             editAddProviderView.setVisible(true);
         }
@@ -668,6 +684,59 @@ public class ChocanController {
         public void actionPerformed(ActionEvent e) {
             reportsView.setVisible(false);
             menuView.setVisible(true);
+        }
+    }
+    class RecordsServiceRecordsButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ServicesReport serReport = new ServicesReport();
+            try {
+                serReport.generateReportPDF();
+                recordsView.showMessageBox("Service Records Successfully Generated!");
+            } catch (FileNotFoundException ex) {
+                Log.error("ChocanController", ex);
+                recordsView.showMessageBox("Generation of service record report failed!");
+            } catch (IOException ex) {
+                Log.error("ChocanController", ex);
+                recordsView.showMessageBox("Generation of service record report failed!");
+            }
+        }
+    }
+    class RecordsETFDataRecordsButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String[] fromAndToDates = recordsView.getFromAndToDate("", "");
+            if(fromAndToDates == null){
+                return;
+            }
+            while(fromAndToDates[0].equals("") || fromAndToDates[1].equals("")){
+                //Validations
+                if(fromAndToDates[0].equals("")){
+                    recordsView.showMessageBox("Please provide a start date");
+                    fromAndToDates = recordsView.getFromAndToDate(fromAndToDates[0], fromAndToDates[1]);
+                    if(fromAndToDates == null){
+                        return;
+                    }
+                }
+                if(fromAndToDates[1].equals("")){
+                    recordsView.showMessageBox("Please provide a end date");
+                    fromAndToDates = recordsView.getFromAndToDate(fromAndToDates[0], fromAndToDates[1]);
+                    if(fromAndToDates == null){
+                        return;
+                    }
+                }
+            }
+            EFTDataReport eftDataReport = new EFTDataReport(fromAndToDates[0], fromAndToDates[1]);
+            try {
+                eftDataReport.generateReportPDF();
+                recordsView.showMessageBox("EFT Data Report Successfully Generated!");
+            } catch (FileNotFoundException ex) {
+                Log.error("ChocanController", ex);
+                recordsView.showMessageBox("Generation of EFT Data report failed!");
+            } catch (IOException ex) {
+                Log.error("ChocanController", ex);
+                recordsView.showMessageBox("Generation of EFT Data report failed!");
+            }
         }
     }
 }
