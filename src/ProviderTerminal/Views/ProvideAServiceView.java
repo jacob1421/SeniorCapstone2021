@@ -70,7 +70,7 @@ public class ProvideAServiceView extends javax.swing.JFrame {
         btn_ProvideServiceBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("chocan terminal");
+        setTitle("ChocAn Terminal");
         setResizable(false);
 
         lbl_ChocAnTerminal.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N

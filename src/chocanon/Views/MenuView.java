@@ -64,6 +64,7 @@ public class MenuView extends javax.swing.JFrame {
         btn_BackButtonMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Main Menu");
         setResizable(false);
 
         btn_Records.setText("Records");

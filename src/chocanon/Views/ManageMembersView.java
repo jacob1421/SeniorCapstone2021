@@ -168,6 +168,7 @@ public class ManageMembersView extends javax.swing.JFrame {
         btn_Delete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Manage Members");
         setResizable(false);
 
         tbl_Members.setModel(memCustJTable);
