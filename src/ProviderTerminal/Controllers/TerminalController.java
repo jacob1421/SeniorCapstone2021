@@ -117,15 +117,17 @@ public class TerminalController {
                 currentEnteredServiceCode = serviceDetailsView.getServiceCodeTxt();
                 Log.debug("TerminalController", "New Captured Service Code Text: " + currentEnteredServiceCode);
                 //Look up the service code if the service code isnt found display error
-                //service = Service.getServiceByServiceCode(Integer.parseInt(currentEnteredServiceCode));
-//                try {
-//                    parseInt(serviceDetailsView.getServiceCodeTxt());
-//                } catch (NumberFormatException a) {
-//                    serviceDetailsView.setMessageLabel("Please provide a valid service code", Color.RED);
-//                }
-//                if (serviceDetailsView.getServiceCodeTxt().length() != 6) {
-//                    serviceDetailsView.setMessageLabel("Please provide a valid service code", Color.RED);
-//                }
+
+                try {
+                    parseInt(serviceDetailsView.getServiceCodeTxt());
+                } catch (NumberFormatException a) {
+                    serviceDetailsView.setMessageLabel("Please provide a valid service code", Color.RED);
+                }
+                service = Service.getServiceByServiceCode(Integer.parseInt(currentEnteredServiceCode));
+                if (serviceDetailsView.getServiceCodeTxt().length() != 6) {
+                    serviceDetailsView.setMessageLabel("Please provide a valid service code", Color.RED);
+                }
+                
                 if (service == null) {
                     //Invalid service code
                     Log.info("TerminalController", "Set the MessageLabel to 'Invalid Service Code' and text color to red!");

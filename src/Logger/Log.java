@@ -180,13 +180,9 @@ public class Log {
                 public Logger(){
                     this.firstLogTime = System.currentTimeMillis();
                     this.logFileName = "Logs\\LogFile_" + formatter.format(new Date()) + ".log";
-                    this.logFile = new File(logFileName); 
-                    try {
-                        this.logFile.getParentFile().mkdirs();
-                        this.logFile.createNewFile();
-                    } catch (IOException ex) {
-                        java.util.logging.Logger.getLogger(Log.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    this.logFile = new File(logFileName);
+                    //this.logFile.getParentFile().mkdirs();
+                    //this.logFile.createNewFile();
                 }
                 
 		public void log (int level, String category, String message, Throwable ex) {
