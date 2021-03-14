@@ -19,8 +19,7 @@ package chocanon.Models;
  * @author jakeb
  */
 public class ProviderReport {
-        //Data Attributes
-    private Provider provider = null;
+    //Data Attributes
     private Visit[] providerVisits = null;
     
     public ProviderReport(String startDate, String endDate){
