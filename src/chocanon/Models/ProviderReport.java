@@ -23,11 +23,9 @@ public class ProviderReport {
     private Provider provider = null;
     private Visit[] providerVisits = null;
     
-    public ProviderReport(Provider provider, String startDate, String endDate){
-        //Set the provider for the report
-        this.provider = provider;
+    public ProviderReport(String startDate, String endDate){
         //Get the provider visits between the start and end date
-        this.providerVisits = Visit.getVisitsByProviderNumber(this.provider.getProviderNumber(), startDate, endDate);
+        this.providerVisits = Visit.getVisitsByDate(startDate, endDate);
     }
     
     /*
@@ -68,6 +66,6 @@ public class ProviderReport {
         Filename Format: ProviderNameMM-DD-YYY -> JohnDoe03-03-2021.pdf
     */
     public void generateReportPDF(){
-        
+
     }
 }
