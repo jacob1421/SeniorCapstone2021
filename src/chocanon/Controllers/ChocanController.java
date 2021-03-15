@@ -17,6 +17,7 @@ package chocanon.Controllers;
 import Logger.Log;
 import chocanon.Main;
 import chocanon.Models.EFTDataReport;
+import chocanon.Models.MemberReport;
 import chocanon.Models.Member;
 import chocanon.Models.Provider;
 import chocanon.Models.Service;
@@ -96,6 +97,7 @@ public class ChocanController {
         editAddProviderView.setEditAddProviderSaveListener(new SaveProviderButtonListener());
         
         reportsView.setReportsBackButtonListener(new ReportsBackButtonListener());
+        reportsView.setReportsMemberReportButtonListener(new ReportsMemberReportsButtonListener());
         reportsView.setReportsSummaryReportButtonListener(new ReportsSummaryReportButtonListener());
         
         recordsView.setRecordsBackButtonListener(new RecordsBackButtonListener());
@@ -656,6 +658,43 @@ public class ChocanController {
             }
         }
     }
+ class ReportsMemberReportsButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String[] fromAndToDates = recordsView.getFromAndToDate("", "");
+            if(fromAndToDates == null){
+                return;
+            }
+            while(fromAndToDates[0].equals("") || fromAndToDates[1].equals("")){
+                //Validations
+                if(fromAndToDates[0].equals("")){
+                    recordsView.showMessageBox("Please provide a start date");
+                    fromAndToDates = recordsView.getFromAndToDate(fromAndToDates[0], fromAndToDates[1]);
+                    if(fromAndToDates == null){
+                        return;
+                    }
+                }
+                if(fromAndToDates[1].equals("")){
+                    recordsView.showMessageBox("Please provide a end date");
+                    fromAndToDates = recordsView.getFromAndToDate(fromAndToDates[0], fromAndToDates[1]);
+                    if(fromAndToDates == null){
+                        return;
+                    }
+                }
+            }
+            MemberReport memberReport = new MemberReport(fromAndToDates[0], fromAndToDates[1]);
+            try {
+                memberReport.generateReportPDF();
+                recordsView.showMessageBox("Member Report Successfully Generated!");
+            } catch (FileNotFoundException ex) {
+                Log.error("ChocanController", ex);
+                recordsView.showMessageBox("Generation of Member report failed!");
+            } catch (IOException ex) {
+                Log.error("ChocanController", ex);
+                recordsView.showMessageBox("Generation of Member report failed!");
+            }
+        }
+ }
     class RecordsETFDataRecordsButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {

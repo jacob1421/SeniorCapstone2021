@@ -30,6 +30,9 @@ public class ReportsView extends javax.swing.JFrame {
     public void setReportsBackButtonListener(ActionListener e){
         btn_ReportsBack.addActionListener(e);
     }
+     public void setReportsMemberReportButtonListener(ActionListener e){
+        btn_ReportsBack.addActionListener(e);
+    }
      public void setReportsSummaryReportButtonListener(ActionListener e){
         btn_GenerateSummaryReport.addActionListener(e);
     }
