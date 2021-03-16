@@ -7,8 +7,8 @@
     Programmer: Jacob Bremiller
     Created by: Jacob Bremiller
     Created: 3/3/2021
-    Updated by: Jacob Bremiller
-    Updated: 3/3/2021
+    Updated by: Lydia Clarke
+    Updated: 3/16/2021
     Compiler: Apache NetBeans IDE for Java SE
     Description: A class to hold the data for all the provider visits within a start and end date. The class also generates a PDF.
  */

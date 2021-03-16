@@ -8,7 +8,7 @@
     Created by: Jacob Bremiller
     Created: 3/3/2021
     Updated by: Lydia Clarke
-    Updated: 3/3/2021
+    Updated: 3/15/2021
     Compiler: Apache NetBeans IDE for Java SE
     Description: A class to hold the data for a single provider. The class also generates a PDF.
  */
