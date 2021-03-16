@@ -633,15 +633,38 @@ public class ChocanController {
     class ReportsSummaryReportButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            //Date Queries To SQL MUST BE YYYY-MM-DD
-   //         visits = Visit.getVisitsByDate("2021-02-01", "2021-02-03");
-            SummaryReport sr = new SummaryReport(visits);
-            try {
-                sr.generateReportPDF();
-            } catch (IOException ex) {
-                Logger.getLogger(ChocanController.class.getName()).log(Level.SEVERE, null, ex);
+           String[] fromAndToDates = recordsView.getFromAndToDate("", "");
+            if(fromAndToDates == null){
+                return;
             }
-            visits = null;
+            while(fromAndToDates[0].equals("") || fromAndToDates[1].equals("")){
+                //Validations
+                if(fromAndToDates[0].equals("")){
+                    recordsView.showMessageBox("Please provide a start date");
+                    fromAndToDates = recordsView.getFromAndToDate(fromAndToDates[0], fromAndToDates[1]);
+                    if(fromAndToDates == null){
+                        return;
+                    }
+                }
+                if(fromAndToDates[1].equals("")){
+                    recordsView.showMessageBox("Please provide a end date");
+                    fromAndToDates = recordsView.getFromAndToDate(fromAndToDates[0], fromAndToDates[1]);
+                    if(fromAndToDates == null){
+                        return;
+                    }
+                }
+            }
+            SummaryReport summaryReport = new SummaryReport(fromAndToDates[0], fromAndToDates[1]);
+            try {
+                summaryReport.generateReportPDF();
+                recordsView.showMessageBox("Summary Report Successfully Generated!");
+            } catch (FileNotFoundException ex) {
+                Log.error("ChocanController", ex);
+                recordsView.showMessageBox("Generation of Summary report failed!");
+            } catch (IOException ex) {
+                Log.error("ChocanController", ex);
+                recordsView.showMessageBox("Generation of Summary report failed!");
+            }
         }
     }
     class ReportsProviderReportButtonListener implements ActionListener {

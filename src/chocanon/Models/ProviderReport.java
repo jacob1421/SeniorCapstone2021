@@ -31,7 +31,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.text.DecimalFormat;
 
 /**
  *
@@ -43,7 +42,6 @@ public class ProviderReport {
         private ArrayList<Integer> processedProviderNumbers = new ArrayList<Integer>();
         private String startDate = null;
         private String endDate = null;
-        private final DecimalFormat df2 = new DecimalFormat("#.##");
      
     public ProviderReport(String startDate, String endDate){
         //Get the provider visits between the start and end date
@@ -286,7 +284,7 @@ public class ProviderReport {
         Table table2 = new Table(UnitValue.createPercentArray(1)).useAllAvailableWidth();
         Cell consultationCell = new Cell().add(new Paragraph("Total Number of Consultations With Members: " + i));
         table2.addCell(consultationCell);
-        Cell totalCell = new Cell().add(new Paragraph("Total Fee for the week: $" + df2.format(visitsSum)));
+        Cell totalCell = new Cell().add(new Paragraph("Total Fee for the week: $" + String.format("%.2f",visitsSum)));
         table2.addCell(totalCell);
        doc.add(table2);
             doc.close();
