@@ -7,7 +7,7 @@
     Programmer: Jacob Bremiller
     Created by: Jacob Bremiller
     Created: 3/3/2021
-    Updated by: Jacob Bremiller
+    Updated by: Lydia Clarke
     Updated: 3/3/2021
     Compiler: Apache NetBeans IDE for Java SE
     Description: A class to hold the data for a single provider. The class also generates a PDF.
@@ -24,12 +24,14 @@ import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.TextAlignment;
+import com.itextpdf.layout.property.VerticalAlignment;
 import com.itextpdf.layout.property.UnitValue;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -41,6 +43,7 @@ public class ProviderReport {
         private ArrayList<Integer> processedProviderNumbers = new ArrayList<Integer>();
         private String startDate = null;
         private String endDate = null;
+        private final DecimalFormat df2 = new DecimalFormat("#.##");
      
     public ProviderReport(String startDate, String endDate){
         //Get the provider visits between the start and end date
@@ -125,8 +128,10 @@ public class ProviderReport {
             Member number
             Service code
             Fee to be paid*/
-        Table table = new Table(UnitValue.createPercentArray(2)).useAllAvailableWidth();
+       
         
+        Table table = new Table(UnitValue.createPercentArray(2)).useAllAvailableWidth();
+
         Cell DOSCell = new Cell().add(new Paragraph("Date of Service"));
         DOSCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
         table.addCell(DOSCell);
@@ -166,77 +171,12 @@ public class ProviderReport {
         Cell ServiceFee = new Cell().add(new Paragraph("$" + String.format("%5.2f",v.getServiceInfo().getServiceFee())));
             table.addCell(ServiceFee);
         
+       
         
         return table;
     }
-            
+   
     public void generateReportPDF() throws IOException{
-       /* File pdfFile = new File(String.format("%s\\Generated_Reports\\ProviderReports\\ProviderReport%s.pdf", System.getProperty("user.dir"), LocalDate.now()));
-         //Attempts to create a directory. If its already made, nothing happens. Otherwise, it will create the directory
-        pdfFile.getParentFile().mkdirs();
-
-        PdfDocument pdfDoc = new PdfDocument(new PdfWriter(pdfFile.getAbsolutePath()));
-        Document doc = new Document(pdfDoc);
-        
-        Paragraph header = new Paragraph("Provider Report")
-                .setFont(PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN))
-                .setFontSize(24)
-                .setFontColor(ColorConstants.BLACK)
-                .setBold();
-        header.setTextAlignment(TextAlignment.CENTER);
-        doc.add(header);
-        
-        Paragraph fromAndTo = new Paragraph("From: " + this.startDate + "          To: " + this.endDate)
-                .setFont(PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN))
-                .setFontSize(12)
-                .setFontColor(ColorConstants.BLACK);
-        fromAndTo.setTextAlignment(TextAlignment.CENTER);
-        doc.add(fromAndTo);
-        
-        Table table = new Table(UnitValue.createPercentArray(2)).useAllAvailableWidth();
-        int providerNumber = providerVisits[0].getProviderInfo().getProviderNumber();
-        
-        Cell providerNameCell = new Cell().add(new Paragraph("Provider Name"));
-        providerNameCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
-        table.addCell(providerNameCell);
-        Cell providerName = new Cell().add(new Paragraph(providerVisits[0].getProviderInfo().getFirstName() + " " + providerVisits[0].getProviderInfo().getLastName()));
-        table.addCell(providerName);
-        
-        Cell providerNumberCell = new Cell().add(new Paragraph("Provider Number"));
-        providerNumberCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
-        table.addCell(providerNumberCell);
-         Cell providerNumberDataCell = new Cell().add(new Paragraph(String.valueOf(providerNumber)));
-        table.addCell(providerNumberDataCell);
-        
-        
-       
-      
-        for(int i = 0;i < providerVisits.length;i++){
-            
-            
-            if(isProviderProcessed(providerNumber)){
-                //If the provider has already been processed we skip the iteration
-                continue;
-            }
-           
-          if(providerVisits[i].getProviderInfo().getProviderNumber() == providerNumber){
-           
-        Cell memberNameCell = new Cell().add(new Paragraph("Member Name"));
-        memberNameCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
-        table.addCell(memberNameCell);
-        Cell memberName = new Cell().add(new Paragraph(providerVisits[i].getMemberInfo().getFirstName() + " " + providerVisits[i].getMemberInfo().getLastName()));
-        table.addCell(memberName);
-        
-         
-           
-          }
-            
-            
-        }
-
-        doc.add(table);
-
-        doc.close();*/
        
         
        System.out.println("Generating Provider Report");
@@ -263,19 +203,93 @@ public class ProviderReport {
                 .setFontColor(ColorConstants.BLACK);
         fromAndTo.setTextAlignment(TextAlignment.CENTER);
         doc.add(fromAndTo);
+       /*Provider name
+        Provider number
+        Provider street address
+        Provider city
+        Provider state
+        Provider ZIP code*/
            /* provider heading */
-           
-           
-           
-           
+         Paragraph title = new Paragraph("Provider Information")
+                .setFont(PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN))
+                .setFontSize(12)
+                .setFontColor(ColorConstants.BLACK)
+                .setBold();
+        title.setTextAlignment(TextAlignment.CENTER);
+        doc.add(title);
+        
+        Table table = new Table(UnitValue.createPercentArray(2)).useAllAvailableWidth();
+        Cell providerNameCell = new Cell().add(new Paragraph("Provider Name"));
+        providerNameCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
+        table.addCell(providerNameCell);
+        Cell providerName = new Cell().add(new Paragraph(pVisits[0].getProviderInfo().getFirstName() + " " + pVisits[0].getProviderInfo().getLastName()));
+        table.addCell(providerName);
+        
+        Cell providerNumberCell = new Cell().add(new Paragraph("Provider Number"));
+        providerNumberCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
+        table.addCell(providerNumberCell);
+         Cell providerNumberDataCell = new Cell().add(new Paragraph(String.valueOf(pVisits[0].getProviderInfo().getProviderNumber())));
+        table.addCell(providerNumberDataCell);
+        
+        Cell providerStreetCell = new Cell().add(new Paragraph("Provider Street Address"));
+        providerStreetCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
+        table.addCell(providerStreetCell);
+        Cell providerStreet = new Cell().add(new Paragraph(String.valueOf(pVisits[0].getProviderInfo().getStreetAddress())));
+        table.addCell(providerStreet);
+        
+        Cell providerCityCell = new Cell().add(new Paragraph("Provider City"));
+        providerCityCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
+        table.addCell(providerCityCell);
+        Cell providerCity = new Cell().add(new Paragraph(String.valueOf(pVisits[0].getProviderInfo().getCity())));
+        table.addCell(providerCity);
+        
+        Cell providerStateCell = new Cell().add(new Paragraph("Provider State"));
+        providerStateCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
+        table.addCell(providerStateCell);
+        Cell providerState = new Cell().add(new Paragraph(String.valueOf(pVisits[0].getProviderInfo().getState())));
+        table.addCell(providerState);
+        
+        Cell providerZipCell = new Cell().add(new Paragraph("Provider ZIP Code"));
+        providerZipCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
+        table.addCell(providerZipCell);
+        Cell providerZip = new Cell().add(new Paragraph(String.valueOf(pVisits[0].getProviderInfo().getZipCode())));
+        table.addCell(providerZip);
+        
+             doc.add(table);
+        
            /*member visit*/
-           for(int i = 0; i < pVisits.length; i++){    
+       Paragraph title2 = new Paragraph("Consultations")
+                .setFont(PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN))
+                .setFontSize(12)
+                .setFontColor(ColorConstants.BLACK)
+                .setBold();
+        title2.setTextAlignment(TextAlignment.CENTER);
+        doc.add(title2);
+        int i;
+        double visitsSum = 0.00;
+           for(i = 0; i < pVisits.length; i++){ 
+                visitsSum += pVisits[i].getServiceInfo().getServiceFee().doubleValue();
+                Paragraph space = new Paragraph(" ");
+                doc.add(space);
               doc.add(visitInfoTable(pVisits[i]));
            }
+ 
+           //number of consultations total fee 
+           Paragraph total = new Paragraph("Weekly Totals")
+                .setFont(PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN))
+                .setFontSize(12)
+                .setFontColor(ColorConstants.BLACK)
+                .setBold();
+           total.setTextAlignment(TextAlignment.CENTER);
+        doc.add(total);
            
+        Table table2 = new Table(UnitValue.createPercentArray(1)).useAllAvailableWidth();
+        Cell consultationCell = new Cell().add(new Paragraph("Total Number of Consultations With Members: " + i));
+        table2.addCell(consultationCell);
+        Cell totalCell = new Cell().add(new Paragraph("Total Fee for the week: $" + df2.format(visitsSum)));
+        table2.addCell(totalCell);
+       doc.add(table2);
             doc.close();
-           System.out.println("pVisit length"+pVisits.length);
-           System.out.println("Provider Number" + pVisits[0].getProviderInfo().getProviderNumber());
            pVisits = nextProviderVisits();
        }
        
