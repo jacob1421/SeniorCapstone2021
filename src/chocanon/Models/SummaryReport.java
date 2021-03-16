@@ -51,20 +51,6 @@ public class SummaryReport {
     }
     
     //Getters
-    public int getNumberOfConsultationsByProviderNumber(int providerNumber){
-        /* Get the number of per provider consultations by using a loop etc*/
-       return 0;
-    }
-    
-    public BigDecimal getTotalFeeByProviderNumber(int providerNumber){   
-         return null;
-    }
-    
-    public int getTotalNumberOfProviders(){
-        /* Make an array of provider numbers in this function and unique the array. Then get the count of items in array. Return that. */
-        return 0;
-    }
-    
     public int getTotalNumberOfProviderConsultations(){
         return providerVisits.length;
     }
