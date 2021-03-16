@@ -31,7 +31,7 @@ public class ReportsView extends javax.swing.JFrame {
         btn_ReportsBack.addActionListener(e);
     }
      public void setReportsMemberReportButtonListener(ActionListener e){
-        btn_ReportsBack.addActionListener(e);
+       btn_GenerateWeeklyMember.addActionListener(e);
     }
      public void setReportsSummaryReportButtonListener(ActionListener e){
         btn_GenerateSummaryReport.addActionListener(e);
@@ -39,6 +39,7 @@ public class ReportsView extends javax.swing.JFrame {
      public void setReportsProviderReportButtonListener(ActionListener e){
          btn_GenerateWeeklyProvider.addActionListener(e);
      }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

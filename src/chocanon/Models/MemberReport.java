@@ -29,11 +29,11 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class MemberReport {
     //Data Attributes
-    private Member mem = null;
     private Visit[] memberVisits = null;
     private String startDate = null;
     private String endDate = null;
@@ -82,8 +82,110 @@ public class MemberReport {
         
         Filename Format: MemberNameMM-DD-YYY -> JohnDoe03-03-2021.pdf
     */
+    
+        public Visit[] nextMemberVisits(){
+      ArrayList<Visit> memberVisits = new ArrayList<>(); 
+      int notProcessedMemberId = 0;
+      for(int i = 0; i< this.memberVisits.length;i++){
+          if(isMemberProcessed(this.memberVisits[i].getMemberInfo().getDatabaseId()) != true && notProcessedMemberId == 0){
+                //If the provider has already been processed we skip the iteration
+                notProcessedMemberId = this.memberVisits[i].getMemberInfo().getDatabaseId();
+            }
+          if(notProcessedMemberId != 0){
+              if(this.memberVisits[i].getMemberInfo().getDatabaseId() == notProcessedMemberId){
+                  memberVisits.add(this.memberVisits[i]);
+              }
+          }
+      }
+      if(notProcessedMemberId != 0){
+          this.processedMemberNumbers.add(notProcessedMemberId);
+           return Arrays.stream(memberVisits.toArray()).toArray(Visit[]::new);
+      }else
+           return null;
+    }
+    
+    public Table memberInfoTable(Visit b){
+      /*  Member name
+        Member number
+        Member street address
+        Member city
+        Member state
+        Member ZIP code */
+        Table table2 = new Table(UnitValue.createPercentArray(2)).useAllAvailableWidth();
+         
+        Cell memberNameCell = new Cell().add(new Paragraph("Member Name"));
+        memberNameCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
+        table2.addCell(memberNameCell);
+        Cell memberName = new Cell().add(new Paragraph(b.getMemberInfo().getFirstName() + " " + b.getMemberInfo().getLastName()));
+        table2.addCell(memberName);
+        
+       Cell memberNumberCell = new Cell().add(new Paragraph("Member Number"));
+        memberNumberCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
+        table2.addCell(memberNumberCell);
+        Cell memberNumber = new Cell().add(new Paragraph(String.valueOf(b.getMemberInfo().getCardNumber())));        
+        table2.addCell(memberNumber);        
+
+       Cell memberAddrCell = new Cell().add(new Paragraph("Member street address"));
+        memberAddrCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
+        table2.addCell(memberAddrCell);
+        Cell memberAddr = new Cell().add(new Paragraph(b.getMemberInfo().getStreetAddress()));
+        table2.addCell(memberAddr);    
+
+       Cell memberCityCell = new Cell().add(new Paragraph("Member city"));
+        memberCityCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
+        table2.addCell(memberCityCell);
+        Cell memberCity = new Cell().add(new Paragraph(b.getMemberInfo().getCity()));
+        table2.addCell(memberCity);
+        
+       Cell memberStateCell = new Cell().add(new Paragraph("Member state"));
+        memberStateCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
+        table2.addCell(memberStateCell);
+        Cell memberState = new Cell().add(new Paragraph(b.getMemberInfo().getState()));
+        table2.addCell(memberState); 
+
+       Cell memberZipCell = new Cell().add(new Paragraph("Member zip code"));
+        memberZipCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
+        table2.addCell(memberZipCell);
+        Cell memberZip = new Cell().add(new Paragraph(String.valueOf(b.getMemberInfo().getZipCode())));
+        table2.addCell(memberZip);            
+        
+        return table2;
+    }    
+        
+    public Table memberServiceTable(Visit v){
+        /* Date of Service(MM-DD-YYYY) (dateOfService)
+           Provider name
+           Service name
+        */
+        Table table = new Table(UnitValue.createPercentArray(2)).useAllAvailableWidth();
+         
+        Cell DOSCell = new Cell().add(new Paragraph("Date of Service"));
+        DOSCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
+        table.addCell(DOSCell);
+        Cell dos = new Cell().add(new Paragraph(v.getVisitDate()));
+        table.addCell(dos);
+       
+        Cell providerNameCell = new Cell().add(new Paragraph("Provider Name"));
+        providerNameCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
+        table.addCell(providerNameCell);
+        Cell providerName = new Cell().add(new Paragraph(v.getProviderInfo().getFirstName() + " " + v.getProviderInfo().getLastName()));
+        table.addCell(providerName);
+        
+        Cell serviceNameCell = new Cell().add(new Paragraph("Service Name"));
+        serviceNameCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
+        table.addCell(serviceNameCell);
+        Cell serviceName = new Cell().add(new Paragraph(String.valueOf(v.getServiceInfo().getServiceName())));
+        table.addCell(serviceName);
+       
+        return table;
+    }
+            
+    
     public void generateReportPDF()throws IOException{
-         File pdfFile = new File(String.format("%s\\Generated_Reports\\MemberReports\\MemberReport%s.pdf", System.getProperty("user.dir"), LocalDate.now()));
+       System.out.println("Generating Member Report");
+        Visit[] mVisits = nextMemberVisits();
+       while(mVisits != null){
+           File pdfFile = new File(String.format("%s\\Generated_Reports\\MemberReports\\%s%s.pdf", System.getProperty("user.dir"),mVisits[0].getMemberInfo().getFirstName() + mVisits[0].getMemberInfo().getLastName(),LocalDate.now()));
          //Attempts to create a directory. If its already made, nothing happens. Otherwise, it will create the directory
         pdfFile.getParentFile().mkdirs();
 
@@ -104,35 +206,36 @@ public class MemberReport {
                 .setFontColor(ColorConstants.BLACK);
         fromAndTo.setTextAlignment(TextAlignment.CENTER);
         doc.add(fromAndTo);
+           /* member header */
+       Paragraph memberheader = new Paragraph("Member Information")
+                .setFont(PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN))
+                .setFontSize(12)
+                .setFontColor(ColorConstants.BLACK);
+        memberheader.setTextAlignment(TextAlignment.CENTER);
+        doc.add(memberheader);
         
-        Table table = new Table(UnitValue.createPercentArray(3)).useAllAvailableWidth();
+           /* member information */
+           for(int i = 0; i < mVisits.length; i++){               
+                doc.add(memberInfoTable(mVisits[i]));
+           }
 
-        Cell memberNameCell = new Cell().add(new Paragraph("Member Name"));
-        memberNameCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
-        table.addCell(memberNameCell);
-        
-        Cell memberNumberCell = new Cell().add(new Paragraph("Member Number"));
-        memberNumberCell.setBackgroundColor(ColorConstants.LIGHT_GRAY);
-        table.addCell(memberNumberCell);
-        
-        for(int i = 0;i < memberVisits.length;i++){
-            int memberNumber = memberVisits[i].getMemberInfo().getDatabaseId();
-            
-            if(isMemberProcessed(memberNumber)){
-                //If the member has already been processed we skip the iteration
-                continue;
-            }
-            
-            Cell memberNumberDataCell = new Cell().add(new Paragraph(String.valueOf(memberNumber)));
-            table.addCell(memberNumberDataCell);
-
-            Cell memberName = new Cell().add(new Paragraph(memberVisits[i].getMemberInfo().getFirstName() + " " + memberVisits[i].getMemberInfo().getLastName()));
-            table.addCell(memberName);
-        }
-
-        doc.add(table);
-
-        doc.close();
-    }  
+       Paragraph infoheader = new Paragraph("Service Information")
+                .setFont(PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN))
+                .setFontSize(12)
+                .setFontColor(ColorConstants.BLACK);
+        infoheader.setTextAlignment(TextAlignment.CENTER);
+        doc.add(infoheader);           
+           
+           /*member visit*/
+           for(int i = 0; i < mVisits.length; i++){    
+                doc.add(memberServiceTable(mVisits[i]));
+           }
+           
+           doc.close();
+           System.out.println("mVisit length"+mVisits.length);
+           System.out.println("Member Number" + mVisits[0].getMemberInfo().getDatabaseId());
+           mVisits = nextMemberVisits();
+       }    
     }
-        
+}
+
