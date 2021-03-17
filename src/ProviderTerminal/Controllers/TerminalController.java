@@ -225,7 +225,7 @@ public class TerminalController {
                     swipeMemberCardView.setMessageLabel("Invalid Card Number", Color.RED);
                 }else if(member.getMembershipStatus() == false){
                     Log.info("TerminalController", "Member Card Number is suspened and displayed the amount they owe for the unpaid previous month.");
-                    swipeMemberCardView.setMessageLabel("Member suspended. Member owes $10.00 from previous month.", Color.RED); //Money is made up but we need to find out where to find this value
+                    swipeMemberCardView.setMessageLabel("Member is suspended!", Color.RED); //Money is made up but we need to find out where to find this value
                 }else if(member.getMembershipStatus() == true){
                     Log.info("TerminalController", "Card number exists and the member is active");
                     swipeMemberCardView.setMessageLabel("Validated", Color.GREEN);
