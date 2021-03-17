@@ -70,11 +70,11 @@ public class ProvideAServiceView extends javax.swing.JFrame {
         btn_ProvideServiceBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("ChocAn Terminal");
+        setTitle("Provider Terminal");
         setResizable(false);
 
         lbl_ChocAnTerminal.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        lbl_ChocAnTerminal.setText("ChocAn Terminal");
+        lbl_ChocAnTerminal.setText("Provider Terminal");
 
         lbl_ProviderEnterNbr.setText("Please Enter Your Provider Number");
         lbl_ProviderEnterNbr.setToolTipText("");
@@ -104,10 +104,10 @@ public class ProvideAServiceView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(btn_ProvideServiceBack, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
-                .addComponent(lbl_ChocAnTerminal, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addComponent(lbl_ChocAnTerminal, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 116, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btn_Continue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbl_ProviderEnterNbr, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
