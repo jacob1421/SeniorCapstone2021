@@ -17,9 +17,12 @@ package chocanon.Controllers;
 import Logger.Log;
 import chocanon.Main;
 import chocanon.Models.EFTDataReport;
+import chocanon.Models.MemberReport;
 import chocanon.Models.Member;
 import chocanon.Models.Provider;
+import chocanon.Models.ProviderReport;
 import chocanon.Models.Service;
+import chocanon.Models.SummaryReport;
 import chocanon.Models.ServicesReport;
 import chocanon.Models.Visit;
 import chocanon.Views.EditAddMemberView;
@@ -96,6 +99,9 @@ public class ChocanController {
         editAddProviderView.setEditAddProviderSaveListener(new SaveProviderButtonListener());
         
         reportsView.setReportsBackButtonListener(new ReportsBackButtonListener());
+        reportsView.setReportsMemberReportButtonListener(new ReportsMemberReportsButtonListener());
+        reportsView.setReportsSummaryReportButtonListener(new ReportsSummaryReportButtonListener());
+         reportsView.setReportsProviderReportButtonListener(new ReportsProviderReportButtonListener());
         
         recordsView.setRecordsBackButtonListener(new RecordsBackButtonListener());
         recordsView.setRecordsServiceRecordsButtonListener(new RecordsServiceRecordsButtonListener());
@@ -686,6 +692,81 @@ public class ChocanController {
             menuView.setVisible(true);
         }
     }
+
+    class ReportsSummaryReportButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           String[] fromAndToDates = recordsView.getFromAndToDate("", "");
+            if(fromAndToDates == null){
+                return;
+            }
+            while(fromAndToDates[0].equals("") || fromAndToDates[1].equals("")){
+                //Validations
+                if(fromAndToDates[0].equals("")){
+                    recordsView.showMessageBox("Please provide a start date");
+                    fromAndToDates = recordsView.getFromAndToDate(fromAndToDates[0], fromAndToDates[1]);
+                    if(fromAndToDates == null){
+                        return;
+                    }
+                }
+                if(fromAndToDates[1].equals("")){
+                    recordsView.showMessageBox("Please provide a end date");
+                    fromAndToDates = recordsView.getFromAndToDate(fromAndToDates[0], fromAndToDates[1]);
+                    if(fromAndToDates == null){
+                        return;
+                    }
+                }
+            }
+            SummaryReport summaryReport = new SummaryReport(fromAndToDates[0], fromAndToDates[1]);
+            try {
+                summaryReport.generateReportPDF();
+                recordsView.showMessageBox("Summary Report Successfully Generated!");
+            } catch (FileNotFoundException ex) {
+                Log.error("ChocanController", ex);
+                recordsView.showMessageBox("Generation of Summary report failed!");
+            } catch (IOException ex) {
+                Log.error("ChocanController", ex);
+                recordsView.showMessageBox("Generation of Summary report failed!");
+            }
+        }
+    }
+    class ReportsProviderReportButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String[] fromAndToDates = recordsView.getFromAndToDate("", "");
+            if(fromAndToDates == null){
+                return;
+            }
+            while(fromAndToDates[0].equals("") || fromAndToDates[1].equals("")){
+                //Validations
+                if(fromAndToDates[0].equals("")){
+                    recordsView.showMessageBox("Please provide a start date");
+                    fromAndToDates = recordsView.getFromAndToDate(fromAndToDates[0], fromAndToDates[1]);
+                    if(fromAndToDates == null){
+                        return;
+                    }
+                }
+                if(fromAndToDates[1].equals("")){
+                    recordsView.showMessageBox("Please provide a end date");
+                    fromAndToDates = recordsView.getFromAndToDate(fromAndToDates[0], fromAndToDates[1]);
+                    if(fromAndToDates == null){
+                        return;
+                    }
+                }
+            }
+            ProviderReport providerReport = new ProviderReport(fromAndToDates[0], fromAndToDates[1]);
+            try {
+                providerReport.generateReportPDF();
+                recordsView.showMessageBox("Provider Report Successfully Generated!");
+            } catch (FileNotFoundException ex) {
+                Log.error("ChocanController", ex);
+                recordsView.showMessageBox("Generation of Provider report failed!");
+            } catch (IOException ex) {
+                Log.error("ChocanController", ex);
+                recordsView.showMessageBox("Generation of Provider report failed!");
+            }
+        }
+    }
     class RecordsServiceRecordsButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -702,6 +783,43 @@ public class ChocanController {
             }
         }
     }
+ class ReportsMemberReportsButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String[] fromAndToDates = recordsView.getFromAndToDate("", "");
+            if(fromAndToDates == null){
+                return;
+            }
+            while(fromAndToDates[0].equals("") || fromAndToDates[1].equals("")){
+                //Validations
+                if(fromAndToDates[0].equals("")){
+                    recordsView.showMessageBox("Please provide a start date");
+                    fromAndToDates = recordsView.getFromAndToDate(fromAndToDates[0], fromAndToDates[1]);
+                    if(fromAndToDates == null){
+                        return;
+                    }
+                }
+                if(fromAndToDates[1].equals("")){
+                    recordsView.showMessageBox("Please provide a end date");
+                    fromAndToDates = recordsView.getFromAndToDate(fromAndToDates[0], fromAndToDates[1]);
+                    if(fromAndToDates == null){
+                        return;
+                    }
+                }
+            }
+            MemberReport memberReport = new MemberReport(fromAndToDates[0], fromAndToDates[1]);
+            try {
+                memberReport.generateReportPDF();
+                recordsView.showMessageBox("Member Report Successfully Generated!");
+            } catch (FileNotFoundException ex) {
+                Log.error("ChocanController", ex);
+                recordsView.showMessageBox("Generation of Member report failed!");
+            } catch (IOException ex) {
+                Log.error("ChocanController", ex);
+                recordsView.showMessageBox("Generation of Member report failed!");
+            }
+        }
+ }
     class RecordsETFDataRecordsButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {

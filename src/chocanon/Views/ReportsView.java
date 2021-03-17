@@ -30,6 +30,15 @@ public class ReportsView extends javax.swing.JFrame {
     public void setReportsBackButtonListener(ActionListener e){
         btn_ReportsBack.addActionListener(e);
     }
+     public void setReportsMemberReportButtonListener(ActionListener e){
+       btn_GenerateWeeklyMember.addActionListener(e);
+    }
+     public void setReportsSummaryReportButtonListener(ActionListener e){
+        btn_GenerateSummaryReport.addActionListener(e);
+    }
+     public void setReportsProviderReportButtonListener(ActionListener e){
+         btn_GenerateWeeklyProvider.addActionListener(e);
+     }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -63,6 +72,9 @@ public class ReportsView extends javax.swing.JFrame {
         btn_GenerateWeeklyProvider.setText("Generate Provider Reports");
 
         btn_GenerateSummaryReport.setText("Generate Summary Report");
+        btn_GenerateSummaryReport.setMaximumSize(new java.awt.Dimension(338, 62));
+        btn_GenerateSummaryReport.setMinimumSize(new java.awt.Dimension(338, 62));
+        btn_GenerateSummaryReport.setPreferredSize(new java.awt.Dimension(338, 62));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -72,16 +84,17 @@ public class ReportsView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btn_ReportsBack, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(114, 114, 114)
+                        .addGap(130, 130, 130)
                         .addComponent(lbl_Reports))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
+                        .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btn_GenerateWeeklyProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(btn_GenerateWeeklyMember))
-                        .addGap(32, 32, 32)
-                        .addComponent(btn_GenerateSummaryReport)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                            .addComponent(btn_GenerateSummaryReport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btn_GenerateWeeklyMember, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btn_GenerateWeeklyProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,13 +104,13 @@ public class ReportsView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lbl_Reports)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_GenerateSummaryReport, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_GenerateWeeklyMember, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(btn_GenerateWeeklyProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_GenerateWeeklyMember, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_GenerateWeeklyProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btn_GenerateSummaryReport, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();

@@ -260,7 +260,7 @@ public class Visit {
                         rset.getString("comment")
                 );
                 Log.debug("Visit", "Found Visit: \n" + v.toString());
-                //Add Visit
+                //Add 
                 memberVisits.add(v);
             }
             
