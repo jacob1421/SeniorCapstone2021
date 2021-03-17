@@ -35,6 +35,7 @@ import chocanon.Views.ReportsView;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import static java.lang.Integer.parseInt;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -197,6 +198,7 @@ public class ChocanController {
         @Override
         public void actionPerformed(ActionEvent e) {
             //Validations
+            
             if(editAddMemberView.getMemberFirstName().equals("")){
                 editAddMemberView.showMessageBox("Please provide a first name!");
                 return;
@@ -221,14 +223,46 @@ public class ChocanController {
                 editAddMemberView.showMessageBox("Please provide a zip code!");
                 return;
             }
+            //Checking zip code is a number
+            try{
+                parseInt(editAddMemberView.getMemberZipCode());
+            }
+            catch (NumberFormatException a){
+                editAddMemberView.showMessageBox("Please enter a valid zip code!");
+                return;
+            }
+            //Check that zip code has 5 digits
+            if(editAddMemberView.getMemberZipCode().length() != 5){
+                editAddMemberView.showMessageBox("Please enter a valid zip code!");
+                return;
+            }
+            //9 digit card number
             if(editAddMemberView.getMemberCardNumber().equals("")){
                 editAddMemberView.showMessageBox("Please provide a card number!");
+                return;
+            }
+            try{
+                parseInt(editAddMemberView.getMemberCardNumber());
+            }
+            catch (NumberFormatException a){
+                editAddMemberView.showMessageBox("Please enter a valid Card Number!");
+                return;
+            }
+            if(editAddMemberView.getMemberCardNumber().length() != 9){
+                editAddMemberView.showMessageBox("Please enter a valid Card Number!");
                 return;
             }
             if(editAddMemberView.getMemberEmailAddress().equals("")){
                 editAddMemberView.showMessageBox("Please provide a email address!");
                 return;
             }
+            
+            String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+            if(!editAddMemberView.getMemberEmailAddress().matches(regex)){
+                editAddMemberView.showMessageBox("Please provide a valid email address!");
+                return;
+            }
+            
             
             if(editMember == null){
                 //Check the database to make sure the card number doesnt already exist
@@ -518,14 +552,45 @@ public class ChocanController {
                 editAddProviderView.showMessageBox("Please provide a zip code!");
                 return;
             }
+            //Checking zip code is a number
+            try{
+                parseInt(editAddProviderView.getProviderZipCode());
+            }
+            catch (NumberFormatException a){
+                editAddProviderView.showMessageBox("Please enter a valid zip code!");
+                return;
+            }
+            //Check that zip code has 5 digits
+            if(editAddProviderView.getProviderZipCode().length() != 5){
+                editAddProviderView.showMessageBox("Please enter a valid zip code!");
+                return;
+            }
             if(editAddProviderView.getProviderNumber().equals("")){
                 editAddProviderView.showMessageBox("Please provide a provider number!");
+                return;
+            }
+            try{
+                parseInt(editAddProviderView.getProviderNumber());
+            }
+            catch (NumberFormatException a){
+                editAddProviderView.showMessageBox("Please enter a valid Provider Number!");
+                return;
+            }
+            if(editAddProviderView.getProviderNumber().length() != 9){
+                editAddProviderView.showMessageBox("Please enter a valid Provider Number!");
                 return;
             }
             if(editAddProviderView.getProviderEmailAddress().equals("")){
                 editAddProviderView.showMessageBox("Please provide a email address!");
                 return;
             }
+            
+            String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+            if(!editAddProviderView.getProviderEmailAddress().matches(regex)){
+                editAddProviderView.showMessageBox("Please provide a valid email address!");
+                return;
+            }
+            
             if(editAddProviderView.getProviderType().equals("")){
                 editAddProviderView.showMessageBox("Please provide a provider type!");
                 return;
@@ -633,7 +698,7 @@ public class ChocanController {
     class ReportsSummaryReportButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-           String[] fromAndToDates = recordsView.getFromAndToDate("", "");
+           String[] fromAndToDates = reportsView.getFromAndToDate("", "");
             if(fromAndToDates == null){
                 return;
             }
@@ -670,7 +735,7 @@ public class ChocanController {
     class ReportsProviderReportButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String[] fromAndToDates = recordsView.getFromAndToDate("", "");
+            String[] fromAndToDates = reportsView.getFromAndToDate("", "");
             if(fromAndToDates == null){
                 return;
             }
@@ -694,13 +759,13 @@ public class ChocanController {
             ProviderReport providerReport = new ProviderReport(fromAndToDates[0], fromAndToDates[1]);
             try {
                 providerReport.generateReportPDF();
-                recordsView.showMessageBox("Provider Report Successfully Generated!");
+                recordsView.showMessageBox("Provider Reports Successfully Generated!");
             } catch (FileNotFoundException ex) {
                 Log.error("ChocanController", ex);
-                recordsView.showMessageBox("Generation of Provider report failed!");
+                recordsView.showMessageBox("Generation of Providers report failed!");
             } catch (IOException ex) {
                 Log.error("ChocanController", ex);
-                recordsView.showMessageBox("Generation of Provider report failed!");
+                recordsView.showMessageBox("Generation of Providers report failed!");
             }
         }
     }
@@ -723,7 +788,7 @@ public class ChocanController {
  class ReportsMemberReportsButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String[] fromAndToDates = recordsView.getFromAndToDate("", "");
+            String[] fromAndToDates = reportsView.getFromAndToDate("", "");
             if(fromAndToDates == null){
                 return;
             }
@@ -747,13 +812,13 @@ public class ChocanController {
             MemberReport memberReport = new MemberReport(fromAndToDates[0], fromAndToDates[1]);
             try {
                 memberReport.generateReportPDF();
-                recordsView.showMessageBox("Member Report Successfully Generated!");
+                recordsView.showMessageBox("Member Reports Successfully Generated!");
             } catch (FileNotFoundException ex) {
                 Log.error("ChocanController", ex);
-                recordsView.showMessageBox("Generation of Member report failed!");
+                recordsView.showMessageBox("Generation of Members report failed!");
             } catch (IOException ex) {
                 Log.error("ChocanController", ex);
-                recordsView.showMessageBox("Generation of Member report failed!");
+                recordsView.showMessageBox("Generation of Members report failed!");
             }
         }
  }

@@ -14,7 +14,14 @@
  */
 package chocanon.Views;
 
+import com.github.lgooddatepicker.components.DatePicker;
+import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import javax.swing.Box;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 
 public class ReportsView extends javax.swing.JFrame {
@@ -36,9 +43,43 @@ public class ReportsView extends javax.swing.JFrame {
      public void setReportsSummaryReportButtonListener(ActionListener e){
         btn_GenerateSummaryReport.addActionListener(e);
     }
-     public void setReportsProviderReportButtonListener(ActionListener e){
-         btn_GenerateWeeklyProvider.addActionListener(e);
-     }
+    public void setReportsProviderReportButtonListener(ActionListener e){
+        btn_GenerateWeeklyProvider.addActionListener(e);
+    }
+    
+    public String[] getFromAndToDate(String startDate, String endDate){
+      final DatePickerSettings startDateSettings = new DatePickerSettings();
+      final DatePickerSettings endDateSettings = new DatePickerSettings();
+      startDateSettings.setFormatForDatesCommonEra("yyyy-MM-dd");
+      endDateSettings.setFormatForDatesCommonEra("yyyy-MM-dd");
+      
+      final DatePicker startDatePicker = new DatePicker(startDateSettings);
+      final DatePicker endDatePicker = new DatePicker(endDateSettings);
+      
+      startDatePicker.getComponentDateTextField().setEditable(false);
+      endDatePicker.getComponentDateTextField().setEditable(false);
+      
+      if(startDate.equals("") != true){
+        startDatePicker.setDate(LocalDate.parse(startDate));
+      }
+      if(endDate.equals("") != true){
+        endDatePicker.setDate(LocalDate.parse(endDate));
+      }
+      
+      //Create panel
+      JPanel myPanel = new JPanel();
+      myPanel.add(new JLabel("Start Date:"));
+      myPanel.add(startDatePicker);
+      myPanel.add(Box.createHorizontalStrut(15));
+      myPanel.add(new JLabel("End Date:"));
+      myPanel.add(endDatePicker);
+      
+      int result = JOptionPane.showConfirmDialog(null, myPanel, "Please enter start and end date.", JOptionPane.OK_CANCEL_OPTION);
+      if (result == JOptionPane.OK_OPTION) {
+            return new String[]{startDatePicker.getText(),endDatePicker.getText()};
+      }
+      return null;
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
