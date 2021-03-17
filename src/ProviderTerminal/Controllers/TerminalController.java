@@ -125,10 +125,12 @@ public class TerminalController {
                     parseInt(serviceDetailsView.getServiceCodeTxt());
                 } catch (NumberFormatException a) {
                     serviceDetailsView.setMessageLabel("Please provide a valid service code", Color.RED);
+                    return;
                 }
                 service = Service.getServiceByServiceCode(Integer.parseInt(currentEnteredServiceCode));
                 if (serviceDetailsView.getServiceCodeTxt().length() != 6) {
                     serviceDetailsView.setMessageLabel("Please provide a valid service code", Color.RED);
+                    return;
                 }
                 if (service == null) {
                     //Invalid service code
@@ -141,27 +143,12 @@ public class TerminalController {
                     Log.debug("TerminalController", "Service Code Set To: " + service.getServiceCode());
                     validateServiceCodeView.setServiceName(service.getServiceName());
                     Log.debug("TerminalController", "Service Name Set To: " + service.getServiceName());
-
+                    
                     //Hide service details view and show validate service code view
-                    SimpleDateFormat sdfrmt = new SimpleDateFormat("yyyy-mm-dd");
-                    sdfrmt.setLenient(false);
-                    try {
-                        sdfrmt.parse(serviceDetailsView.getDateOfService());
-                        System.out.println(serviceDetailsView.getDateOfService() + " is valid date format");
-                    } catch (ParseException a) {
-                        System.out.println(serviceDetailsView.getDateOfService() + " is Invalid Date format");
-                        serviceDetailsView.setMessageLabel("Please provide a date of service!", Color.RED);
-                        dateValidate = false;
-                    }
-                    if(dateValidate){
                     Log.info("TerminalController", "Hiding ServiceDetails View");
                     serviceDetailsView.setVisible(false);
                     Log.info("TerminalController", "Showing ValidateServiceCode View");
                     validateServiceCodeView.setVisible(true);
-                    }
-                    else{
-                        serviceDetailsView.resetForm();
-                    }
                 }
             }
         }
@@ -193,11 +180,29 @@ public class TerminalController {
 
             try {
                 /* Submit the visit data to the database*/
-
                 if (serviceDetailsView.getDateOfService().equals("") == true) {
                     Log.info("TerminalController", "User did not provide a date of service");
                     serviceDetailsView.setMessageLabel("Please provide a date of service!", Color.RED);
-                } else if (service == null) {
+                }
+                
+                //Date validations
+                SimpleDateFormat sdfrmt = new SimpleDateFormat("MM-dd-yyyy");
+                sdfrmt.setLenient(false);
+                try {
+                    sdfrmt.parse(serviceDetailsView.getDateOfService());
+                    System.out.println(serviceDetailsView.getDateOfService() + " is valid date format");
+                } catch (ParseException a) {
+                    System.out.println(serviceDetailsView.getDateOfService() + " is Invalid Date format");
+                    serviceDetailsView.setMessageLabel("Date Of Service must be MM-DD-YYYY!", Color.RED);
+                    return;
+                }
+                
+                if(serviceDetailsView.getAdditionalComment().length() > 100){
+                    serviceDetailsView.setMessageLabel("Comment cant be longer than 100 characters!", Color.RED);
+                    return;
+                }
+                
+                if (service == null) {
                     Log.info("TerminalController", "User did not provide a service code");
                     serviceDetailsView.setMessageLabel("Please provide a service code!", Color.RED);
                 } else if (provider != null && member != null && service != null && serviceDetailsView.getDateOfService().equals("") == false && dateValidate) {
@@ -224,7 +229,7 @@ public class TerminalController {
                     }
                 }
             } catch (ParseException ex) {
-                Log.error("TerminalController6", ex);
+                Log.error("TerminalController", ex);
             }
         }
     }
@@ -254,18 +259,18 @@ public class TerminalController {
             try {
                 parseInt(memberCardNumber);
             } catch (NumberFormatException a) {
-                swipeMemberCardView.showMessageBox("Please provide a valid card number");
+                swipeMemberCardView.setMessageLabel("Please provide a valid card number", Color.RED);
                 return;
             }
 
             if (memberCardNumber.length() != 9) {
-                swipeMemberCardView.showMessageBox("Please provide a valid card number");
+                swipeMemberCardView.setMessageLabel("Please provide a valid card number", Color.RED);
                 return;
             }
 
             if (memberCardNumber.equals("")) {
                 Log.info("TerminalController", "User didnt enter anything in for card number. Asking user to provide a member card number");
-                swipeMemberCardView.showMessageBox("Please provide a member card number");
+                swipeMemberCardView.setMessageLabel("Please provide a member card number", Color.RED);
             } else {
                 //Look up to see if the member number exists and the member is a active member in the database.
                 member = Member.getMemberByCardNumber(Integer.parseInt(memberCardNumber));

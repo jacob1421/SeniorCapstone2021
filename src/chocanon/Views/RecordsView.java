@@ -63,6 +63,9 @@ public class RecordsView extends javax.swing.JFrame {
       final DatePicker startDatePicker = new DatePicker(startDateSettings);
       final DatePicker endDatePicker = new DatePicker(endDateSettings);
       
+      startDatePicker.getComponentDateTextField().setEditable(false);
+      endDatePicker.getComponentDateTextField().setEditable(false);
+      
       if(startDate.equals("") != true){
         startDatePicker.setDate(LocalDate.parse(startDate));
       }

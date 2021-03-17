@@ -250,6 +250,7 @@ public class ChocanController {
             }
             if(editAddMemberView.getMemberCardNumber().length() != 9){
                 editAddMemberView.showMessageBox("Please enter a valid Card Number!");
+                return;
             }
             if(editAddMemberView.getMemberEmailAddress().equals("")){
                 editAddMemberView.showMessageBox("Please provide a email address!");
@@ -577,6 +578,7 @@ public class ChocanController {
             }
             if(editAddProviderView.getProviderNumber().length() != 9){
                 editAddProviderView.showMessageBox("Please enter a valid Provider Number!");
+                return;
             }
             if(editAddProviderView.getProviderEmailAddress().equals("")){
                 editAddProviderView.showMessageBox("Please provide a email address!");
@@ -696,7 +698,7 @@ public class ChocanController {
     class ReportsSummaryReportButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-           String[] fromAndToDates = recordsView.getFromAndToDate("", "");
+           String[] fromAndToDates = reportsView.getFromAndToDate("", "");
             if(fromAndToDates == null){
                 return;
             }
@@ -733,7 +735,7 @@ public class ChocanController {
     class ReportsProviderReportButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String[] fromAndToDates = recordsView.getFromAndToDate("", "");
+            String[] fromAndToDates = reportsView.getFromAndToDate("", "");
             if(fromAndToDates == null){
                 return;
             }
@@ -757,13 +759,13 @@ public class ChocanController {
             ProviderReport providerReport = new ProviderReport(fromAndToDates[0], fromAndToDates[1]);
             try {
                 providerReport.generateReportPDF();
-                recordsView.showMessageBox("Provider Report Successfully Generated!");
+                recordsView.showMessageBox("Provider Reports Successfully Generated!");
             } catch (FileNotFoundException ex) {
                 Log.error("ChocanController", ex);
-                recordsView.showMessageBox("Generation of Provider report failed!");
+                recordsView.showMessageBox("Generation of Providers report failed!");
             } catch (IOException ex) {
                 Log.error("ChocanController", ex);
-                recordsView.showMessageBox("Generation of Provider report failed!");
+                recordsView.showMessageBox("Generation of Providers report failed!");
             }
         }
     }
@@ -786,7 +788,7 @@ public class ChocanController {
  class ReportsMemberReportsButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String[] fromAndToDates = recordsView.getFromAndToDate("", "");
+            String[] fromAndToDates = reportsView.getFromAndToDate("", "");
             if(fromAndToDates == null){
                 return;
             }
@@ -810,13 +812,13 @@ public class ChocanController {
             MemberReport memberReport = new MemberReport(fromAndToDates[0], fromAndToDates[1]);
             try {
                 memberReport.generateReportPDF();
-                recordsView.showMessageBox("Member Report Successfully Generated!");
+                recordsView.showMessageBox("Member Reports Successfully Generated!");
             } catch (FileNotFoundException ex) {
                 Log.error("ChocanController", ex);
-                recordsView.showMessageBox("Generation of Member report failed!");
+                recordsView.showMessageBox("Generation of Members report failed!");
             } catch (IOException ex) {
                 Log.error("ChocanController", ex);
-                recordsView.showMessageBox("Generation of Member report failed!");
+                recordsView.showMessageBox("Generation of Members report failed!");
             }
         }
  }
