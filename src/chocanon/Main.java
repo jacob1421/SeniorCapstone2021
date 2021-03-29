@@ -38,6 +38,14 @@ public class Main extends javax.swing.JFrame {
         btn_Exit = new javax.swing.JButton();
         lbl_subHeadingClassYear = new javax.swing.JLabel();
         btn_StartProvider = new javax.swing.JButton();
+        mnu_NavProg = new javax.swing.JMenuBar();
+        mnu_File = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        mnu_Help = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Chocanon Software");
@@ -69,26 +77,59 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        mnu_File.setText("File");
+
+        jMenuItem2.setText("Manage Member");
+        mnu_File.add(jMenuItem2);
+
+        jMenuItem3.setText("Manage Provider");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        mnu_File.add(jMenuItem3);
+
+        jMenuItem4.setText("Reports");
+        mnu_File.add(jMenuItem4);
+
+        jMenuItem5.setText("Records");
+        mnu_File.add(jMenuItem5);
+
+        mnu_NavProg.add(mnu_File);
+
+        mnu_Help.setText("Help");
+
+        jMenuItem1.setText("About");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        mnu_Help.add(jMenuItem1);
+
+        mnu_NavProg.add(mnu_Help);
+
+        setJMenuBar(mnu_NavProg);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
+                        .addGap(79, 79, 79)
                         .addComponent(lbl_SoftwareName)
                         .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btn_Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn_StartChocoholics, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                                .addComponent(btn_StartProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btn_StartChocoholics, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_StartProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lbl_subHeadingClassYear)
                         .addGap(162, 162, 162)))
                 .addContainerGap())
@@ -106,7 +147,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(btn_StartProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btn_Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -125,6 +166,14 @@ public class Main extends javax.swing.JFrame {
         Log.info("Main", "Click StartProviderTerminal Button");
         new TerminalController(this);
     }//GEN-LAST:event_btn_StartProviderActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,7 +214,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btn_Exit;
     private javax.swing.JButton btn_StartChocoholics;
     private javax.swing.JButton btn_StartProvider;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JLabel lbl_SoftwareName;
     private javax.swing.JLabel lbl_subHeadingClassYear;
+    private javax.swing.JMenu mnu_File;
+    private javax.swing.JMenu mnu_Help;
+    private javax.swing.JMenuBar mnu_NavProg;
     // End of variables declaration//GEN-END:variables
 }
