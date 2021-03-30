@@ -74,6 +74,13 @@ public class ChocanController {
         this.mainView = mainView;
         
         //Set the button listeners
+        this.mainView.setMenuItemMemberListener(new ManageMemberMainButtonListener());
+        this.mainView.setMenuItemProviderListener(new ManageProviderMainButtonListener());
+        this.mainView.setMenuItemReportsListener(new ReportsMainButtonListener());
+        this.mainView.setMenuItemRecordsListener(new RecordsMainButtonListener());
+        this.mainView.setMenuItemAboutListener(new AboutMainButtonListener());
+        
+        
         menuView.setManageMembersButtonListener(new ManageMembersButtonListener());
         menuView.setManageProvidersButtonListener(new ManageProvidersButtonListener());
         menuView.setManageRecordsButtonListener(new ManageRecordsButtonListener());
@@ -115,10 +122,6 @@ public class ChocanController {
             //Add the types to the combobox
             editAddProviderView.addProviderType((String)Provider.providerTypes[i][1]);
         }
-        
-        //Show our intro view
-        this.mainView.setVisible(false);
-        menuView.setVisible(true);
     }
    
     /* LISTENERS FOR VIEWS */
@@ -858,5 +861,47 @@ public class ChocanController {
                 recordsView.showMessageBox("Generation of EFT Data report failed!");
             }
         }
+    }
+    
+    
+    //Listeners For Menu Bar in the Main.java
+    class ManageMemberMainButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            mainView.setVisible(false);
+            manageMembersView.setVisible(true);
+        }
+    }
+    class ManageProviderMainButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            mainView.setVisible(false);
+            manageProvidersView.setVisible(true);
+        }
+    }
+    class ReportsMainButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            mainView.setVisible(false);
+            reportsView.setVisible(true);
+        }
+    }
+    class RecordsMainButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            mainView.setVisible(false);
+            recordsView.setVisible(true);
+        }
+    }
+    class AboutMainButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           mainView.displayTeamInformation(); 
+        }
+    }
+    
+    //Methods
+    public void showMenuView(){
+        menuView.setVisible(true);
     }
 }
