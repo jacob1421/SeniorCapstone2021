@@ -62,12 +62,6 @@ public class TerminalController {
         serviceDetailsView.setSubmitBillChocanButtonListener(new SubmitBillChocanButtonListener());
         validateServiceCodeView.setCorrectServiceCodeButtonListener(new CorrectServiceCodeListener());
         validateServiceCodeView.setIncorrectServiceCodeButtonListener(new IncorrectServiceCodeListener());
-
-        //Show our intro view
-        Log.info("TerminalController", "Hiding the main view");
-        this.mainView.setVisible(false);
-        Log.info("TerminalController", "Showing the ProvideAService view");
-        provideServiceView.setVisible(true);
     }
 
     /* LISTENERS FOR VIEWS */
@@ -364,5 +358,10 @@ public class TerminalController {
                 }
             }
         }
+    }
+    
+   //Methods
+    public void showProviderView(){
+        provideServiceView.setVisible(true);
     }
 }
